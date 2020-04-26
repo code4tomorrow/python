@@ -18,6 +18,10 @@ my_list.append('and')
 my_list.append('prosper')
 print(my_list)
 
+# copy() returns a copy of the list
+copy_of_my_list = my_list.copy()
+print(copy_of_my_list)
+
 # pop() removes the element at the specified index
 my_list.pop(2)
 print(my_list)

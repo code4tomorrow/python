@@ -42,3 +42,6 @@ print(message + "|")
 my_string = "hello"
 print(my_string[2]) # prints 'l'
 print(my_string[2:4]) # prints 'll'
+
+for char in my_string:
+    print(char) # prints each character on its own line
