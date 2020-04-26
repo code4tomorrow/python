@@ -1,7 +1,4 @@
-'''
-Topics:
-- variables
-'''
+# Variables
 
 # use variables to store data
 first_name = "Jane"

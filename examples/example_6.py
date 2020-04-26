@@ -1,8 +1,4 @@
-'''
-Topics:
-- variable naming
-- constants
-'''
+# Variable Naming
 
 # good style
 is_raining = True

@@ -1,8 +1,4 @@
-'''
-Topics:
-- single line comment
-- multi-line comment
-'''
+# Comments
 
 # This is a single line comment
 

@@ -1,8 +1,4 @@
-'''
-Topics:
-- print
-- input
-'''
+# Output/Input
 
 # prints Hello World to the console
 print("Hello World")

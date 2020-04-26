@@ -1,7 +1,4 @@
-'''
-Topics:
-- data types
-'''
+# Data
 
 # strings are a series of characters
 # they are in single or double quotes

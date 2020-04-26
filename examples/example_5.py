@@ -1,8 +1,5 @@
-'''
-Topics:
-- string or number?
-- data type conversion
-'''
+# String or Number?
+# Converting to Different Data Types
 
 message = "Hello!"
 z = '6'
