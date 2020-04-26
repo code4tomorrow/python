@@ -1,4 +1,5 @@
 # Solution 3
-# add instructions
+# Write in Python syntax what you would say 
+# if you wanted either 5 dollars OR (2 drinks AND 1 snack).
 
-# add solution
+# five_dollars or (two_drinks and one_snack)
