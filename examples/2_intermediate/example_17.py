@@ -1,5 +1,22 @@
 # Dictionaries
 
+print(">>>Why should you use dictionaries?")
+
+# implementation 1 using if statements
+value = 10
+if value == 10:
+   print("Tom")
+elif value == 20:
+   print("Daniel")
+elif value == 30:
+   print("Elizabeth")
+
+# implementation 2 using dictionary
+dict1 = {10: "Tom", 20: "Daniel" , 30: "Elizabeth" }
+print dict1[value]
+
+print()
+
 print(">>> Initializing dictionaries")
 contacts = {
     "John Doe": "1234 Main St",
