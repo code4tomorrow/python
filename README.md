@@ -79,7 +79,8 @@ If you have questions, send a message to #questions on the teachers Discord.
 * Providing a link to the original is usually sufficient if you found the problem online. 
 * If you found it in a book, cite the full title and author.
 
-## Push the practice template and solution code to GitHub or ask a Curriculum Development member to do it for you. You must also submit the full instructions.
+## Submit practice problem(s).
+### Overall directions no matter which option you choose:
 * Make sure you push to the correct folder and repository.
 * Instructions should be formatted as follows:
 
@@ -88,5 +89,23 @@ If you have questions, send a message to #questions on the teachers Discord.
 > **Practice template:** practice/[FileName].extension
 >
 > **Solution:** solutions/[FileName].extension
+
+To submit a problem, you have 3 options:
+
+### (1) Pushing to GitHub
+1. Dm Rebecca Dang on the Teachers Discord with your GitHub username and course(s) you’re teaching to be invited to the C4T GitHub organization
+2. Clone the repo.
+3. Create your own branch. Name it appropriately.
+4. Push your branch to remote.
+5. Mention @Curriculum Development on the Teachers Discord that you have pushed your branch. Be sure to tell us what the name of your branch is!
+6. If Curr-Dev approves, you have permission to merge your branch with master.
+
+### (2) Making a pull request
+[See this help article](https://help.github.com/en/github/collaborating-with-issues-and-pull-requests/about-pull-requests)
+
+### (3) Email C4T Curriculum Development
+1. Email [c4t.curriculum@gmail.com](mailto:c4t.curriculum@gmail.com) with all necessary info (e.g. instructions, practice template file, solution file). 
+2. Mention @Curriculum Development on the Teachers Discord that you have emailed us please!
+
 
 Thank you teachers for following these guidelines and helping us build a problem base!
