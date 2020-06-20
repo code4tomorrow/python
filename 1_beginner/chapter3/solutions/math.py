@@ -6,4 +6,4 @@
 
 x = float(input("Enter a number: "))
 y = x / 5
-print("y is : " + y)
+print("y is :", y)
