@@ -9,3 +9,7 @@ a = 5
 message = "Hello!"
 a = str(a) # converts to string so that concatenation works
 print(message + " " + a)
+
+# print the type of a variable
+a = 5
+print(type(a)) # prints <class 'int'>
