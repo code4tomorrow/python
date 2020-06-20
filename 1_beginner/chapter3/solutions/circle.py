@@ -14,5 +14,5 @@ area = PI * radius ** 2
 circumference = 2 * PI * radius
 
 # Print the result
-print("The area of the circle is " + area)
-print("The circumference of the circle is " + circumference)
+print("The area of the circle is ", area)
+print("The circumference of the circle is ", circumference)
