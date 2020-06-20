@@ -1,19 +1,11 @@
 # String or Number?
-# Converting to Different Data Types
 
-message = "Hello!"
-z = '6'
+# strings
+x = '5'
+y = '6'
+print(x + y) # this 56 (concatenation)
 
-x = '5' # this is a string
-y = 5 # this is an integer
-
-print(x + z) # this is not 11 because x and z are strings
-
+# integers
 a = 5 # this is an integer
-b = 5.0 # this is a float
-
-# converting data types
-sum = int(x) + int(z) # this is 11 because x and z were converted to integers
-print(sum)
-number = str(b) # converts b to a string
-print(message + " " + number) # string concatenation
+b = 6
+print (a + b) # this 11 (addition)
