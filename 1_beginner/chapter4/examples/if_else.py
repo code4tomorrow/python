@@ -9,10 +9,10 @@ if x == 5:
 # if, else
 if x == 3:
     print("x is equal to 3")
-else: 
+else:
     print("x is NOT equal to 3")
 
- # if, elif, else
+# if, elif, else
 if x == 5:
     print("x is equal to 5")
 elif x == 6:
