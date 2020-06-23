@@ -4,11 +4,13 @@
 # exact same message back. Your program
 # should repeat this input/output process
 # 3 times.
-message = input("Enter a message: ")
+PROMPT = "Enter a message: "
+
+message = input(PROMPT)
 print(message)
 
-message = input("Enter a message: ")
+message = input(PROMPT)
 print(message)
 
-message = input("Enter a message: ")
+message = input(PROMPT)
 print(message)

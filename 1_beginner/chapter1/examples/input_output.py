@@ -1,4 +1,4 @@
-# Output/Input
+# Input/Output
 
 # prints Hello World to the console
 print("Hello World")
