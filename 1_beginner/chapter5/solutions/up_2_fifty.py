@@ -12,7 +12,7 @@ x = int(input("Enter a number: "))
 iterations = 0
 
 # check if the number is less or greater than 50
-if x < 50:    
+if x < 50:  
     # while loop to get to 50 and
     # count how many iterations
     while x < 50:
@@ -21,6 +21,6 @@ if x < 50:
 
     # print the number of iterations
     # once the loop is done running
-    print(iterations)       
+    print(iterations)   
 else:
     print('Already there!')
