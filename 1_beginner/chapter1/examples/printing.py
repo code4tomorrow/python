@@ -10,4 +10,4 @@ print('Message', 'with', 'arguments')
 
 # You can use string concatenation ("adding")
 # to put strings together (just be careful about spacing!)
-print('Message' + 'with' + 'concatenation') # no spaces between words
+print('Message' + 'with' + 'concatenation')  # no spaces between words

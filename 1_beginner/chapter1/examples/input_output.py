@@ -7,4 +7,4 @@ print("Hello World")
 name = input("Enter your name: ")
 
 # prints the name that the user gave
-print(name) 
+print(name)
