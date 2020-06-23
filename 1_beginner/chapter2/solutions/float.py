@@ -4,6 +4,7 @@
 # integer and store in another variable.
 # Then print: (floating point number) = (integer).
 # Also print the type of the floating point variable.
+# Remember! type(variable_name) will return the data type of a variable
 
 # Get a number as input and cast it to a float
 f = float(input("Enter a number: "))
