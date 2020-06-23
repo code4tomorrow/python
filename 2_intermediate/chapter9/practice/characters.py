@@ -9,7 +9,7 @@
 # to enter a string, convert it into
 # the dictionary described above,
 # and print the resulting dictionary.
-# 
+#
 # Example:
 # Enter a string: hello244oh
 # {'h': 2, 'e': 1, 'l': 2, 'o': 2, '2': 1, '4': 2}

@@ -9,13 +9,13 @@
 # to enter a string, convert it into
 # the dictionary described above,
 # and print the resulting dictionary.
-# 
+#
 # Example output:
 # Enter a string: hello244oh
 # {'h': 2, 'e': 1, 'l': 2, 'o': 2, '2': 1, '4': 2}
 
 characters = {}
-string = input("Enter a string: " )
+string = input("Enter a string: ")
 
 for char in string:
     if char in characters:

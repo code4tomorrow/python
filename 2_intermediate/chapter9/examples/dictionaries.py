@@ -1,18 +1,18 @@
 # Dictionaries
-
+# TODO split into multiple programs
 print(">>>Why should you use dictionaries?")
 
 # implementation 1 using if statements
 value = 10
 if value == 10:
-   print("Tom")
+    print("Tom")
 elif value == 20:
-   print("Daniel")
+    print("Daniel")
 elif value == 30:
-   print("Elizabeth")
+    print("Elizabeth")
 
 # implementation 2 using dictionary
-dict1 = {10: "Tom", 20: "Daniel" , 30: "Elizabeth" }
+dict1 = {10: "Tom", 20: "Daniel", 30: "Elizabeth"}
 print(dict1[value])
 
 print()
@@ -31,13 +31,13 @@ print()
 print(">>> Retrieving, updating, and adding values")
 
 daisy_address = contacts["Daisy Johnson"]
-print(daisy_address) # prints “1357 Wall St”
+print(daisy_address)  # prints “1357 Wall St”
 
 contacts["Daisy Johnson"] = "2468 Park Ave"
-print(contacts["Daisy Johnson"]) # prints “2468 Park Ave”
+print(contacts["Daisy Johnson"])  # prints “2468 Park Ave”
 
 contacts["Leo Fitz"] = "1258 Monkey Dr"
-print(contacts) # prints the dictionary with the new entry
+print(contacts)  # prints the dictionary with the new entry
 
 print()
 
@@ -56,16 +56,16 @@ print(leo_address)
 # you can specify the value that is returned
 # if the key doesn't exist in the dictionary
 coulson_address = contacts.get("Phil Coulson", -1)
-print(coulson_address) # prints -1
+print(coulson_address)  # prints -1
 
 # pop - removes the value at a specified key and returns
 # the removed value
 removed_address = contacts.pop("John Doe")
-print(removed_address) # prints "1234 Main St"
-print(contacts) # John Doe has been removed
+print(removed_address)  # prints "1234 Main St"
+print(contacts)  # John Doe has been removed
 
 # del - deletes a dictionary or key-value pair
-del contacts["Jane Smith"] # deletes Jane Smith
+del contacts["Jane Smith"]  # deletes Jane Smith
 
 # this would delete the entire dictionary:
 # del contacts
@@ -83,7 +83,7 @@ print()
 # iterating through dictionaries
 print(">>> Iterating through dictionaries")
 
-contacts = copy_of_contacts # undo the clear
+contacts = copy_of_contacts  # undo the clear
 
 # iterate through each key
 for name in contacts:
