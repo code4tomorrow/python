@@ -2,14 +2,14 @@
 my_list = [1, 2, "oh no", 4, 5.62]
 
 # list indexing
-print(my_list[1]) # prints 2
-print(my_list[3]) # prints 4
+print(my_list[1])  # prints 2
+print(my_list[3])  # prints 4
 
 # list slicing
-print(my_list[1:3]) # prints [2, "oh no"]
+print(my_list[1:3])  # prints [2, "oh no"]
 
 # manipulating lists
-my_list = [] # empty list
+my_list = []  # empty list
 
 # append() adds elements to the end of the list
 my_list.append('live')
@@ -30,7 +30,7 @@ print(my_list)
 my_list.remove('live')
 print(my_list)
 
-# index() returns the index of the first element 
+# index() returns the index of the first element
 # with the specified value
 print(my_list.index('prosper'))
 
