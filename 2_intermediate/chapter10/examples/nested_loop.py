@@ -2,9 +2,9 @@
 
 # Traversing 2D Lists
 my_list = [
-    ['hello', 'world', 'code'], 
-    ['docs', 'slides', 'sheets'], 
-    ['google', 'amazon', 'facebook'], 
+    ['hello', 'world', 'code'],
+    ['docs', 'slides', 'sheets'],
+    ['google', 'amazon', 'facebook'],
     ['this', 'is', 'python']
 ]
 

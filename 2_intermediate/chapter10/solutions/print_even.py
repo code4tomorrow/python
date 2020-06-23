@@ -1,5 +1,5 @@
 # Solution 14
-# Given the 2D list below, 
+# Given the 2D list below,
 # print every element at an even index
 # of each inner list. (Consider 0 to be even.)
 # Hint: A special message should appear
