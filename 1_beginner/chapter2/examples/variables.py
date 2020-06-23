@@ -12,6 +12,6 @@ is_raining = True
 can_vote = False
 
 # variables can be assigned different values
-print(first_name) # prints Jane
+print(first_name)  # prints Jane
 first_name = "John"
-print(first_name) # prints John
+print(first_name)  # prints John
