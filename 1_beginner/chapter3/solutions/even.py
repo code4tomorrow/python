@@ -3,7 +3,7 @@
 # Otherwise, it displays False.
 
 # Get integer input
-i = int(float(input("Enter an integer: ")))
+i = int(input("Enter an integer: "))
 
 # Display output
 is_even = (i % 2 == 0)
