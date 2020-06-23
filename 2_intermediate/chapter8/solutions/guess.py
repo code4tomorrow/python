@@ -12,7 +12,7 @@ import random
 secret_number = random.randrange(1, 21)
 
 while True:
-    guess = int(input("Enter your guess (number from 1-20): " ))
+    guess = int(input("Enter your guess (number from 1-20): "))
     if guess == secret_number:
         print("Congratulations, you guessed right!")
         break

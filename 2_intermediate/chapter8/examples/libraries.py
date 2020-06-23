@@ -10,7 +10,7 @@ print(number)
 # import the entire module
 # import module_name
 
-# import the module and refer to it as a different name in your code 
+# import the module and refer to it as a different name in your code
 # (typically a shortened name)
 # this is called aliasing a module
 # import module_name as shortened_name
