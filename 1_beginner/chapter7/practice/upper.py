@@ -1,4 +1,4 @@
-# Practice 11
+# Upper
 # Continuously ask a user to enter words.
 # (Make sure that the input given is actually just 1 word.)
 # Store the words in a list.
