@@ -1,3 +1,4 @@
+# Compare X
 # You start with x = 10.
 # Compare x with another number using
 # a comparison operator such that if you
