@@ -1,6 +1,7 @@
 # Cylinder Volume
 # Design a program that asks the user for the
-# height and radius of a cylinder and returns the volume
-#Note: if you haven't learned what volume if yet, thats totally fine. You can skip this question
+# height and radius of a cylinder and prints the volume
+# The formula for the volume of a cylinder is
+# volume = pi * (radius ^ 2) * height
 
 # write code here
