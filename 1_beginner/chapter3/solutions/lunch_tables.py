@@ -1,6 +1,9 @@
-# Lunch Tables
-# Ask the user to input how many people are in the lunchroom, and how many people can sit at each table.
-# Output how many people will be left without a table (the number of outcasts).
+"""
+Lunch Tables
+Ask the user to input how many people are in the lunchroom, 
+and how many people can sit at each table.
+Output the number of people that will be left without a table.
+"""
 
 # Get user input
 people = input("How many people are in the lunchroom? ")
