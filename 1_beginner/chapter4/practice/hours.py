@@ -7,6 +7,9 @@
 
 # write code here
 
+# See if you can write the same program,
+# except that the user is addicted to the internet
+# if the number of hours they spend on the internet
+# is greater than 2 times the remainder of hours / 7
 
-# See if you can write the same program, but they are addicted on if the number they input (x) is great than two times 
-#the remainder of that number when divided by 7 (remainder when x is deivided by 7)
+# write code here
