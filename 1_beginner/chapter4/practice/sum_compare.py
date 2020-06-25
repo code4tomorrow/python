@@ -6,3 +6,7 @@
 # If it's smaller, multiply the sum by 3 and print the product.
 
 # write code here
+
+
+
+
