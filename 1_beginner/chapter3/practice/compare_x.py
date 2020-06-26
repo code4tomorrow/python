@@ -5,5 +5,4 @@
 # print x (comparison operator) (another number),
 # it prints False.
 
-x = 10
 # write code here
