@@ -63,14 +63,14 @@ This should go without saying, but actually use the linters! If you see errors/p
 ### Whitespace
 * Indent properly.
 * Make sure there are spaces between binary operators, parentheses, curly braces, etc. when applicable. (For method/function calls, there should not be a space between the method/function name and the parentheses.)
- * For HTML, attributes should not have spaces between the attribute name, equal sign, and attribute value
+  * For HTML, attributes should not have spaces between the attribute name, equal sign, and attribute value
 * Leave empty lines where appropriate to increase readability
 
 ### Naming
 * Name files so that they are representative of what the program is about. File names are also the name of the practice problem.
- * Avoid naming files after concepts, like “Arrays.java”
- * Java: Use class naming conventions to name files. For example, HelloWorld.java rather than helloWorld.java or hello_world.java or something else
- * Python: Use snake case to name files. For example, hello_world.py rather than HelloWorld.py or helloWorld.py or something else
+  * Avoid naming files after concepts, like “Arrays.java”
+  * Java: Use class naming conventions to name files. For example, HelloWorld.java rather than helloWorld.java or hello_world.java or something else
+  * Python: Use snake case to name files. For example, hello_world.py rather than HelloWorld.py or helloWorld.py or something else
 * Name variables/methods/functions descriptively, and follow your language’s conventions.
  * Java: camelCase for regular variables, snake case (and uppercase) for constants
  * Python: Snake case for regular variables, snake case (and uppercase) for constants
@@ -82,17 +82,17 @@ This should go without saying, but actually use the linters! If you see errors/p
 
 ## Follow the C4T practice and solution problem format.
 * Make sure you put the file(s) in the right directories.
- * All code filed under “practice” should be templates.
-  * Templates may include things like an empty class and main method.
-  * They must include a multi-line comment with the title of the practice problem AND the full instructions for the problem.
- * All code filed under “solutions” should be solutions.
-  * Solutions should include the practice problem title AND full instructions at the top of the file (exact same comment as in the practice template file) and then a (possible) solution to the problem.
+  * All code filed under “practice” should be templates.
+    * Templates may include things like an empty class and main method.
+    * They must include a multi-line comment with the title of the practice problem AND the full instructions for the problem.
+  * All code filed under “solutions” should be solutions.
+    * Solutions should include the practice problem title AND full instructions at the top of the file (exact same comment as in the practice template file) and then a (possible) solution to the problem.
 * The practice template and solution should have the same file name.
 * Java: Make sure that you have the correct package statement as the first line of your code.
 
 ## Testing
 * Thoroughly test your solution. Make sure it works as intended.
- * Try to break your program! Don’t just give input you know will work.
+  * Try to break your program! Don’t just give input you know will work.
 * Hundreds of students and ~50 teachers could potentially see and use your work. Please make sure that it works!
 
 ## Check the content.
@@ -115,24 +115,24 @@ This should go without saying, but actually use the linters! If you see errors/p
 
 1. Send your GitHub username to a Curriculum Development member and ask them to add you as an outside collaborator on the repository or repositories that you want to contribute to.
 2. Clone or fork the official C4T repository.
- * All repositories can be found here: https://github.com/code-for-tomorrow 
- * [How to Clone](https://help.github.com/en/github/creating-cloning-and-archiving-repositories/cloning-a-repository)
- * [How to Fork](https://help.github.com/en/github/getting-started-with-github/fork-a-repo)
+  * All repositories can be found here: https://github.com/code-for-tomorrow 
+  * [How to Clone](https://help.github.com/en/github/creating-cloning-and-archiving-repositories/cloning-a-repository)
+  * [How to Fork](https://help.github.com/en/github/getting-started-with-github/fork-a-repo)
 3. Work on the practice problems locally.
- * If you cloned the repo, make sure you create and checkout a new branch. **DO NOT MAKE EDITS ON THE MASTER BRANCH.**
- * If you forked the repo, you’re free to work on the master branch or make your own branches (though that is kinda unnecessary).
- * [Git Branches Tutorial](https://www.atlassian.com/git/tutorials/using-branches)
+  * If you cloned the repo, make sure you create and checkout a new branch. **DO NOT MAKE EDITS ON THE MASTER BRANCH.**
+  * If you forked the repo, you’re free to work on the master branch or make your own branches (though that is kinda unnecessary).
+  * [Git Branches Tutorial](https://www.atlassian.com/git/tutorials/using-branches)
 4. Push your local branch to remote.
- * [How to Push](https://help.github.com/en/github/using-git/pushing-commits-to-a-remote-repository)
+  * [How to Push](https://help.github.com/en/github/using-git/pushing-commits-to-a-remote-repository)
 5. Make a pull request to merge your branch with the master branch of the official C4T repo.
- * Make sure that the title of your pull request is descriptive but concise.
- * In the description part of your pull request, you should specify the following:
-  * Your full name (if it’s not clear from your GitHub profile)
-  * Chapter # and section name that this problem should go under (for example, Ch. 1 Intro to Python, Section: Comments)
- * [How to Create a Pull Request](https://help.github.com/en/github/collaborating-with-issues-and-pull-requests/creating-a-pull-request)
+  * Make sure that the title of your pull request is descriptive but concise.
+  * In the description part of your pull request, you should specify the following:
+    * Your full name (if it’s not clear from your GitHub profile)
+    * Chapter # and section name that this problem should go under (for example, Ch. 1 Intro to Python, Section: Comments)
+  * [How to Create a Pull Request](https://help.github.com/en/github/collaborating-with-issues-and-pull-requests/creating-a-pull-request)
 6. Mention @Curriculum Development on the Teachers Discord that you’ve submitted a PR.
 7. Monitor the status of your Pull Request on GitHub. 
- * It’s possible that the Curriculum Development team will Request Changes, in which case you will need to commit those changes before your PR will be approved and merged into the official master branch.
+  * It’s possible that the Curriculum Development team will Request Changes, in which case you will need to commit those changes before your PR will be approved and merged into the official master branch.
 
 ### Option 2: Use the Google Form
 Submit a problem [here](https://forms.gle/hDWrPRG3HuAgUdCJ9) if you don’t have a GitHub account.
