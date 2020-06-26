@@ -17,25 +17,32 @@ Note: This is a challenge problem! Do not feel bad or disheartned if you can't
 solve it. We will go over it next class.
 '''
 
-num_cents = int(float(input("How many dollars do you have: ")) * 100)
+CENTS_PER_DOLLAR = 100
+CENTS_PER_QUARTER = 25
+CENTS_PER_DIME = 10
+CENTS_PER_NICKEL = 5
 
-# What do you do next. Write code here
+# prompt user for dollars and convert it to cents
+num_cents = int(
+    float(input("How many dollars do you have: $"))
+    * CENTS_PER_DOLLAR
+)
 
-dollars = num_cents // 100
-remaining = num_cents % 100
+# calculate change and display it
+dollars = num_cents // CENTS_PER_DOLLAR
+remaining = num_cents % CENTS_PER_DOLLAR
 print(dollars, " dollars")
 
+quarters = remaining // CENTS_PER_QUARTER
+remiaining = remaining % CENTS_PER_QUARTER
+print(quarters, " quarters")
 
-quarters = remaining // 25
-remiaining = remaining % 25
-print(quarters, " quartes")
-
-dimes = remaining // 10
-remiaining = remaining % 10
+dimes = remaining // CENTS_PER_DIME
+remiaining = remaining % CENTS_PER_DIME
 print(dimes, " dimes")
 
-nickels = remaining // 5
-remiaining = remaining % 5
+nickels = remaining // CENTS_PER_NICKEL
+remiaining = remaining % CENTS_PER_NICKEL
 print(nickels, " nickels")
 
 cents = remaining
