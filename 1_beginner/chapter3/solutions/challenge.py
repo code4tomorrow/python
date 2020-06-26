@@ -1,5 +1,6 @@
 '''
-Write code that takes, as input, the number of dollars a person has (a floating number), and outputs how much they have 
+Write code that takes, as input, the number of dollars a person has
+(a floating number), and outputs how much they have
 in dollars, quarters, dimes, nickels and pennies.
 
 For example, if someone has $4.62, the program would print the following:
@@ -12,7 +13,8 @@ For example, if someone has $4.62, the program would print the following:
 
 The starting code is given.
 
-Note: This is a challenge problem! Do not feel bad or disheartned if you can't solve it. We will go over it next class.
+Note: This is a challenge problem! Do not feel bad or disheartned if you can't
+solve it. We will go over it next class.
 '''
 
 num_cents = int(float(input("How many dollars do you have: ")) * 100)
