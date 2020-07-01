@@ -1,4 +1,5 @@
 """
+Virtual Pet
 Code a virtual pet!
 First, create three variables:  name, hunger, and happiness. 
 Initialize hunger to 6 and happiness to 0, and set name to whatever you like. (e.g. 'Otto')
