@@ -6,5 +6,5 @@
 PI = 3.14
 height = float(input('Height of cylinder: '))
 radius = float(input('Radius of cylinder: '))
-volume = 3.14 * radius ** 2 * height
+volume = PI * radius ** 2 * height
 print("The volume of the cylinder is", volume)
