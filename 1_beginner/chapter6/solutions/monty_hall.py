@@ -30,9 +30,13 @@ for i in range(6):
     # Randomize the doors
     random.shuffle(doors)
 
+    # reset the doors left
+    doors_left = [1, 2, 3]
+
     # The user enters their 1st choice
     print("A new Monty Hall game has begun!")
-    choice = int(input("Choose from doors 1, 2, or 3... : "))
+    choice = int(input("Choose from doors 1, 2, or 3...\n> "))
+    doors_left.remove(choice)
 
     # A door that has a goat is revealed, cannot be the one user chose
     # makes a duplicate list to avoid messing up the original
@@ -41,12 +45,19 @@ for i in range(6):
     # removes user's choice so that it won't be opened,
     # but keeps in the element to not mess up the indices
     reveal_doors[choice - 1] = '-'
-
-    print("Monty opens door", reveal_doors.index('G') + 1, "to reveal a goat!")
+    goat_door = reveal_doors.index('G') + 1
+    doors_left.remove(goat_door)
+    print("Monty opens door", goat_door, "to reveal a goat!")
 
     # The user is prompted to choose again
     print("With this new information, do you want to switch doors?")
-    choice = int(input("Choose from doors 1, 2, or 3: "))
+    print("Your first choice was Door", choice)
+    print("If you switch, you will be opening Door", doors_left[0])
+    print("Enter 'y' to switch, or 'n' to keep your first choice.")
+    switch = input("> ")
+
+    if switch == 'y':
+        choice = doors_left[0]
 
     # The prize behind the user's ultimate choice is revealed!
     if doors[choice - 1] == 'C':
