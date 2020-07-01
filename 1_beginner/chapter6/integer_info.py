@@ -1,4 +1,5 @@
 """
+Integer Info
 Create a program that takes an integer as input and creates a list with the following elements:
     The number of digits
     The last digit
