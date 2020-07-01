@@ -1,4 +1,5 @@
 """
+Snookle Game
 Snookle the sheep wants to play a game. 
 Given a list of positive integers and a main number, the player iterates 
 through each element in the list and chooses to either add it or 
