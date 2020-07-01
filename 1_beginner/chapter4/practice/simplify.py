@@ -1,12 +1,19 @@
-"""Here is a block of code where one tries do determineif somone is a nobel prize winner.
+"""
+Here is a block of code where one tries do determine
+if somone is a nobel prize winner.
 
-Rewrite the code to work in one statement
+Rewrite the code to work in one statement.
+
+(Remove the multi-line comments when
+you start working.)
 """
 
-if (doesSignificantWork):
-    if (makesBreakthrough):
-        nobelPrizeCandidate = True
+'''
+if does_significant_work:
+    if makes_breakthrough:
+        is_nobel_prize_candidate = True
     else:
-        nobelPrizeCandidate = False
-elif(not doesSignificantWork):
-    nobelPrizeCandidate = False
+        is_nobel_prize_candidate = False
+elif not does_significant_work:
+    is_nobel_prize_candidate = False
+'''
