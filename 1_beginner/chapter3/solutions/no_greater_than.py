@@ -1,6 +1,6 @@
 '''
 Create a program that takes a POSITIVE integer
-as an input and checks if it is greater than 100.
+as an input and checks if it is no greater than 100.
 Print True if it is, and False if it isn't
 
 YOU MAY NOT USE THE GREATER THAN or
