@@ -1,5 +1,8 @@
 # Money
-# In Python syntax, what would you write to
-# say you have at least $4.50?
+# Let's say you have a variable money which
+# stores the amount of money you currently have.
+# In Python syntax, write the boolean expression
+# that evaluates to True if the amount of money
+# you have is at least $4.50.
 
-# dollars >= 4.50
+# money >= 4.50
