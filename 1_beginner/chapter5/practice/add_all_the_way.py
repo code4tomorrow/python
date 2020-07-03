@@ -6,3 +6,8 @@
 # for or while loop. Print out the sum.
 
 # write code here
+
+
+
+
+#Try using the other loop and do the same p[roblem again
