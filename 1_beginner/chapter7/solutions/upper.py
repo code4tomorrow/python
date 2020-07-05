@@ -15,12 +15,8 @@ while True:
     if word == "":
         break
     if word.isalpha():
-        words.append(word)
+        words.append(word.upper())
     else:
         print("Error, please enter 1 word")
 
-result = []
-for word in words:
-    result.append(word.upper())
-
-print(result)
+print(words)
