@@ -1,8 +1,8 @@
 # Why Dictionaries
 
-# dictionaries as an alternate to parallel lists
+# dictionaries as an alternative to parallel lists
 names = ['Jane Doe', 'John Williams', ]
-addresses = ['1234 Main St', '5678 Market Pl', ]
+addresses = ['1234 Main St', '5678 Market Pl', '1357 Wall St']
 
 # better solution: make a dictionary to
 # explicitly associate a name with an address
