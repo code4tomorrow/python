@@ -18,6 +18,8 @@ More step-by-step instructions (pseudocode) are commented below.
 
 Read more about the Monty Hall Problem here:
 https://betterexplained.com/articles/understanding-the-monty-hall-problem/
+
+Demo: https://youtu.be/lwqtZU1ZFgM
 """
 
 # Make a list that represents the three closed doors,

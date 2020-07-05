@@ -12,6 +12,8 @@ A player wins if they make 12 to be the main number.
 If the end of the list is reached, go back to the first element
 in the list and keep going until the player wins.
 Code the game for Snookle!
+
+Demo: https://youtu.be/JtQDsb9rsf4
 """
 
 # example values to get you started
