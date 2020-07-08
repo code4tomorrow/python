@@ -1,6 +1,7 @@
 """
-Here is a block of code where one tries do determine
-if somone is a nobel prize winner.
+Simplify
+Here is a block of code where one tries to determine
+if someone is a Nobel Prize winner.
 
 Rewrite the code to work in one statement.
 

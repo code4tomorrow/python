@@ -7,7 +7,7 @@ are $1,000,000,000.
 But if the customer enters 'french toast'
 AND 'coffee', there is a discount of $1.
 
-And if the customer enters 'chicken soup' OR 'apple juice',
+Otherwise, if the customer enters 'chicken soup' OR 'apple juice',
 the price increases by $1.
 
 Write a program that takes an order from a user
