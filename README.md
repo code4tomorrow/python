@@ -1,6 +1,9 @@
 # Python
 Source code from Code For Tomorrow's Python course
 
+![Python (Lintly)](https://github.com/code-for-tomorrow/python/workflows/Python%20(Lintly)/badge.svg)
+![Python (Lint Action)](https://github.com/code-for-tomorrow/python/workflows/Python%20(Lint%20Action)/badge.svg)
+
 ## Difficulty Level
 Source code is organized under 3 difficulty levels:
 1. `1_beginner`
