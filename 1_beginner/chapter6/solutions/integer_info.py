@@ -16,6 +16,6 @@ num = int(input("Enter an integer: "))  # convert string input to int
 info = [
     len(str(num)),
     num % 10,  # mod 10 of any number will return its last digit
-    num % 2 == 0
+    num % 2 == 0,
 ]
 print(info)

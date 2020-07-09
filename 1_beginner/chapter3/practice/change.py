@@ -1,4 +1,4 @@
-'''
+"""
 Write code that takes, as input, the number of dollars a person has
 (a floating number), and outputs how much they have
 in dollars, quarters, dimes, nickels and pennies.
@@ -15,13 +15,10 @@ The starting code is given.
 
 Note: This is a challenge problem! Do not feel bad or disheartned if you can't
 solve it. We will go over it next class.
-'''
+"""
 
 CENTS_PER_DOLLAR = 100
 
-num_cents = int(
-    float(input("How many dollars do you have: $"))
-    * CENTS_PER_DOLLAR
-)
+num_cents = int(float(input("How many dollars do you have: $")) * CENTS_PER_DOLLAR)
 
 # What do you do next? Write code here

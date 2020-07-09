@@ -4,7 +4,7 @@ contacts = {
     "John Doe": "1234 Main St",
     "Jane Smith": "5678 Market St",
     "Daisy Johnson": "2468 Park Ave",
-    "Leo Fitz": "1258 Monkey Dr"
+    "Leo Fitz": "1258 Monkey Dr",
 }
 
 # get - retrieves the value at a specified key

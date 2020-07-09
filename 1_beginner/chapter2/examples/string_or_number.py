@@ -1,8 +1,8 @@
 # String or Number?
 
 # strings
-x = '5'
-y = '6'
+x = "5"
+y = "6"
 print(x + y)  # this 56 (concatenation)
 
 # integers

@@ -2,7 +2,7 @@
 
 # use variables to store data
 first_name = "Jane"
-last_name = 'Doe'
+last_name = "Doe"
 
 age = 25
 

@@ -10,4 +10,4 @@ sum = 0
 for num in numbers:
     sum += num
 
-print('Sum of elements in list:', sum)
+print("Sum of elements in list:", sum)
