@@ -1,0 +1,30 @@
+  
+# Uses (Lint Action): https://github.com/marketplace/actions/lint-action#supported-tools
+# Submits code reviews based on flake8 output
+name: Python (Lintly)
+
+on: pull_request
+
+jobs:
+  lint-python:
+    name: Lint Python with flake8
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Check out Git repository
+      uses: actions/checkout@v2
+
+    - name: Set up Python
+      uses: actions/setup-python@v1
+      with:
+        python-version: '3.x'
+      
+      # Install flake8 and lintly
+    - name: Install Python dependencies
+      run: pip install flake8 lintly
+
+      # Run Lintly with flake8
+    - name: Lint with flake8
+      run: flake8 | lintly --commit-sha=${{ github.event.pull_request.head.sha }} --format=flake8
+      env:
+        LINTLY_API_KEY: ${{ secrets.GITHUB_TOKEN }}

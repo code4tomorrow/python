@@ -1,0 +1,30 @@
+# Uses (Lint Action): https://github.com/marketplace/actions/lint-action#supported-tools
+# Creates annotations from linting problems
+# Autofixes problems if possible (it's a black formatter)
+name: Python (Lint Action)
+
+on: pull_request
+
+jobs:
+  format-lint-python:
+    name: Format Python with black
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Check out Git repository
+        uses: actions/checkout@v2
+
+      - name: Set up Python
+        uses: actions/setup-python@v2
+        with:
+          python-version: '3.x'
+      
+      - name: Install Python dependencies
+        run: pip install black
+
+      - name: Run black
+        uses: samuelmeuli/lint-action@v1
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          black: true
+          auto_fix: true  # auto commit style fixes
