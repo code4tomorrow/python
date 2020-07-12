@@ -1,4 +1,4 @@
-'''
+"""
 Ingly
 
 Write a Python program to add 'ing'
@@ -9,14 +9,14 @@ Print the resulting string.
 
 Adapted from W3Resource, problem 6:
 https://www.w3resource.com/python-exercises/string/
-'''
+"""
 
-string = input('Enter a string: ')
+string = input("Enter a string: ")
 
 if len(string) >= 3:
-    if string[-3:] != 'ing':
-        string += 'ing'
+    if string[-3:] != "ing":
+        string += "ing"
     else:
-        string += 'ly'
+        string += "ly"
 
 print(string)

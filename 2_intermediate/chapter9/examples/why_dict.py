@@ -1,16 +1,19 @@
 # Why Dictionaries
 
 # dictionaries as an alternative to parallel lists
-names = ['Jane Doe', 'John Williams', ]
-addresses = ['1234 Main St', '5678 Market Pl', '1357 Wall St']
+names = [
+    "Jane Doe",
+    "John Williams",
+]
+addresses = ["1234 Main St", "5678 Market Pl", "1357 Wall St"]
 
 # better solution: make a dictionary to
 # explicitly associate a name with an address
 # this is also called mapping a key to a value
 contacts = {
-    'Jane Doe': '1234 Main St',
-    'John Williams': '5678 Market Pl',
-    'Alex Summers': '1357 Wall St'
+    "Jane Doe": "1234 Main St",
+    "John Williams": "5678 Market Pl",
+    "Alex Summers": "1357 Wall St",
 }
 
 # implementation 1 using if statements

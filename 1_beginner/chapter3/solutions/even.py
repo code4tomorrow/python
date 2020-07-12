@@ -7,5 +7,5 @@
 i = int(input("Enter an integer: "))
 
 # Display output
-is_even = (i % 2 == 0)
+is_even = i % 2 == 0
 print("Is this number even? " + str(is_even))

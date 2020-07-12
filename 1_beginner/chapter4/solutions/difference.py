@@ -4,9 +4,9 @@
 # greater than 17 print "Negative". Otherwise,
 # print the result of 17 minus the given number.
 
-x = float(input('Enter a number: '))
+x = float(input("Enter a number: "))
 
 if x > 17:
-    print('Negative')
+    print("Negative")
 else:
     print(17 - x)

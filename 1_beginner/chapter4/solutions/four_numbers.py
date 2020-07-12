@@ -1,4 +1,4 @@
-'''
+"""
 Ask the user for 4 numbers.
 Use only 3 if else blocks to find
 the largest number. You may not use elifs.
@@ -10,7 +10,7 @@ else:
     print("nay")
 
 This question is really tricky, and requires some ingenuity.
-'''
+"""
 
 a = float(input("Enter number 1: "))
 b = float(input("Enter number 2: "))

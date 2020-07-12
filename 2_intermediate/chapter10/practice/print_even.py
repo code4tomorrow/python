@@ -6,12 +6,12 @@
 # if you did it right!
 
 my_list = [
-    ['awesome', 'hello', 'job', 'world'],
-    ['you', 'words', 'got', 'books'],
-    ['it', 'python', 'right'],
-    ['keep', 'plant', 'learning'],
-    ['how', 'school', 'to'],
-    ['code']
+    ["awesome", "hello", "job", "world"],
+    ["you", "words", "got", "books"],
+    ["it", "python", "right"],
+    ["keep", "plant", "learning"],
+    ["how", "school", "to"],
+    ["code"],
 ]
 
 # write code here

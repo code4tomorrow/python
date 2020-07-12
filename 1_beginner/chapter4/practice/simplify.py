@@ -9,7 +9,7 @@ Rewrite the code to work in one statement.
 you start working.)
 """
 
-'''
+"""
 if does_significant_work:
     if makes_breakthrough:
         is_nobel_prize_candidate = True
@@ -17,4 +17,4 @@ if does_significant_work:
         is_nobel_prize_candidate = False
 elif not does_significant_work:
     is_nobel_prize_candidate = False
-'''
+"""

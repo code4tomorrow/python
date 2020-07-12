@@ -1,4 +1,4 @@
-'''
+"""
 Replace
 
 Write a Python program to print a string
@@ -10,6 +10,6 @@ Expected Result : 'resta$t'
 
 Adapted from W3Resource, problem 4:
 https://www.w3resource.com/python-exercises/string/
-'''
+"""
 
 # write code here

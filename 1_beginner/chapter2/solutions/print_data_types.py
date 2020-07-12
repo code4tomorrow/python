@@ -14,5 +14,5 @@ print(-1)
 
 # strings
 print("Tahiti, it's a magical place")
-print('May the Force be with you')
+print("May the Force be with you")
 print("Hey guys")
