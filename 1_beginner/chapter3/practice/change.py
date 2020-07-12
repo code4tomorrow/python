@@ -19,6 +19,7 @@ solve it. We will go over it next class.
 
 CENTS_PER_DOLLAR = 100
 
-num_cents = int(float(input("How many dollars do you have: $")) * CENTS_PER_DOLLAR)
+num_cents = int(float(input("How many dollars do you have: $"))
+                * CENTS_PER_DOLLAR)
 
 # What do you do next? Write code here
