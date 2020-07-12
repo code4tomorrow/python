@@ -1,4 +1,4 @@
-'''
+"""
 Replace
 
 Write a Python program to print a string
@@ -11,16 +11,16 @@ Expected Result: 'resta$t'
 
 Adapted from W3Resource, problem 4:
 https://www.w3resource.com/python-exercises/string/
-'''
+"""
 
-string = input('Enter a string: ')
+string = input("Enter a string: ")
 first_char = string[0]
 
 result = first_char
 
 for i in range(1, len(string)):
     if string[i] == first_char:
-        result += '$'
+        result += "$"
     else:
         result += string[i]
 

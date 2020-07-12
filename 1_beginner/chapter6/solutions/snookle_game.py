@@ -25,13 +25,13 @@ win = False  # The game keeps going until this variable is set to True
 while not win:
     for num in nums:
         # prompt user to add or subtract current num
-        print('main number is currently ' + str(main))
+        print("main number is currently " + str(main))
         choice = input("[add] or [subtract] " + str(num) + "?\n> ")
 
         # update main value based on choice
-        if choice == 'add':
+        if choice == "add":
             main += num
-        elif choice == 'subtract':
+        elif choice == "subtract":
             main -= num
 
         # If the main number if 12, the user has won!
@@ -39,4 +39,4 @@ while not win:
             win = True  # Exit while loop and end game
             break  # Exit for loop
 
-print('Congrats you won the game!')
+print("Congrats you won the game!")

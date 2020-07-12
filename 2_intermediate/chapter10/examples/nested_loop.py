@@ -2,10 +2,10 @@
 
 # Traversing 2D Lists
 my_list = [
-    ['hello', 'world', 'code'],
-    ['docs', 'slides', 'sheets'],
-    ['google', 'amazon', 'facebook'],
-    ['this', 'is', 'python']
+    ["hello", "world", "code"],
+    ["docs", "slides", "sheets"],
+    ["google", "amazon", "facebook"],
+    ["this", "is", "python"],
 ]
 
 # print each element in my_list

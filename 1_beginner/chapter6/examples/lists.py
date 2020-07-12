@@ -12,10 +12,10 @@ print(my_list[1:3])  # prints [2, "oh no"]
 my_list = []  # empty list
 
 # append() adds elements to the end of the list
-my_list.append('live')
-my_list.append('long')
-my_list.append('and')
-my_list.append('prosper')
+my_list.append("live")
+my_list.append("long")
+my_list.append("and")
+my_list.append("prosper")
 print(my_list)
 
 # copy() returns a copy of the list
@@ -27,15 +27,15 @@ my_list.pop(2)
 print(my_list)
 
 # remove() removes the first item with the specified value
-my_list.remove('live')
+my_list.remove("live")
 print(my_list)
 
 # index() returns the index of the first element
 # with the specified value
-print(my_list.index('prosper'))
+print(my_list.index("prosper"))
 
 # insert() adds an element at the specified position
-my_list.insert(0, 'live')
+my_list.insert(0, "live")
 print(my_list)
 
 # reverse() reverses the order of the list

@@ -1,7 +1,7 @@
 # Converting to Different Data Types
 
-x = '5'
-y = '6'
+x = "5"
+y = "6"
 sum = int(x) + int(y)  # this is 11 because x and y were converted to integers
 print(sum)
 
