@@ -22,8 +22,8 @@ than midnight (24:00).
 """
 
 # prompt user for first walk start time
-first_hour = int(input('Enter the hour of the time of the first walk: '))
-first_minute = int(input('Enter the minute of the time of the first walk: '))
+first_hour = int(input("Enter the hour of the time of the first walk: "))
+first_minute = int(input("Enter the minute of the time of the first walk: "))
 
 # calculate second walk start time
 # add first_hour + 1 is when the first walk ends,
@@ -32,20 +32,20 @@ second_hour = first_hour + 1 + 6
 second_minute = first_minute
 
 # prompt user for current time
-current_hour = int(input('Enter the current hour: '))
-current_minute = int(input('Enter the current minute: '))
+current_hour = int(input("Enter the current hour: "))
+current_minute = int(input("Enter the current minute: "))
 
 # print whether Timmy is late or early
 # to the second walk
 if current_hour > second_hour:
-    print('Late')
+    print("Late")
 elif current_hour < second_hour:
-    print('Early')
+    print("Early")
 else:
     # compare minutes if hours are equal
     if current_minute > second_minute:
-        print('Late')
+        print("Late")
     elif current_minute < second_minute:
-        print('Early')
+        print("Early")
     else:  # current_minute == second_minute
-        print('Now')
+        print("Now")

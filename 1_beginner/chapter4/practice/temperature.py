@@ -13,8 +13,8 @@ See if you can fix it for him!
 temp = int(input("Enter temperature: "))
 
 if temp < 100:  # 60-100 is hot
-    print('hot')
+    print("hot")
 if temp <= 60:  # 30-59 is normal
-    print('normal')
+    print("normal")
 if temp < 30:  # 0-29 is cold
-    print('cold')
+    print("cold")

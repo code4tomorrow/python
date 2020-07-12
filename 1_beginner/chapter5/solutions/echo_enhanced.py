@@ -10,9 +10,9 @@
 print("Enter a message, 'c' to cancel an echo, or 'q' to quit.")
 while True:
     message = input("Message: ")
-    if message == 'q':
+    if message == "q":
         break  # quit
-    elif message == 'c':
+    elif message == "c":
         continue  # cancel echo
     else:
         print(message)  # echo message

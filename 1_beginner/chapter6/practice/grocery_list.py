@@ -1,4 +1,4 @@
-'''
+"""
 Grocery List
 
 Create a program that prompts the
@@ -19,6 +19,6 @@ can format the money so that it displays
 2 decimals.)
 
 Demo: https://youtu.be/BmMj16Ox5iA
-'''
+"""
 
 # write code here

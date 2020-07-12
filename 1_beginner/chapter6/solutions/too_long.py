@@ -3,7 +3,7 @@ Too Long
 Print and remove all elements with length
 greater than 4 in a given list of strings.
 """
-the_list = ['dragon', 'cab', 'science', 'dove', 'lime', 'river', 'pop']
+the_list = ["dragon", "cab", "science", "dove", "lime", "river", "pop"]
 
 to_remove = []
 for x in the_list:  # iterates through every element in the list

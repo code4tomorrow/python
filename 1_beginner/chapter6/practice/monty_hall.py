@@ -26,7 +26,8 @@ Demo: https://youtu.be/lwqtZU1ZFgM
 # 'G' for the doors that have a goat, 'C' for the door that has a car.
 # This step has already been done for you.
 import random
-doors = ['G', 'G', 'C']
+
+doors = ["G", "G", "C"]
 
 # Make the Monty Hall game repeat 6 times.
 # (All of the following actions should be in your loop.)
