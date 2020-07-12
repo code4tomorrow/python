@@ -23,8 +23,7 @@ CENTS_PER_DIME = 10
 CENTS_PER_NICKEL = 5
 
 # prompt user for dollars and convert it to cents
-num_cents = int(float(input("How many dollars do you have: $"))
-                * CENTS_PER_DOLLAR)
+num_cents = int(float(input("How many dollars do you have: $")) * CENTS_PER_DOLLAR)
 
 # calculate change and display it
 dollars = num_cents // CENTS_PER_DOLLAR
