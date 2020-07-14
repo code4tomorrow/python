@@ -1,9 +1,8 @@
 # Add All the Way
-# Write a program that asks for and
-# reads an input from the user
-# Then add all the numbers up from 0
-# to that number up. You can use a
-# for or while loop. Print out the sum.
+# Take a number from the user and
+# add every number up from 1 to that number.
+# Print the result.
+# You can use a for or while loop.
 
 # for loop solution
 sum = 0
