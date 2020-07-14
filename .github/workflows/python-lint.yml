@@ -1,4 +1,4 @@
-  # Uses (Lintly): https://github.com/grantmcconnaughey/Lintly
+# Uses (Lintly): https://github.com/grantmcconnaughey/Lintly
 # Submits code reviews based on flake8 output
 name: Python (Lintly)
 
@@ -24,6 +24,6 @@ jobs:
 
       # Run Lintly with flake8
     - name: Lint with flake8
-      uses: flake8 | lintly --commit-sha=${{ github.event.pull_request.head.sha }} --fail-on=new --use-checks
+      uses: flake8 | lintly --fail-on=new --use-checks
       env:
         LINTLY_API_KEY: ${{ secrets.GITHUB_TOKEN }}
