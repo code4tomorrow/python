@@ -24,6 +24,6 @@ jobs:
 
       # Run Lintly with flake8
     - name: Lint with flake8
-      run: flake8 | lintly --commit-sha=${{ github.event.pull_request.head.sha }} --use-checks
+      run: flake8 | lintly --commit-sha=${{ github.event.pull_request.head.sha }}
       env:
         LINTLY_API_KEY: ${{ secrets.GITHUB_TOKEN }}
