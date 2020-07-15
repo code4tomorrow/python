@@ -11,7 +11,10 @@ print(
 # or
 was_computer_bought = True
 was_bike_bought = False
-print("Was a computer or bike bought? " + str(was_computer_bought or was_bike_bought))
+print(
+    "Was a computer or bike bought? "
+    + str(was_computer_bought or was_bike_bought)
+)
 
 # not
 is_raining = False

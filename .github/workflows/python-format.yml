@@ -27,4 +27,5 @@ jobs:
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           black: true
+          black_args: --line-length 79  # same max line length as flake8
           auto_fix: true  # auto commit style fixes
