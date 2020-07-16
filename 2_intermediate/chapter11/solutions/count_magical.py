@@ -10,6 +10,7 @@
 # 3 different lists of integers. Use the main
 # function to test count_magical by calling main().
 
+
 def count_magical(my_list):
     number_of_evens = 0
     for n in my_list:
