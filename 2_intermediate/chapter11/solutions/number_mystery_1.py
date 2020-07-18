@@ -5,6 +5,7 @@
 # Use this function on 1,2,3 and print it. Use this function on 5,13,7 and
 # print it
 
+
 def num_mystery(first_int, second_int, third_int):
     sum_of_three = first_int + second_int + third_int
     largest = max(first_int, second_int, third_int)
@@ -13,7 +14,6 @@ def num_mystery(first_int, second_int, third_int):
 
     return sum_of_three * diff_ls
 
-print(num_mystery(1,2,3))#should print 12
-print(num_mystery(5,13,7))#should print 200
-    
-    
+
+print(num_mystery(1, 2, 3))  # should print 12
+print(num_mystery(5, 13, 7))  # should print 200
