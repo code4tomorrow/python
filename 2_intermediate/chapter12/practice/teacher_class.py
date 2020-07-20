@@ -1,9 +1,9 @@
-# Create a class called Teacher. Add 3 variables to this
-# class: Name, Age, and an array of Student classes from student_class.
-# The user can input these 3 variables. Add 2 Methods to the class: A
-# displayClass method that prints out the names of all the students.
-# A graduate method that increments the age of all of his/her students by 1.
-# Then prints out all the ages.
+# Create a class called Teacher. Add 3 instance variables to this
+# class: name, age, and students (a list of Student objects).
+# Add 2 Methods to the class: A display_students method that
+# prints out the names of all the students, each on their own line, and
+# a graduate_students method that increments the age of all of the
+# teacher's Students by 1. Then it should print out all their ages.
 
 # Student class implemented below. Teacher class uses it.
 
@@ -13,8 +13,8 @@ class Student:
         self.name = name
         self.age = age
 
-    def raiseHand(self):
+    def raise_hand(self):
         print(self.name + " is now raising their hand.")
 
-    def growOlder(self):
+    def grow_older(self):
         self.age += 1
