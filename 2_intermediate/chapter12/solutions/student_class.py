@@ -4,8 +4,8 @@
 # by “is now raising their hand.” A growOlder method that makes the
 # student older by 1 year.
 
-class Student:
 
+class Student:
     def __init__(self, name, age):
         self.name = name
         self.age = age
@@ -15,4 +15,3 @@ class Student:
 
     def growOlder(self):
         self.age += 1
-

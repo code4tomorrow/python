@@ -3,5 +3,3 @@
 # A raiseHand method which prints out the student name followed
 # by “is now raising their hand.” A growOlder method that makes the
 # student older by 1 year.
-
-
