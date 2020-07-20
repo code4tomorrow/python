@@ -7,8 +7,8 @@
 
 # Student class implemented below. Teacher class uses it.
 
-class Student:
 
+class Student:
     def __init__(self, name, age):
         self.name = name
         self.age = age
@@ -18,4 +18,3 @@ class Student:
 
     def growOlder(self):
         self.age += 1
-
