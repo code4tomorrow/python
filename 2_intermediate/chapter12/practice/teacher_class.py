@@ -7,7 +7,7 @@
 
 # Student class implemented below. Teacher class uses it.
 
-class Student
+class Student:
 
     def __init__(self, name, age):
         self.name = name
