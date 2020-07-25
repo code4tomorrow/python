@@ -18,7 +18,7 @@ list1 = [1, 1, 2, 5, 4, 6, 12, 3, 4, 6]  # Define your list
 def remove_duplicate(array):
     for i in array:
         # Checks if element appears multiple times
-        for j in range(i, len(array)-1):
+        for j in range(i, len(array) - 1):
             #  Counts the number of times an element appears.
             if array.count(array[i]) == 1:
                 break  # If it appears once, break out of the loop
