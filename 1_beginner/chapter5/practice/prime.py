@@ -9,7 +9,7 @@ Write a for loop to check if a number is prime or not.
 
 """
 
-#write code here
+# write code here
 
 numer = int(input("Enter number here: "))
 
@@ -26,4 +26,4 @@ hard problem.
 
 """
 
-#write code here
+# write code here

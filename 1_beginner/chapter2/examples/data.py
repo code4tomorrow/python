@@ -3,7 +3,7 @@
 # strings are a series of characters
 # they are in single or double quotes
 print("Jane")
-print('Doe')
+print("Doe")
 
 # integers are whole numbers (positive, negative, and 0)
 print(25)

@@ -22,26 +22,26 @@ Feel free to customize your virtual pet by changing the how much the hunger
 and happiness variables increase and decrease, or add more actions!
 """
 
-name = 'Otto'
+name = "Otto"
 hunger = 6
 happiness = 0
 
-command = input('> ')
-while command != 'quit':      # Exits loop when user quits
+command = input("> ")
+while command != "quit":  # Exits loop when user quits
     # change Otto's hunger or happiness based on user command
-    if command == 'feed':
-        hunger -= 2           # Otto is fed, hunger decreases
-        happiness -= 1        # Otto is not pet, happiness decreases
-    elif command == 'pet':
-        happiness += 2        # Otto is pet, happiness increases
-        hunger += 1           # Otto is not fed, hunger increases
+    if command == "feed":
+        hunger -= 2  # Otto is fed, hunger decreases
+        happiness -= 1  # Otto is not pet, happiness decreases
+    elif command == "pet":
+        happiness += 2  # Otto is pet, happiness increases
+        hunger += 1  # Otto is not fed, hunger increases
 
     # display Otto's status
-    if hunger > 5:            # Otto is not fed enough
-        print(name + ' is hungry')
-    if happiness < 5:         # Otto is not pet enough
-        print(name + ' wants more attention')
+    if hunger > 5:  # Otto is not fed enough
+        print(name + " is hungry")
+    if happiness < 5:  # Otto is not pet enough
+        print(name + " wants more attention")
     elif hunger <= 5 and happiness >= 5:  # Otto is satisfied!
-        print(name + ' feels happy')
+        print(name + " feels happy")
 
-    command = input('> ')  # Keep taking user input until user quits
+    command = input("> ")  # Keep taking user input until user quits

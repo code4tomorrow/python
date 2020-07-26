@@ -10,7 +10,10 @@ favorite_person = input("Who is your favorite person? ")
 
 # Display output
 print(
-    favorite_person + " bought you "
-    + favorite_food + " and "
-    + favorite_drink + "."
+    favorite_person
+    + " bought you "
+    + favorite_food
+    + " and "
+    + favorite_drink
+    + "."
 )

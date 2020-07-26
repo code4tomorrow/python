@@ -23,7 +23,8 @@ https://betterexplained.com/articles/understanding-the-monty-hall-problem/
 # Make a list that represents the three closed doors,
 # 'G' for the doors that have a goat, 'C' for the door that has a car.
 import random
-doors = ['G', 'G', 'C']
+
+doors = ["G", "G", "C"]
 
 # Make the Monty Hall game repeat 6 times.
 for i in range(6):
@@ -44,8 +45,8 @@ for i in range(6):
 
     # removes user's choice so that it won't be opened,
     # but keeps in the element to not mess up the indices
-    reveal_doors[choice - 1] = '-'
-    goat_door = reveal_doors.index('G') + 1
+    reveal_doors[choice - 1] = "-"
+    goat_door = reveal_doors.index("G") + 1
     doors_left.remove(goat_door)
     print("Monty opens door", goat_door, "to reveal a goat!")
 
@@ -56,11 +57,11 @@ for i in range(6):
     print("Enter 'y' to switch, or 'n' to keep your first choice.")
     switch = input("> ")
 
-    if switch == 'y':
+    if switch == "y":
         choice = doors_left[0]
 
     # The prize behind the user's ultimate choice is revealed!
-    if doors[choice - 1] == 'C':
+    if doors[choice - 1] == "C":
         print("You got... a car! Congratulations!")
     else:
         print("You got... a goat! Better luck next time!")

@@ -24,11 +24,11 @@ food = input("What food would you like? ")
 drink = input("What drink would you like? ")
 
 # discount of $1 if the user orders french toast and coffee
-if food == 'french toast' and drink == 'coffee':
+if food == "french toast" and drink == "coffee":
     total_cost -= 1
 
 # charge extra $1 if user orders chicken soup or apple juice
-if food == 'chicken soup' or drink == 'apple juice':
+if food == "chicken soup" or drink == "apple juice":
     total_cost += 1
 
 # display total
