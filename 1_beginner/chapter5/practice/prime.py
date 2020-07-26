@@ -14,15 +14,14 @@ Write a for loop to check if a number is prime or not.
 numer = int(input("Enter number here: "))
 
 """
-See if you can do the above problem without looping up until the number.
-For example, if the number you are checking is 101, don't write the code
-for i in range(101), or even for i in range(100). You may loop until 
-half of the number.
+Given a number less than or equal to 10 billion, see if you can check if it is
+prime in UNDER 2 SECONDS. The code you wrote above probably wont do that, so
+you will have to figure out a clever solution.
 
-NOTE: THE ABOVE IS A CHALLENGE PROBLEM, AND IS EXTRREEMMLY HARD TO DO
-OPTIMALLY. I COULDN'T DO IT OPTIMALY UNTIL I LEARNED HOW TO. If you can't
+NOTE: THE ABOVE IS A CHALLENGE PROBLEM, AND IS EXTRREEMMLY HARD TO DO.
+I COULDN'T DO IT OPTIMALY UNTIL I LEARNED HOW TO. If you can't
 figure out the solution, don't feel discouraged, its seriously a really
-hard problem.
+hard problem (I have seen this asked to college students :O)
 
 """
 
