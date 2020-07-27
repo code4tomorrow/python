@@ -3,6 +3,7 @@
 # The function should look through a list,
 # Find all duplicate elements, and remove them
 # Sort the resulting list
+# YOU MAY NOT USE THE set() function IN PYTHON. Use this problem to practice list iteration!
 # Hint: To sort a list, use sorted(list)
 # Another hint: Use list.count(element)
 # To count the number of times that element appears
