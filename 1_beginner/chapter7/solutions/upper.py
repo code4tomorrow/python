@@ -1,6 +1,7 @@
 # Upper
 # Continuously ask a user to enter words.
-# (Make sure that the input given is actually just 1 word.)
+# You should remove leading/trailing whitespace, and then
+# make sure that the word is only made up of letters.
 # Store the words in a list.
 # Stop asking the user for words if they enter an empty string
 # (the string has no characters or is completely whitespace).
