@@ -120,7 +120,7 @@ while True:
     print()
 
     # Ask if the user wants to order again
-    ans = input("Do you want to order again (\"yes\" or \"no\")? ")
+    ans = input('Do you want to order again ("yes" or "no")? ')
     print()
     if ans == "no":
         break

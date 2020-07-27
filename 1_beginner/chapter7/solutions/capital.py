@@ -16,7 +16,7 @@ Example output: I lOvE zEe ThE cAt.
 str = input("Enter a string: ")
 
 new_str = ""
-letter_count = 0    # Used to avoid counting non-alpha characters.
+letter_count = 0  # Used to avoid counting non-alpha characters.
 
 for c in str:
     if c.isalpha():
