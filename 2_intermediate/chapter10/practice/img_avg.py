@@ -37,7 +37,7 @@ transpose = numpy.transpose(img)
 plt.imshow(img)
 plt.show()
 
-#write code to create newimg here
+# write code to create newimg here
 
 plt.imshow(newimg)
 plt.show()

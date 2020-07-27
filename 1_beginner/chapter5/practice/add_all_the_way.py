@@ -7,6 +7,4 @@
 # write code here
 
 
-
-
-#Try using the other loop and do the same p[roblem again
+# Try using the other loop and do the same p[roblem again

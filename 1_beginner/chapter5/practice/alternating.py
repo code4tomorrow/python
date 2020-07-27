@@ -9,9 +9,9 @@ Do this with a for loop
 
 """
 
-#Write code here.
+# Write code here.
 
 number = int(input("Enter Number Here: "))
 
 
-#Now try it with a while loop
+# Now try it with a while loop
