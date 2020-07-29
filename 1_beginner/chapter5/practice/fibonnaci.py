@@ -1,4 +1,4 @@
-''' CHALLENGE PROBLEM!! NOT FOR THE FAINT OF HEART!
+""" CHALLENGE PROBLEM!! NOT FOR THE FAINT OF HEART!
 
 The Fibonacci numbers, discovered by Leonardo di Fibonacci,
 is a sequence of numbers that often shows up in mathematics and,
@@ -12,9 +12,9 @@ because 34+21 = 55.
 
 The challenge is to use a for loop (not recursion, if you know what that is),
 to find the 100th Fibonnaci number.
-'''
+"""
 
-#write code here
+# write code here
 
 
-#Can you do it with a while loop?
+# Can you do it with a while loop?

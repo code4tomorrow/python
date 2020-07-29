@@ -35,50 +35,48 @@ newimg = img
 transpose = numpy.transpose(img)
 
 
-#write code to create newimg here
+# write code to create newimg here
 def solution1():
-	"""Iterating over the image here. i is a variable from 0 to the width of the image.
+    """Iterating over the image here. i is a variable from 0 to the width of the image.
 	j is a variable that ranges from 0 to the height of the image. i is associated with
 	values"""
-	for i in range(len(img)):
-		for j in range(len(img[0])):
-			x_n = [0]
-			y_n = [0]
+    for i in range(len(img)):
+        for j in range(len(img[0])):
+            x_n = [0]
+            y_n = [0]
 
-			if(i == 0):
-				x_n.append(1)
-			elif(i ==  len(img)-1):
-				x_n.append(-1)
-			else:
-				x_n.append(1)
-				x_n.append(-1)
+            if i == 0:
+                x_n.append(1)
+            elif i == len(img) - 1:
+                x_n.append(-1)
+            else:
+                x_n.append(1)
+                x_n.append(-1)
 
-			if(j == 0):
-				y_n.append(1)
-			elif(j ==  len(img[0])-1):
-				y_n.append(-1)
-			else:
-				y_n.append(1)
-				y_n.append(-1)
+            if j == 0:
+                y_n.append(1)
+            elif j == len(img[0]) - 1:
+                y_n.append(-1)
+            else:
+                y_n.append(1)
+                y_n.append(-1)
 
-			r_avg = -1*img[i][j][0]
-			g_avg = -1*img[i][j][1]
-			b_avg = -1*img[i][j][2]
-			c = -1
+            r_avg = -1 * img[i][j][0]
+            g_avg = -1 * img[i][j][1]
+            b_avg = -1 * img[i][j][2]
+            c = -1
 
-			for x in x_n:
-				for y in y_n:
-					r_avg += img[i+x][j+y][0]
-					g_avg += img[i+x][j+y][1]
-					b_avg += img[i+x][j+y][2]
-					c+=1
-			r_avg = r_avg/c
-			g_avg = g_avg/c
-			b_avg = b_avg/c
+            for x in x_n:
+                for y in y_n:
+                    r_avg += img[i + x][j + y][0]
+                    g_avg += img[i + x][j + y][1]
+                    b_avg += img[i + x][j + y][2]
+                    c += 1
+            r_avg = r_avg / c
+            g_avg = g_avg / c
+            b_avg = b_avg / c
 
-			newimg[i][j] = [r_avg, g_avg, b_avg]
-
-
+            newimg[i][j] = [r_avg, g_avg, b_avg]
 
 
 solution1()
