@@ -18,7 +18,7 @@ contacts = [
     ["Jeremy", 10, "45 Pancake Road"],
     ["Nicey", 18, "111 Cupcake Street"],
     ["Hawthorne", 15, "19 Sinister Avenue"],
-    ["Nilah", 14, "Banks of the Nile River"]
+    ["Nilah", 14, "Banks of the Nile River"],
 ]
 
 # 2nd person
@@ -27,6 +27,4 @@ print()
 
 # Display the entire list.
 for contact in contacts:
-    print(
-        contact[0] + " (%d): " % contact[1] + contact[2]
-    )
+    print(contact[0] + " (%d): " % contact[1] + contact[2])
