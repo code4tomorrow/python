@@ -50,7 +50,7 @@ for row in range(4):
         )
 
 # Display the grid without knowing the size beforehand.
-for row in range(len(grid)):
-    for col in range(len(grid[row])):
-        print(grid[row][col], end="")
+for row in grid:
+    for col in row:
+        print(col, end="")
     print()
