@@ -66,5 +66,3 @@ for student in grade_dict.keys():
         grade_dict[student] = "C"
 
 print(grade_dict)
-
-
