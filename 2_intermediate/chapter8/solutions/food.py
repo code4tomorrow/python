@@ -15,7 +15,7 @@ foods = []
 prompts = [
     "Enter a fruit: ",
     "Enter a vegetable: ",
-    "Enter a junk food item: "
+    "Enter a junk food item: ",
 ]
 
 # Choose a random prompt and collect input.

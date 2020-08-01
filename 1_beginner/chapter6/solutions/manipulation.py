@@ -45,7 +45,7 @@ for i in more_nums:
     if i % 3 == 0:
         more_nums.remove(i)
 
-more_nums.insert(more_nums.index(20)+1, 21)
+more_nums.insert(more_nums.index(20) + 1, 21)
 
 for i in range(15):
     more_nums.insert(-2, 0)
