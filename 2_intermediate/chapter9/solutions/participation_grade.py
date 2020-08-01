@@ -1,7 +1,7 @@
 # Warning: can be challenging
 #
 # A teacher is given a list of students.The number of occurences of a student's
-# name in the list is the number of times the student participated in this week.
+# name in the list is the number of times the student participated this week.
 # If a student has more the 7 participation, then got an A. If a student has
 # more than 3 but less than 8, the student got a B. If a student has more than
 # 0 but less than 4, the student got a C.
