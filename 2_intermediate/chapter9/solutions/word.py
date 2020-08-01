@@ -21,7 +21,7 @@ dictionary = {
     "banana": "sustenance for cute humans",
     "neha": "a really strange human",
     "phone": "magic communication device",
-    "cookie": "heaven on Earth"
+    "cookie": "heaven on Earth",
 }
 
 # Show definition

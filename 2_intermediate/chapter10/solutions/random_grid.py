@@ -45,9 +45,7 @@ cols = random.randint(1, 8) * 2
 for row in range(4):
     grid.append([])
     for col in range(cols):
-        grid[row].append(
-            "*" if (col % 2 == 0) else "_"
-        )
+        grid[row].append("*" if (col % 2 == 0) else "_")
 
 # Display the grid without knowing the size beforehand.
 for row in range(len(grid)):
