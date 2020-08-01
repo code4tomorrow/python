@@ -2,9 +2,9 @@
 #
 # A teacher is given a list of students.The number of occurences of a student's
 # name in the list is the number of times the student participated this week.
-# If a student has more the 7 participation, then got an A. If a student has
-# more than 3 but less than 8, the student got a B. If a student has more than
-# 0 but less than 4, the student got a C.
+# If a student has 8 or more participations, they get an A. If a student has
+# between 4 and 7 participations, they get a B. If a student has more than
+# 0 but less than 4, the student gets a C.
 #
 # Make a dictionary with the keys as the students' name and the values as the
 # corresponding student's letter grade. Print the dictionary
