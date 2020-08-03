@@ -14,7 +14,7 @@ for outer_idx in range(len(two_d_list)):
         curr_elem = two_d_list[outer_idx][inner_idx]
         to_check = curr_elem + inner_idx
         if to_check % 2 == 0:
-            if curr_max == None or curr_elem > curr_max:
+            if curr_max is None or curr_elem > curr_max:
                 curr_max = curr_elem
 
 print(curr_max)
