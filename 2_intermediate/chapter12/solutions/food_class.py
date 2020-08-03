@@ -64,13 +64,13 @@ class Meal(Food):
 snacks = [
     JunkFood("Oreo", 55, 0.5, 2.2, 4.1),
     JunkFood("Brownie", 70, 2, 3, 2),
-    JunkFood("Chips", 160, 2, 10, 0)
+    JunkFood("Chips", 160, 2, 10, 0),
 ]
 
 meals = [
     Meal("Rice and beans", 400, 10, 5, 15),
     Meal("Burrito", 350, 8, 9, 100),
-    Meal("Pizza", 500, 20, 15, 150)
+    Meal("Pizza", 500, 20, 15, 150),
 ]
 
 cals = protein = fat = sugar = sodium = 0
