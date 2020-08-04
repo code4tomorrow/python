@@ -51,7 +51,7 @@ class Food:
 
 class JunkFood(Food):
     def __init__(self, name, cals, protein, fat, sugar):
-        Food.__init__(self, name, cals, protein, fat)
+        super().__init__(name, cals, protein, fat)
         self.sugar = sugar
 
 
