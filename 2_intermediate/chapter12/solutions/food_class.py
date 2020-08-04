@@ -73,7 +73,7 @@ meals = [
     Meal("Pizza", 500, 20, 15, 150),
 ]
 
-cals = protein = fat = sugar = sodium = 0
+cals, protein, fat, sugar, sodium = 0,0,0,0,0
 
 for snack in snacks:
     snack.eat()
