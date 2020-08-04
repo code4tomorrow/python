@@ -57,7 +57,7 @@ class JunkFood(Food):
 
 class Meal(Food):
     def __init__(self, name, cals, protein, fat, sodium):
-        Food.__init__(self, name, cals, protein, fat)
+        super().__init__(name, cals, protein, fat)
         self.sodium = sodium
 
 
