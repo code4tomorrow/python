@@ -10,21 +10,19 @@ Do this with a for loop
 # Write code here.
 
 number = int(input("Enter Number Here: "))
-for num in range(1,number+1):
+for num in range(1, number + 1):
     if num == number:
         print(num)
     else:
         print(num)
-        print(-1*num)
-
+        print(-1 * num)
 
 
 # Now try it with a while loop
 number = int(input("Enter Number Here: "))
 current_num = 1
-while(current_num < number):
+while current_num < number:
     print(current_num)
-    print(-1 *current_num)
-    current_num+= 1
+    print(-1 * current_num)
+    current_num += 1
 print(current_num)
-

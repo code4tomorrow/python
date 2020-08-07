@@ -35,13 +35,13 @@ it isn't expected for students to fully understand what the given code
 does. 
 """
 
-#All the libraries imported 
+# All the libraries imported
 from PIL import Image
 import requests
 import numpy
 import matplotlib.pyplot as plt
 
-#Code that grabs the image from the internet and makes it into an array
+# Code that grabs the image from the internet and makes it into an array
 url = "https://images.dog.ceo/breeds/waterdog-spanish/20180723_185544.jpg"
 img = numpy.array(Image.open(requests.get(url, stream=True).raw)).tolist()
 newimg = img
@@ -51,7 +51,7 @@ plt.imshow(img)
 plt.show()
 
 
-#Write code to create newimg here
+# Write code to create newimg here
 """
 Iterating over the image here. i is a variable from
 0 to the width of the image.
@@ -95,9 +95,9 @@ for i in range(len(img)):
         b_avg = b_avg / c
 
         newimg[i][j] = [r_avg, g_avg, b_avg]
-        
 
-#Code that displays the new image at the end.
+
+# Code that displays the new image at the end.
 plt.imshow(newimg)
 plt.show()
 

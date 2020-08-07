@@ -35,13 +35,13 @@ it isn't expected for students to fully understand what the given code
 does. 
 """
 
-#All the libraries imported 
+# All the libraries imported
 from PIL import Image
 import requests
 import numpy
 import matplotlib.pyplot as plt
 
-#Code that grabs the image from the internet and makes it into an array
+# Code that grabs the image from the internet and makes it into an array
 url = "https://images.dog.ceo/breeds/waterdog-spanish/20180723_185544.jpg"
 img = numpy.array(Image.open(requests.get(url, stream=True).raw)).tolist()
 newimg = img
@@ -50,10 +50,10 @@ transpose = numpy.transpose(img)
 plt.imshow(img)
 plt.show()
 
-#Write code to create newimg here
+# Write code to create newimg here
 
 
-#Code that displays the new image at the end.
+# Code that displays the new image at the end.
 plt.imshow(newimg)
 plt.show()
 
