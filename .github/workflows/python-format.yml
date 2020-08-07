@@ -3,7 +3,7 @@
 # Autofixes problems if possible (it's a black formatter)
 name: Python (Lint Action)
 
-on: pull_request
+on: [pull_request, push]
 
 jobs:
   format-lint-python:

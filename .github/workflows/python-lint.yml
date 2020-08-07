@@ -2,7 +2,7 @@
 # Submits code reviews based on flake8 output
 name: Python (Lintly)
 
-on: pull_request
+on: [pull_request, push]
 
 jobs:
   lint-python:
