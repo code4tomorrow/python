@@ -54,8 +54,12 @@ import numpy
 import matplotlib.pyplot as plt
 
 # Code that grabs the image from the internet and makes it into an array
-IMAGE_URL = "https://images.dog.ceo/breeds/waterdog-spanish/20180723_185544.jpg"
-img = numpy.array(Image.open(requests.get(IMAGE_URL, stream=True).raw)).tolist()
+IMAGE_URL = (
+    "https://images.dog.ceo/breeds/waterdog-spanish/20180723_185544.jpg"
+)
+img = numpy.array(
+    Image.open(requests.get(IMAGE_URL, stream=True).raw)
+).tolist()
 newimg = img  # the newimg starts as a copy of the original image
 transpose = numpy.transpose(img)
 
