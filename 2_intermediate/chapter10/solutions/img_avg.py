@@ -48,6 +48,22 @@ does.
 """
 
 # Import libraries needed to run the program
+# Before importing the libraries, you must have them installed.
+# Follow the following instructions to get all the libraries installed:
+# -1. We first have to make sure pip is there. To check, run pip --version
+#     in the terminal. If a version appeared, then pip is there. If no
+#     version appears, update your Python to the latest version of 2 or 3.
+# -2. In terminal, run pip install pillow. Wait for Successfully installed
+#     (something) to pop on the terminal.
+# -3. In terminal, run pip install requests. Wait for Successfully installed
+#     (something) to pop on the terminal.
+# -4. In terminal, run pip install numpy. Wait for Successfully installed
+#     (something) to pop on the terminal.
+# -5. In terminal, run pip install matplotlib. Wait for Successfully
+#     installed (something) to pop on the terminal.
+# -6. If all 2-5 all were successful, now you all the packages needed for
+#     this problem.
+
 from PIL import Image
 import requests
 import numpy
