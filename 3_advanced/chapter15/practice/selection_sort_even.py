@@ -15,4 +15,4 @@ for first_idx in range(len(arr)):
 
 """
 
-#write your code below
+# write your code below
