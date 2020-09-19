@@ -16,4 +16,4 @@ Use enumerate to solve this problem.
 students = [“Dan”, “Sherlocks”, “Jo”, “Josh”, “Dennis”, “Erwin”, “Ivan”, “Penny”] 
 n = int(input())
 
-#write your code below
+# write your code below
