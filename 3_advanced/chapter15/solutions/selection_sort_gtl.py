@@ -1,6 +1,6 @@
 """
 The Selection Sort code we saw sorts an array from least to greatest.
-Modify the code so that the code sorts an array from greatest to least. 
+Modify the code so that the code sorts an array from greatest to least.
 
 Selection Sort Code:
 
