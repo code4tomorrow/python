@@ -43,7 +43,7 @@ class Vector:
         return Vector([self.vals[i] * constant for i in range(len(self.vals))])
 
     """
-    Elementwise subtraction: does the same as addition, just subtraction instead
+    Elementwise subtraction: does same as addition, just subtraction instead
     """
 
     def __sub__(self, vec):
