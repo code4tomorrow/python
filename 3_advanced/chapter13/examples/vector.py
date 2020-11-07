@@ -7,7 +7,7 @@ class Vector:
     """
 
     def __init__(self, vals):
-        self.vals = vals  # Notice! We are using the keyword self to create a field or property (for Javascript users)
+        self.vals = vals  # We're using the keyword self to create a field/property
         print("Assigned values ", vals, " to vector.")
 
     """
