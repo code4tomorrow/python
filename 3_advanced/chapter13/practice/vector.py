@@ -8,4 +8,3 @@ A scalar (regular number) should be returned.
 """
 
 # write your code below
-

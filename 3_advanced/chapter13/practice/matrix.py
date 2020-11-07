@@ -8,4 +8,3 @@ the contents of the matrix using print without having to access its field.
 """
 
 # write your code below
-
