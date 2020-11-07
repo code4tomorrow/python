@@ -11,24 +11,24 @@ class Vector:
         # print("Assigned values ", vals, " to vector.")
 
     """
-	String Function
+    String Function
  
-	Converts the object to a string in readable format for programmers
-	"""
+    Converts the object to a string in readable format for programmers
+    """
 
     def __str__(self):
         return str(self.vals)
 
     """
-        Elementwise power: raises each element in our vector to the given power
-        """
+    Elementwise power: raises each element in our vector to the given power
+    """
 
     def __pow__(self, power):
         return Vector([i ** power for i in self.vals])
 
     """
-        Addition: adds each element to corresponding element in other vector
-        """
+    Addition: adds each element to corresponding element in other vector
+    """
 
     def __add__(self, vec):
         return Vector(
@@ -36,15 +36,15 @@ class Vector:
         )
 
     """
-        Multiplies each element in the vector by a specified constant
-        """
+    Multiplies each element in the vector by a specified constant
+    """
 
     def __mul__(self, constant):
         return Vector([self.vals[i] * constant for i in range(len(self.vals))])
 
     """
-        Elementwise subtraction: does the same as addition, just subtraction instead
-        """
+    Elementwise subtraction: does the same as addition, just subtraction instead
+    """
 
     def __sub__(self, vec):
         return self + (vec * (-1))
