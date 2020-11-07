@@ -11,55 +11,62 @@ by a number.
 
 # write your code below
 
+
 class Vector:
- def __init__(self, vals):
-   self.vals=vals
-   self.length=len(self.vals)
-   self.scalar=0
- 
- def __mul__(self, vec):
-   ...#see above example
- 
- def morecheck(self,vec,shorter):
-   for i in range(shorter.length):
-       if self.vals[i]>vec.vals[i]:
-         return True
-       if self.vals[i]<vec.vals[i]:
-         return False
- 
- def __gt__(self,vec):
-   assert type(vec)==Vector
-   if self.length>vec.length:
-     a=self.morecheck(vec,vec)
-     if a!=None: return a
-     return True #since, if all other values are the same, self is longer and thus greater
-   if self.length<vec.length:
-     a=self.morecheck(vec,self)
-     if a!=None: return a
-     return False #since, if all other values are the same, self is shorter and thus smaller
-   if self.length==vec.length:
-     a=self.morecheck(vec,self)
-     if a!=None: return a
-     return False #since, if all other values are the same, self is equal and thus not greater
-  
- def lesscheck(self,vec,shorter):
-   for i in range(shorter.length):
-     if self.vals[i]<vec.vals[i]:
-       return True
-     if self.vals[i]>vec.vals[i]:
-       return False
- 
- def __lt__(self,vec):
-   assert type(vec)==Vector
-   if self.length>vec.length:
-     a=self.lesscheck(vec,vec)
-     if a!=None: return a
-     return False #since, if all other values are the same, self is longer and thus greater
-   if self.length<vec.length:
-     a=self.lesscheck(vec,self)
-     if a != None: return a
-     return True #since, if all other values are the same, self is shorter and thus smaller
-   if self.length==vec.length:
-     a=self.lesscheck(vec,self)
-     if a != None: return a
-     return False #since, if all other values are the same, self is equal and thus not less
+    def __init__(self, vals):
+        self.vals = vals
+        self.length = len(self.vals)
+        self.scalar = 0
+
+    def __mul__(self, vec):
+        ...  # see above example
+
+    def morecheck(self, vec, shorter):
+        for i in range(shorter.length):
+            if self.vals[i] > vec.vals[i]:
+                return True
+            if self.vals[i] < vec.vals[i]:
+                return False
+
+    def __gt__(self, vec):
+        assert type(vec) == Vector
+        if self.length > vec.length:
+            a = self.morecheck(vec, vec)
+            if a != None:
+                return a
+            return True  # since, if all other values are the same, self is longer and thus greater
+        if self.length < vec.length:
+            a = self.morecheck(vec, self)
+            if a != None:
+                return a
+            return False  # since, if all other values are the same, self is shorter and thus smaller
+        if self.length == vec.length:
+            a = self.morecheck(vec, self)
+            if a != None:
+                return a
+            return False  # since, if all other values are the same, self is equal and thus not greater
+
+    def lesscheck(self, vec, shorter):
+        for i in range(shorter.length):
+            if self.vals[i] < vec.vals[i]:
+                return True
+            if self.vals[i] > vec.vals[i]:
+                return False
+
+    def __lt__(self, vec):
+        assert type(vec) == Vector
+        if self.length > vec.length:
+            a = self.lesscheck(vec, vec)
+            if a != None:
+                return a
+            return False  # since, if all other values are the same, self is longer and thus greater
+        if self.length < vec.length:
+            a = self.lesscheck(vec, self)
+            if a != None:
+                return a
+            return True  # since, if all other values are the same, self is shorter and thus smaller
+        if self.length == vec.length:
+            a = self.lesscheck(vec, self)
+            if a != None:
+                return a
+            return False  # since, if all other values are the same, self is equal and thus not less

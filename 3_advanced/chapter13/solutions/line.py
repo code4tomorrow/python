@@ -8,14 +8,16 @@ respectively.
 
 # write your code below
 
+
 class Line:
- def __init__(self,slope,intercept):
-   self.slope=slope
-   self.intercept=intercept
- 
- def __str__(self):
-   self.equation= "y={}x+{}".format(self.slope,self.intercept)
-   return self.equation
- 
-myline=Line(3,1)
+    def __init__(self, slope, intercept):
+        self.slope = slope
+        self.intercept = intercept
+
+    def __str__(self):
+        self.equation = "y={}x+{}".format(self.slope, self.intercept)
+        return self.equation
+
+
+myline = Line(3, 1)
 print(str(myline))
