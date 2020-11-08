@@ -30,82 +30,94 @@ self.adjustedprice=round((self.adjustedprice),2)-self.mileage/100
 
 # write your code below
 
+
 class car:
- def __init__(self, year, brand, ogprice, mileage):
-   self.year=year
-   self.brand=brand
-   self.ogprice=ogprice
-   self.mileage=mileage
-   self.adjustedprice=self.adjustprice()
-  
- def adjustprice(self):
-   self.adjustedprice=float(self.ogprice * (0.8**(2020-self.year)))
-   self.adjustedprice=round((self.adjustedprice),2) - self.mileage/100
-   return self.adjustedprice
- 
- def __str__(self):
-   return("This car is a {} model from {}. It was originally worth ${} and has driven {} miles. It is now worth {}".format(self.year,self.brand,self.ogprice,self.mileage, self.adjustedprice))
- 
- def __lt__(self,value):
-   if type(value)==car:
-     return self.adjustedprice<value.adjustedprice
-   elif type(value)!=object: return self.adjustedprice < value
- 
- def __gt__(self,value):
-   if type(value)==car:
-     return self.adjustedprice > value.adjustedprice
-   elif type(value)!=object: return self.adjustedprice > value
- 
- def __eq__(self,value):
-   if type(value)==car:
-     return self.adjustedprice == value.adjustedprice
-   elif type(value)!=object:
-     return self.adjustedprice == value
- 
- def __ne__(self,value):
-   if type(value)==car:
-     return self.adjustedprice != value.adjustedprice
-   elif type(value)!=object:
-     return self.adjustedprice != value
- 
- def __le__(self,value):
-   if type(value)==car:
-     return self.adjustedprice <= value.adjustedprice
-   elif type(value)!=object:
-     return self.adjustedprice <= value
- 
- def __ge__(self,value):
-   if type(value)==car:
-     return self.adjustedprice >= value.adjustedprice
-   elif type(value)!=object:
-     return self.adjustedprice >= value
-    
- def __add__(self,value):
-   if type(value)==car:
-     return None
-   elif type(value)!=object:
-     self.mileage += value
-     self.adjustedprice = self.adjustprice()
- 
- def __sub__(self,value):
-   if type(value)==car:
-     return None
-   elif type(value)!=object:
-     self.mileage -= value
-     self.adjustedprice = self.adjustprice()
- 
- def __truediv__(self,value):
-   if type(value)==car:
-     return None
-   elif type(value)!=object:
-     self.mileage = self.mileage / value
-     self.adjustedprice = self.adjustprice()
-     
- def __mul__(self,value):
-   if type(value)==car:
-     return None
-   elif type(value)!=object:
-     self.mileage = self.mileage*value
-     self.adjustedprice = self.adjustprice()
- 
-Maserati = car(2009,"porsche",30000,14000)
+    def __init__(self, year, brand, ogprice, mileage):
+        self.year = year
+        self.brand = brand
+        self.ogprice = ogprice
+        self.mileage = mileage
+        self.adjustedprice = self.adjustprice()
+
+    def adjustprice(self):
+        self.adjustedprice = float(self.ogprice * (0.8 ** (2020 - self.year)))
+        self.adjustedprice = (
+            round((self.adjustedprice), 2) - self.mileage / 100
+        )
+        return self.adjustedprice
+
+    def __str__(self):
+        return "This car is a {} model from {}. It was originally worth ${} and has driven {} miles. It is now worth {}".format(
+            self.year,
+            self.brand,
+            self.ogprice,
+            self.mileage,
+            self.adjustedprice,
+        )
+
+    def __lt__(self, value):
+        if type(value) == car:
+            return self.adjustedprice < value.adjustedprice
+        elif type(value) != object:
+            return self.adjustedprice < value
+
+    def __gt__(self, value):
+        if type(value) == car:
+            return self.adjustedprice > value.adjustedprice
+        elif type(value) != object:
+            return self.adjustedprice > value
+
+    def __eq__(self, value):
+        if type(value) == car:
+            return self.adjustedprice == value.adjustedprice
+        elif type(value) != object:
+            return self.adjustedprice == value
+
+    def __ne__(self, value):
+        if type(value) == car:
+            return self.adjustedprice != value.adjustedprice
+        elif type(value) != object:
+            return self.adjustedprice != value
+
+    def __le__(self, value):
+        if type(value) == car:
+            return self.adjustedprice <= value.adjustedprice
+        elif type(value) != object:
+            return self.adjustedprice <= value
+
+    def __ge__(self, value):
+        if type(value) == car:
+            return self.adjustedprice >= value.adjustedprice
+        elif type(value) != object:
+            return self.adjustedprice >= value
+
+    def __add__(self, value):
+        if type(value) == car:
+            return None
+        elif type(value) != object:
+            self.mileage += value
+            self.adjustedprice = self.adjustprice()
+
+    def __sub__(self, value):
+        if type(value) == car:
+            return None
+        elif type(value) != object:
+            self.mileage -= value
+            self.adjustedprice = self.adjustprice()
+
+    def __truediv__(self, value):
+        if type(value) == car:
+            return None
+        elif type(value) != object:
+            self.mileage = self.mileage / value
+            self.adjustedprice = self.adjustprice()
+
+    def __mul__(self, value):
+        if type(value) == car:
+            return None
+        elif type(value) != object:
+            self.mileage = self.mileage * value
+            self.adjustedprice = self.adjustprice()
+
+
+Maserati = car(2009, "porsche", 30000, 14000)
