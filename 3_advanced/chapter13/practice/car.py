@@ -29,4 +29,3 @@ self.adjustedprice=round((self.adjustedprice),2)-self.mileage/100
 """
 
 # write your code below
-
