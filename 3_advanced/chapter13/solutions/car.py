@@ -47,7 +47,8 @@ class car:
         return self.adjustedprice
 
     def __str__(self):
-        return "This car is a {} model from {}. It was originally worth ${} and has driven {} miles. It is now worth {}".format(
+        return "This car is a {} model from {}. It was originally worth ${} and \
+        has driven {} miles. It is now worth {}".format(
             self.year,
             self.brand,
             self.ogprice,
