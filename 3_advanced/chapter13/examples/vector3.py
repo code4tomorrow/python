@@ -11,10 +11,10 @@ class Vector:
         # print("Assigned values ", vals, " to vector.")
 
     """
-	String Function
- 
-	Converts the object to a string in readable format for programmers
-	"""
+    String Function
+
+    Converts the object to a string in readable format for programmers
+    """
 
     def __str__(self):
         return str(self.vals)
