@@ -14,7 +14,7 @@ class Vector:
 
     """
     String Function
- 
+
     Converts the object to a string in readable format for programmers
     """
 
