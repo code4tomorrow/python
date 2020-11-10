@@ -21,7 +21,7 @@ class Matrix:
      assert type(self.thelist[items])==list
      assert len(self.thelist[0]) == len(self.thelist[items])
      for things in range(len(self.thelist[items])):
-assert type(self.thelist[items][things])==int
+       assert type(self.thelist[items][things])==int
 
  def __str__(self):
    return str(self.thelist)
