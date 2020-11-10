@@ -13,7 +13,7 @@ import math
 
 """
 This is the unmodified Matrix class code.
- 
+
 class Matrix:
  def __init__(self,thelist: list):
    self.thelist=thelist
@@ -22,7 +22,7 @@ class Matrix:
      assert len(self.thelist[0]) == len(self.thelist[items])
      for things in range(len(self.thelist[items])):
 assert type(self.thelist[items][things])==int
- 
+
  def __str__(self):
    return str(self.thelist)
 """
