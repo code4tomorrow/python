@@ -32,7 +32,7 @@ class Vector:
         assert type(vec) == Vector
         if self.length > vec.length:
             a = self.morecheck(vec, vec)
-            if a != None:
+            if a is not None:
                 return a
             return True  # if all other values ==, self = longer/greater
         if self.length < vec.length:
