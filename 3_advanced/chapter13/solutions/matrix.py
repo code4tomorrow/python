@@ -9,17 +9,19 @@ the contents of the matrix using print without having to access its field.
 
 # write your code below
 
+
 class Matrix:
-  def __init__(self,thelist: list):
-    self.thelist=thelist
-    for items in range(len(self.thelist)):
-      assert type(self.thelist[items])==list
-      assert len(self.thelist[0]) == len(self.thelist[items])
-      for things in range(len(self.thelist[items])):
-        assert type(self.thelist[items][things])==int
+    def __init__(self, thelist: list):
+        self.thelist = thelist
+        for items in range(len(self.thelist)):
+            assert type(self.thelist[items]) == list
+            assert len(self.thelist[0]) == len(self.thelist[items])
+            for things in range(len(self.thelist[items])):
+                assert type(self.thelist[items][things]) == int
 
-  def __str__(self):
-    return str(self.thelist)
+    def __str__(self):
+        return str(self.thelist)
 
-mymatrix=Matrix([[3,4],[7,8],[4,8]])
+
+mymatrix = Matrix([[3, 4], [7, 8], [4, 8]])
 print(str(mymatrix))
