@@ -1,5 +1,6 @@
 # Problem name: odd_squares
-# Given a list of integers, create a list of all the squares of the odd integers within the list.
+# Given a list of integers, create a list of all the squares of the odd
+# integers within the list.
 # Use a list comprehension to solve it.
 
 # the given code takes an input and makes it a list of numbers
