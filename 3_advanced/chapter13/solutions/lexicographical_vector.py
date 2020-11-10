@@ -34,17 +34,17 @@ class Vector:
             a = self.morecheck(vec, vec)
             if a != None:
                 return a
-            return True  # since, if all other values are the same, self is longer and thus greater
+            return True  # if all other values ==, self = longer/greater
         if self.length < vec.length:
             a = self.morecheck(vec, self)
-            if a != None:
+            if a is not None:
                 return a
-            return False  # since, if all other values are the same, self is shorter and thus smaller
+            return False  # if all other values ==, self = shorter/smaller
         if self.length == vec.length:
             a = self.morecheck(vec, self)
-            if a != None:
+            if a is not None:
                 return a
-            return False  # since, if all other values are the same, self is equal and thus not greater
+            return False  # if all other values ==, self = equal/not greater
 
     def lesscheck(self, vec, shorter):
         for i in range(shorter.length):
@@ -57,16 +57,16 @@ class Vector:
         assert type(vec) == Vector
         if self.length > vec.length:
             a = self.lesscheck(vec, vec)
-            if a != None:
+            if a is not None:
                 return a
-            return False  # since, if all other values are the same, self is longer and thus greater
+            return False  # if all other values ==, self = longer/greater
         if self.length < vec.length:
             a = self.lesscheck(vec, self)
-            if a != None:
+            if a is not None:
                 return a
-            return True  # since, if all other values are the same, self is shorter and thus smaller
+            return True  # if all other values ==, self = shorter/smaller
         if self.length == vec.length:
             a = self.lesscheck(vec, self)
-            if a != None:
+            if a is not None:
                 return a
-            return False  # since, if all other values are the same, self is equal and thus not less
+            return False  # if all other values ==, self = equal/not less
