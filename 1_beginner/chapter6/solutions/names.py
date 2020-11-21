@@ -14,7 +14,7 @@ people = ["Mark", "Anya", "Wan", "Jewel", "Stef", "Hank"]
 # Some other possible answers:
 # group = people[0, 5, 2] or people[0, len(people), 2]
 
-group = people[0 : len(people) : 2]
+group = people[0 : len(people) : 2]  # noqa: E203
 
 print(people)
 print(group)

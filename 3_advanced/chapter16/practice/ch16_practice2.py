@@ -6,9 +6,9 @@ analyzed for you. Do the same for all the other lines.
 At the end, put the total running time of code.
 """
 
-#ex_list = [?,?,?,...]#Input,O(1)
-for i in range(2):#O(1)
-    ex_list.insert(0,1)
+# ex_list = [?,?,?,...]#Input,O(1)
+for i in range(2):  # O(1)
+    ex_list.insert(0, 1)
     ex_list.append(1)
 for number in ex_list:
     for number in ex_list:
