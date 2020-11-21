@@ -1,9 +1,9 @@
 """
 A new car is said to devalue 20% in the first year. Assuming that
 this trend continues and that mileage divided by 100 is all you
-subtract from this adjusted price, make a class “car” that has at
-least the attributes “year, original price (aka og price), and
-mileage.” Also, follow these guidelines.
+subtract from this adjusted price, make a class "car" that has at
+least the attributes "year, original price (aka og price), and
+mileage." Also, follow these guidelines.
 
 --When using str() on a car, it should return the year, original
   price, mileage, and adjusted price.
