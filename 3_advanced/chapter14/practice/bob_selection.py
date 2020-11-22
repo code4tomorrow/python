@@ -8,8 +8,14 @@ don’t print anything. The list given to him contains lists which contain
 the person’s name and age. Use enumerate to solve this problem.
 """
 
-#the list is given to him
-people_list = [("Ana", 22), ("Mark", 41), ("Dan", 10), \
-               ("Jack", 14), ("Ben", 51), ("Jorge", 65)]
+# the list is given to him
+people_list = [
+    ("Ana", 22),
+    ("Mark", 41),
+    ("Dan", 10),
+    ("Jack", 14),
+    ("Ben", 51),
+    ("Jorge", 65),
+]
 
 # write your code below
