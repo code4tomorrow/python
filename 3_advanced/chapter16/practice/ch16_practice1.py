@@ -13,4 +13,3 @@ for num in ex_list:
         num_even += 1
 print(num_even)
 """
-
