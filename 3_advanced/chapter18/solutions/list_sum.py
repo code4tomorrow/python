@@ -2,7 +2,7 @@ def listsum(arr):
     total = 0
 
     for i in arr:
-        if type(i) == type([]):
+        if isinstance(i, list):
             total = total + listsum(i)
         else:
             total = total + i
