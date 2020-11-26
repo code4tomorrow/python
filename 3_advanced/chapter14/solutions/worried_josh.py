@@ -20,7 +20,7 @@ n = int(input())
 said_yes = False
 for index, name in enumerate(students):
     if name == "Josh" and index + 1 <= n:
-	print("YES!")
-	said_yes = True
+        print("YES!")
+        said_yes = True
 if not said_yes:
     print("NO :(")
