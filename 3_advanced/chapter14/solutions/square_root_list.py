@@ -14,4 +14,4 @@ for idx in range(len(ex_list)):
     ex_list[idx] = int(ex_list[idx])
 
 # write your code below
-new_list = [number**(1/2) for number in ex_list]
+new_list = [number ** (1 / 2) for number in ex_list]
