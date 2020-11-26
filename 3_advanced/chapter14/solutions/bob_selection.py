@@ -21,7 +21,6 @@ people_list = [
 
 # write your code below
 for index, person_data in enumerate(people_list):
-    if person_data[1]%5 == 0 and index %5 == 0:
-        print(person_data[0])
-	    break
-		
+	if person_data[1] % 5 == 0 and index % 5 == 0:
+		print(person_data[0])
+		break
