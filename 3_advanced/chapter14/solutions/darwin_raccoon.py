@@ -1,12 +1,12 @@
 """
 Problem Name: darwin_raccoon
-Darwin is observing raccoons’ growths on an unnamed island. He spends 7 days 
-in total on this island, and on every day, he would record the average growth of 
-raccoons in inches. He loses data on day 7, so he decides to make the data on 
-that day to be the maximum of the previous 6 days. He needs to make a dictionary 
-for use later where the key is the day number and the value is the average growth 
-of raccoons on that day. You help him make the dictionary. Use zip to solve this 
-problem.
+Darwin is observing raccoons’ growths on an unnamed island. He spends 7 days
+in total on this island, and on every day, he would record the average growth
+of raccoons in inches. He loses data on day 7, so he decides to make the data
+on that day to be the maximum of the previous 6 days. He needs to make a
+dictionary for use later where the key is the day number and the value is the
+average growth of raccoons on that day. You help him make the dictionary.
+Use zip to solve this problem.
 """
 
 # The lists are already given to you
