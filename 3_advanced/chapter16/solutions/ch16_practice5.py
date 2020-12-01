@@ -6,7 +6,7 @@ analyzed for you. Do the same for all the other lines.
 At the end, put the total running time of code.
 The input of the problem is ex_2d_list, and assume
 it has n numbers. This problem assumes you have the
-knowledge of 2D Lists. 
+knowledge of 2D Lists.
 
 
 ex_2d_list = [[?,?,?],[?,?]...]#Input,O(1)
