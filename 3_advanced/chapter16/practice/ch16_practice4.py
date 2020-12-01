@@ -14,7 +14,7 @@ for i in range(len(ex_list)):#O(n)
     ex_list.append(i)
 for i in ex_list:
     print(i)
-    ex_list.append(i)	
+    ex_list.append(i)
 #Total running time = There is no upper bound, so
 #no Big-O.
 #
