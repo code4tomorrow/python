@@ -1,5 +1,5 @@
 # Create a recursive sequence that finds the sum of
-# a list that may contain another list within it
+# a list that may contain another list within it.
 
 def listsum(arr):
     total = 0
