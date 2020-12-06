@@ -1,4 +1,4 @@
-# Create a recursive method that mirrors how a 
+# Create a recursive method that mirrors how a
 # factorial would work in math.
 
 def factorial(n):
