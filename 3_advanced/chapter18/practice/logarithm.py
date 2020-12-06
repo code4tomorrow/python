@@ -10,6 +10,7 @@ Ex: logarithm of 9 to base 3 = 2; In this example, since 3 to the
 2nd power gives you 9, the logarithm of 9 to base 3 is equal to 2.
 """
 
+
 def logarithm():  # add parameters
     # add here and remove "pass"
     pass
