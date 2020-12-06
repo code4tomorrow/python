@@ -1,0 +1,14 @@
+def generatePowerset(elements):
+  setSize = len(elements)
+  vec = list(elements)
+  limit = 1 << setSize # << is same as 1 * 2**setSize
+  result = [None for i in range(limit)]
+  for i in range(limit):
+    currentSet = set()
+    for j in range(setSize):
+      if ((1 << j) & i) > 0: # bitwise operations
+        currentSet.add(vec[j])
+    result[i] = currentSet
+  return result
+
+print(generatePowerset({1, 2, 3}))
