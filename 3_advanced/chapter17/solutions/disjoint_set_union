@@ -1,0 +1,52 @@
+class DSU:
+  def __init__(self, size):
+    self.parents = [i for i in range(size)]
+
+  def parent(self, n):
+    if (not(self.parents[n] == n)):
+      self.parents[n] = self.parent(self.parents[n])
+    return self.parents[n]
+
+  def isMerged(self, n1, n2):
+    return self.parent(n1) == self.parent(n2)
+
+  def merge(self, n1, n2):
+    self.parents[self.parent(n1)] = self.parent(n2)
+
+# numberOfCities: number of cities that needs to be connected
+# possibleBridges: a vector containing a vectors each of size 3 which denotes [cityA, cityB, cost]
+def findMinimumCost(numberOfCities, possibleBridges):
+  size = numberOfCities
+  edges = possibleBridges
+  table = {}
+  weights = []
+  dsu = DSU(size)
+  for edge in edges:
+    if edge[2] in table:
+      table[edge[2]].append([edge[0], edge[1]])
+    else:
+      table[edge[2]] = [[edge[0], edge[1]]]
+      weights.append(edge[2])
+  weights.sort()
+  total = 0
+  merged = 0
+  for weight in weights:
+    for edge in table[weight]:
+      n1 = edge[0]
+      n2 = edge[1]
+      if dsu.isMerged(n1, n2):
+        continue
+      dsu.merge(n1, n2)
+      total += weight
+      merged += 1
+      if merged == size - 1:
+        return total
+  return total
+
+edges = [
+  [0, 1, 1],
+  [0, 2, 1],
+  [1, 2, 2]
+]
+
+print(findMinimumCost(3, edges))
