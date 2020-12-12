@@ -33,11 +33,11 @@ set1 = {1, 2, 3, 4, 5}
 set2 = {3, 4, 5, 6, 7}
 
 # will print 3,4,5 which is the common items (the 'intersection')
-print(set1.intersection(set2))  
+print(set1.intersection(set2))
 # will print 1,2 which is the different items in set 1 (the 'difference')
-print(set1.difference(set2))  
+print(set1.difference(set2))
 # will print 6,7 which is the difference items in set 2 (the 'difference')
-print(set2.difference(set1))  
+print(set2.difference(set1))
 # will print 1,2,6,7 since those are the different items in both
 print(set1.symettricdifference(set2))
 # will print 1,2,3,4,5,6,7 since those are the unique items
