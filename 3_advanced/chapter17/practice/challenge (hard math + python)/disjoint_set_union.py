@@ -9,11 +9,12 @@ It should return the minimum total cost of building such a set of bridges (donâ€
 # numberOfCities: number of cities that needs to be connected
 # possibleBridges: a vector containing a vectors each of size 3 which denotes [cityA, cityB, cost]
 def findMinimumCost(numberOfCities, possibleBridges):
-  # put your code here; remove pass
-  pass
+    # put your code here; remove pass
+    pass
+
 
 edges = [
-	[0, 1, 1],
-	[0, 2, 1],
-	[1, 2, 2],
+    [0, 1, 1],
+    [0, 2, 1],
+    [1, 2, 2],
 ]
