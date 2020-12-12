@@ -3,6 +3,7 @@
 # a number which is computed by dividing the size of the intersection of the two sets by their union size.
 # Note: the intersection is the # of elements that both sets have in common.
 
+
 def compute_similarity(set1, set2):
-  # put your code here; remove "pass"
-  pass
+    # put your code here; remove "pass"
+    pass
