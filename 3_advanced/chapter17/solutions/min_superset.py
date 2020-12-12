@@ -15,3 +15,12 @@ def findMinSupersetLength(sets):
 sets = [{1, 2, 3}, {2, 3, 5}, {1, 3, 6}]
 
 print(findMinSupersetLength(sets))
+
+
+"""
+Alternate, more understandable solution:
+def findMinSupersetLength(sets):
+    a = sets[0]
+    a = a.union(sets[1]).union(set[2])
+    return len(a)
+"""
