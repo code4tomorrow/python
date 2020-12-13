@@ -22,6 +22,5 @@ anothtuple[3][0] = 6
 # includes .index and .count
 lasttupexample = (4, 6, 8, 10, 4, 2)
 print(lasttupexample.count(4))  # prints 2 since there are two 4's
-print(
-    lasttupexample.index(4)
-)  # works just like indexes in lists; prints 0, the first occurence
+print(lasttupexample.index(4))
+# ^works just like list indexes; prints 0 which = the first occurence 
