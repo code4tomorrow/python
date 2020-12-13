@@ -7,7 +7,7 @@ mylasttuple = (
     3,
     {5, 6},
     [7],
-)  # it's a valid tuple; tuples accept all types
+)  # a valid tuple; tuples accept all types
 
 # modifying a tuple
 # you can't modify a tuple's main elements
