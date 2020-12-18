@@ -17,13 +17,13 @@
 # (search up calculating “determinant using cofactor expansion”).
 
 
-def calculatedeterminant(matrix):
+def calculateDeterminant(matrix):
     # put your code here; remove "pass"
     pass
 
 
-def linearindependence(mat):
-    return calculatedeterminant != 0
+def testLinearIndependence(mat):
+    return calculateDeterminant(mat) != 0
 
 
 # mat is an example of an acceptable list of 3 (n) lists each containing
