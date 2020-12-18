@@ -8,7 +8,7 @@
 # (don’t worry about tuples w/ same #)
 
 
-def tuple_bears(alist: list):  # it doesn't have to be named a list
+def tuple_bears(item):
     # put your code here and remove pass
     pass
 
