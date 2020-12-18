@@ -5,6 +5,6 @@
 # The set of all such subsets is referred to as the powerset.
 
 
-def powerset_generator(elements):
+def generatePowerset(elements):
     # put your code here; remove "pass"
     pass
