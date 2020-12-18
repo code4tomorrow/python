@@ -3,6 +3,6 @@
 # use sets in your code
 
 
-def duplicate_finder(lst):
+def dup_detector(item):
     # put your code here and remove "pass"
     pass
