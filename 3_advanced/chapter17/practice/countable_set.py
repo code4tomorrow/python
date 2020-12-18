@@ -21,7 +21,7 @@ class CountableSet:
     def delete(self, x):
         pass
 
-    # returns the number of times x has been inserted into the set
+    # should return  the number of times x has been inserted into the set
     # x is the integer being queried
     def get(self, x):
         pass
