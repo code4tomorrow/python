@@ -22,7 +22,7 @@ def calculatedeterminant(matrix):
   pass
 
 
-def linearindependence(mat)
+def linearindependence(mat):
   return calculatedeterminant != 0
 
 
