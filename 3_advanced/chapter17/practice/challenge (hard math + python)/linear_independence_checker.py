@@ -26,6 +26,6 @@ def linearindependence(mat):
     return calculatedeterminant != 0
 
 
-# mat is an example of an acceptable list of 3 (n) lists each containing 3 (n) integers
-# hint: if you use mat, it should give you True
+# mat is an example of an acceptable list of 3 (n) lists each containing
+# 3 (n) integers; hint: if you use mat, it should give you True
 mat = [[1, 1, 4], [0, 0, 5], [0, 7, 8]]
