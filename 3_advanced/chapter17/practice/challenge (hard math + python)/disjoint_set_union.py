@@ -12,6 +12,7 @@
 # numberOfCities: number of cities that needs to be connected
 # possibleBridges: a vector containing a vectors each of size 3
 # which denotes [cityA, cityB, cost]
+
 def findMinimumCost(numberOfCities, possibleBridges):
     # put your code here; remove pass
     pass
