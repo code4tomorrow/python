@@ -1,13 +1,7 @@
 # initializing a tuple
 mytuple = ()  # is an empty tuple
 myothtuple = (1,)  # tuples with just 1 item need a comma at the end
-mylasttuple = (
-    4,
-    6,
-    3,
-    {5, 6},
-    [7],
-)  # a valid tuple; tuples accept all types
+moretuple = (4, 6, 3, {5, 6}, [7])  # valid; tuples accept all types
 
 # modifying a tuple
 # you can't modify a tuple's main elements
