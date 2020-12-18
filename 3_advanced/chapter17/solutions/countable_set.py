@@ -1,3 +1,9 @@
+# Create a class called CountableSet which stores the number of times each
+# element has been inserted into the CountableSet object.
+# (Basically, store it like element: #of times inserted into Countable Set)
+# Implement the following class:
+
+
 class CountableSet:
     def __init__(
         self, objs
