@@ -3,7 +3,6 @@
 
 def fibonacci(n):
 
-
     # Parameter: n is the position of the number in the Fibonacci sequence.
     # Output: The nth number of the Fibonacci sequence will be outputted.
 
