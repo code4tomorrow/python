@@ -1,4 +1,5 @@
-#Code for binary search
+# Code for binary search
+
 
 def binary_search(arr, low, high, x):
     """
@@ -17,13 +18,14 @@ def binary_search(arr, low, high, x):
 
     while high >= low:
         mid = (high + low) // 2
-        if arr[mid] == x:   #Base Case 1
+        if arr[mid] == x:  # Base Case 1
             return mid
-        elif arr[mid] < x:  #Recursive Case 1
+        elif arr[mid] < x:  # Recursive Case 1
             return binary_search(arr, mid + 1, high, x)
-        else:               #Recursive Case 2
+        else:  # Recursive Case 2
             return binary_search(arr, low, mid - 1, x)
-    else:                   #Base Case 2: element not found
+    else:  # Base Case 2: element not found
         return -1
-    
-print(binary_search([1,24,28,30,40,52], 0, 5, 28))
+
+
+print(binary_search([1, 24, 28, 30, 40, 52], 0, 5, 28))

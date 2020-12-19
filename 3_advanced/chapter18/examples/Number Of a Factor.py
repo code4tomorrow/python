@@ -1,6 +1,7 @@
-#Code to figure out how many of a factor a number has
+# Code to figure out how many of a factor a number has
 
-def number_factor(number, factor, factor_counter = 0):
+
+def number_factor(number, factor, factor_counter=0):
     """
     Parameters:
     1)number is the number in which we are finding the number of
@@ -12,11 +13,11 @@ def number_factor(number, factor, factor_counter = 0):
     by the parameter factor. This number is also the parameter
     factor_counter right before it is returned. EX: 3
     """
-    
-    if number % factor != 0: #Base Case
+
+    if number % factor != 0:  # Base Case
         return factor_counter
-    else:                    #Recursive Case
-        return number_factor(number/factor, factor, factor_counter + 1)
+    else:  # Recursive Case
+        return number_factor(number / factor, factor, factor_counter + 1)
+
 
 print(number_factor(24, 2))
-
