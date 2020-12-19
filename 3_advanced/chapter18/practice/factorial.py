@@ -4,8 +4,8 @@
 
 def factorial(n):
     if n == 0:
-        # add here
+        # add here and remove "pass"
         pass
     else:
-        # add here
+        # add here and remove "pass"
         pass
