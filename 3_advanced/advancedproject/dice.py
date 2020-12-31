@@ -1,14 +1,16 @@
-# Daniel likes to get together with his friends every week on a random day to play dice.
-# In his game of dice, the objective is to see who gets three of the same number first.
+# Daniel likes to get together with his friends every week on a
+# random day to play dice. In his game of dice, the objective is
+# to see who gets three of the same number first.
 
-# Algorithm: Use a class to represent a player. Create a turn log (using 2d list with
-# each inner list containing the outcomes for all players representing a turn.
-# Ex: [[1,2,4],[4,2,6]] ). Create a dictionary (that is an instance variable of
-# the player class) to keep track of how many of each dice outcome each person playing
-# the game got. For example, Daniel’s outcomes can look like
-# {1:2, 2:3, 3:1, 4:0, 5:1, 6:2}. Once a person gets 3 of the same outcome,
-# a unique statement will be created (the statement should be like
-# "Player x won").
+# Algorithm: Use a class to represent a player. Create a turn log
+# (using 2d list with each inner list containing the outcomes for
+# all players representing a turn. Ex: [[1,2,4],[4,2,6]] ).
+# Create a dictionary (that is an instance variable of the player
+# class) to keep track of how many of each dice outcome each
+# person playing the game got. For example, Daniel’s outcomes can
+# look like {1:2, 2:3, 3:1, 4:0, 5:1, 6:2}. Once a person gets 3
+# of the same outcome, a unique statement will be created
+# (the statement should be like "Player x won").
 # If multiple people won, it should be like "Player x, y won"
 
 # Follow these steps to create this program.
@@ -17,14 +19,16 @@
 # 2) Create a main class with
 # --- an init function that asks the user for how many
 # players and creates that many player classes
-# --- a turn log that should take each player's result each round (see above)
+# --- a turn log that should take each player's result each
+# round (see above)
 # --- a 'round' method that simulates one round of the game
 
 # 3) Create a player class with
 # --- a dictionary that stores how many times they got each outcome
 # --- an attribute 'win' (it tracks whether the player has rolled 3
 # of the same thing)
-# --- a 'roll' method that outputs a random int between 0 and 6 inclusive
+# --- a 'roll' method that outputs a random int between 0 and
+# 6 inclusive
 
 import random
 
@@ -38,9 +42,10 @@ class main:
         self.over = False
 
         print(
-            "Note: player 0 is the first player, player 1 is the second player, etc"
+            "Note: player 0 is the first player, " +
+            "player 1 is the second player, etc"
         )
-        while self.over == False:
+        while not self.over:
             self.round()
         print("This is the record of the game")
         print(self.turnlog)
@@ -70,4 +75,4 @@ class player:
             self.win = True
 
 
-letplay = main()
+letsplay = main()
