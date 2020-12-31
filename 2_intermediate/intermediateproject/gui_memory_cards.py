@@ -127,8 +127,8 @@ class memcards(tk.Frame):
                 if len(self.flipped) == len(self.memorder):
                     self.label["text"] = "Congratulations, you win!"
                 time.sleep(0.01)
-        except:
-            pass
+        except tk.TclError:
+            print("Exited successfully, Game Over")
 
 
 items = {"a": 1, "b": 2, "c": 3, "d": 4}
