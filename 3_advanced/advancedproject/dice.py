@@ -1,15 +1,15 @@
 # Daniel likes to get together with his friends every week on a random day to play dice.
-# In his game of dice, the objective is to see who gets three of the same number first.  
+# In his game of dice, the objective is to see who gets three of the same number first.
 
 # Algorithm: Use a class to represent a player. Create a turn log (using 2d list with
-# each inner list containing the outcomes for all players representing a turn. 
-# Ex: [[1,2,4],[4,2,6]] ). Create a dictionary (that is an instance variable of 
+# each inner list containing the outcomes for all players representing a turn.
+# Ex: [[1,2,4],[4,2,6]] ). Create a dictionary (that is an instance variable of
 # the player class) to keep track of how many of each dice outcome each person playing
-# the game got. For example, Daniel’s outcomes can look like 
-# {1:2, 2:3, 3:1, 4:0, 5:1, 6:2}. Once a person gets 3 of the same outcome, 
-# a unique statement will be created (the statement should be like 
+# the game got. For example, Daniel’s outcomes can look like
+# {1:2, 2:3, 3:1, 4:0, 5:1, 6:2}. Once a person gets 3 of the same outcome,
+# a unique statement will be created (the statement should be like
 # "Player x won").
-# If multiple people won, it should be like "Player x, y won" 
+# If multiple people won, it should be like "Player x, y won"
 
 # Follow these steps to create this program.
 # 1) Import the random module which we will be using later.
@@ -22,13 +22,14 @@
 
 # 3) Create a player class with
 # --- a dictionary that stores how many times they got each outcome
-# --- an attribute 'win' (it tracks whether the player has rolled 3 
+# --- an attribute 'win' (it tracks whether the player has rolled 3
 # of the same thing)
 # --- a 'roll' method that outputs a random int between 0 and 6 inclusive
 
 import random
 
-class main():
+
+class main:
     def __init__(self):
         self.playercount = int(input("How many players are playing?  "))
         self.turnlog = []
@@ -36,7 +37,9 @@ class main():
         self.winners = []
         self.over = False
 
-        print("Note: player 0 is the first player, player 1 is the second player, etc")
+        print(
+            "Note: player 0 is the first player, player 1 is the second player, etc"
+        )
         while self.over == False:
             self.round()
         print("This is the record of the game")
@@ -49,20 +52,22 @@ class main():
             if self.players[i].win:
                 self.winners.append(i)
                 self.over = True
-        self.turnlog.append([self.players[x].thisround for x in range(self.playercount)])
+        self.turnlog.append(
+            [self.players[x].thisround for x in range(self.playercount)]
+        )
 
 
-class player():
+class player:
     def __init__(self):
         self.thisround = None
-        self.outcomes = {1:0, 2:0, 3:0, 4:0, 5:0, 6:0}
+        self.outcomes = {1: 0, 2: 0, 3: 0, 4: 0, 5: 0, 6: 0}
         self.win = False
 
     def roll(self):
-        self.thisround = random.randint(1,6)
+        self.thisround = random.randint(1, 6)
         self.outcomes[self.thisround] += 1
         if 3 in self.outcomes.values():
             self.win = True
-        
-        
+
+
 letplay = main()
