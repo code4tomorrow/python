@@ -25,7 +25,15 @@
 # there should be 2 player instances in this list).
 # --- instance variable in init: holding a turn log that should
 # take each player's result each round (see in algorithm description)
-# --- a 'round' method that simulates one round of the game
+# --- instance variable in init: holding the winners for this game
+# --- instance variable in init: holding whether this game is over
+# or not.
+# --- a 'round' method that simulates one round of the game. so all
+# the players should roll a random outcome(more in section 3). 
+# remember, every round, the turn log should be updated.
+# also, check if the game has been won, and if it has, update the 
+# list containing the winners and the variable containing whehter
+# the game has been won. 
 
 
 # 3) Create a player class with
@@ -38,6 +46,9 @@
 # --- a 'roll' method that determines the random outcome for the player
 # (dice: a random int between 0 and 6 inclusive) and also whether the
 # player won this round or not.
+
+# At the end run the main class by doing main(). Running main()
+# should print the turn log and print which player(s) won.
 
 import random
 
