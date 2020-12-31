@@ -2,9 +2,9 @@
 # random day to play dice. In his game of dice, the objective is
 # to see who gets three of the same number first.
 
-# Algorithm: Use a class to represent a player. Create a turn log
-# (using 2d list with each inner list containing the outcomes for
-# all players representing a turn. Ex: [[1,2,4],[4,2,6]] ).
+# Algorithm Description: Use a class to represent a player. Create a
+# turn log (using 2d list with each inner list containing the outcomes
+# for all players representing a turn. Ex: [[1,2,4],[4,2,6]] ).
 # Create a dictionary (that is an instance variable of the player
 # class) to keep track of how many of each dice outcome each
 # person playing the game got. For example, Daniel’s outcomes can
@@ -13,20 +13,21 @@
 # (the statement should be like "Player x won").
 # If multiple people won, it should be like "Player x, y won"
 
-# Follow these steps to create this program.
+# Follow these steps to create this algorithm.
 # 1) Import the random module which we will be using later.
 
 # 2) Create a main class with
 # --- an init function that asks the user for how many
 # players and creates that many player classes
-# --- a turn log that should take each player's result each
-# round (see above)
+# --- instance variable: holding a turn log that should take
+# each player's result each round (see above)
 # --- a 'round' method that simulates one round of the game
 
 # 3) Create a player class with
-# --- a dictionary that stores how many times they got each outcome
-# --- an attribute 'win' (it tracks whether the player has rolled 3
-# of the same thing)
+# --- instance variable: holding a dictionary that stores how many
+# times they got each outcome
+# --- instance variable: that tracks whether the
+# player has rolled 3 of the same thing(in other words won) or not.
 # --- a 'roll' method that outputs a random int between 0 and
 # 6 inclusive
 
