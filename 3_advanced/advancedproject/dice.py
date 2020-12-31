@@ -42,8 +42,8 @@ class main:
         self.over = False
 
         print(
-            "Note: player 0 is the first player, " +
-            "player 1 is the second player, etc"
+            "Note: player 0 is the first player, "
+            + "player 1 is the second player, etc"
         )
         while not self.over:
             self.round()
