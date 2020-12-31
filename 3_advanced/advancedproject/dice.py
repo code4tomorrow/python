@@ -17,19 +17,27 @@
 # 1) Import the random module which we will be using later.
 
 # 2) Create a main class with
-# --- an init function that asks the user for how many
+# --- instance variable in init: that asks the user for how many
 # players and creates that many player classes
-# --- instance variable: holding a turn log that should take
-# each player's result each round (see above)
+# --- instance variable in init: holding a list containing player
+# (which is a class covered in the next section) instances based
+# on how much the user inputted(so if user says 2 players playing,
+# there should be 2 player instances in this list).
+# --- instance variable in init: holding a turn log that should
+# take each player's result each round (see in algorithm description)
 # --- a 'round' method that simulates one round of the game
 
+
 # 3) Create a player class with
-# --- instance variable: holding a dictionary that stores how many
-# times they got each outcome
-# --- instance variable: that tracks whether the
+# --- instance variable in init: holding the random dice outcome
+# for the player for this round
+# --- instance variable in init: holding a dictionary that
+# stores how many times they got each outcome
+# --- instance variable in init: that tracks whether the
 # player has rolled 3 of the same thing(in other words won) or not.
-# --- a 'roll' method that outputs a random int between 0 and
-# 6 inclusive
+# --- a 'roll' method that determines the random outcome for the player
+# (dice: a random int between 0 and 6 inclusive) and also whether the
+# player won this round or not.
 
 import random
 
