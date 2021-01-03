@@ -16,13 +16,25 @@ return the set of possible TV shows the brothers
 would both watch on that day.
 """
 
+
 def open_mind(first_bro_set, second_bro_set, day):
     pass
     # Remove pass and write your code in here
 
-first_bro_set = {"pokemon", "regular show", "ben 10", 
-                 "adventure time", "mega man"}
-second_bro_set = {"ben 10", "powerpuff girls",
-                  "curious george", "arthur", "mega man"}
+
+first_bro_set = {
+    "pokemon",
+    "regular show",
+    "ben 10",
+    "adventure time",
+    "mega man",
+}
+second_bro_set = {
+    "ben 10",
+    "powerpuff girls",
+    "curious george",
+    "arthur",
+    "mega man",
+}
 print(open_mind(first_bro_set, second_bro_set, 3))
 print(open_mind(first_bro_set, second_bro_set, 7))

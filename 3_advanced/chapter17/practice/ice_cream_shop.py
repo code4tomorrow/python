@@ -8,9 +8,11 @@ are removed. It is possible to solve this problem
 using either discard or remove.
 """
 
+
 def remove_flavours(avail_flavs, no_longer_flavs):
     pass
     # Remove pass and write your code in here
+
 
 avail_flavs = {"Strawberry", "Blueberry", "Vanilla"}
 remove_flavours(avail_flavs, ["Strawberry", "Vanilla"])

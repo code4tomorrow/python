@@ -7,10 +7,12 @@ Example: {1,54, 2, 5} becomes {"Removed 54", 1,
 problem using either discard or remove.
 """
 
+
 def odd_set_day(given_set):
     pass
     # Remove pass and write your code in here
 
-given_set = {1,2,4,5}
+
+given_set = {1, 2, 4, 5}
 odd_set_day(given_set)
 print(given_set)

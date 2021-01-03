@@ -3,8 +3,10 @@
 # Note: The set created from the given dictionary contains
 # only the keys of the dictionary.
 
+
 def set_creator(given_dict):
     pass
     # Remove pass and write your code in here
 
-set_creator({1:"Wall Street", 2: "Main Street", "Tower": 3})
+
+set_creator({1: "Wall Street", 2: "Main Street", "Tower": 3})
