@@ -5,7 +5,7 @@ are his favorite movies. Given a set containing
 the movies that are going to be played today
 and a set containing all his favorite movies,
 return True if all the movies played today are
-his favorite. Return False otherwise. 
+his favorite. Return False otherwise.
 """
 
 
