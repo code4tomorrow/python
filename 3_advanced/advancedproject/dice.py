@@ -32,7 +32,7 @@
 # the players should roll a random outcome(more in section 3).
 # remember, every round, the turn log should be updated.
 # also, check if the game has been won, and if it has, update the
-# list containing the winners and the variable containing whehter
+# list containing the winners and the variable containing whether
 # the game has been won.
 
 # 3) Create a player class with
