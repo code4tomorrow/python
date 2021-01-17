@@ -10,7 +10,10 @@
 # function again.
 
 globlist = []
+
+
 def list_practice():
-  pass  # change this when you write your code
+    pass  # change this when you write your code
+
 
 list_practice()
