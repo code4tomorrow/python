@@ -7,7 +7,7 @@ def int_checker():
     number = input("Please input an integer")
     try:
         number = int(number)
-    except:
+    except ValueError:  # You don't need to specify
         print("Sorry, that wasn't a valid integer")
 
 
