@@ -7,4 +7,4 @@ def int_checker():
     pass  # change this out for the real code
 
 
-int_chekcer()
+int_checker()
