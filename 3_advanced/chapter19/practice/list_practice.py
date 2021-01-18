@@ -6,7 +6,7 @@
 # list. There should be a different error message depending on the type
 # of error raised. Whether or not there are errors, when the user is done
 # (or there is an error), it should print the list and ask the user
-#  whether they would like to continue. If this input is ‘y’, call the
+# whether they would like to continue. If this input is ‘y’, call the
 # function again.
 
 globlist = []
