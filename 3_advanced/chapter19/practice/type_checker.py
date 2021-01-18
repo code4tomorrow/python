@@ -1,6 +1,6 @@
 # Create a function that takes one argument and multiplies it by 4.
-# If the argument is not the correct type, print a message saying so
-# It should be able to run through the list provided
+# If the argument is not the correct type, print a message saying so.
+# It should be able to run through the list provided.
 
 
 def type_checker(x):
