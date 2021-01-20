@@ -1,0 +1,13 @@
+Follow these steps to create this algorithm.
+1) Store words and definitions in a dictionary(or a list, if you want, depending on how you write the code).
+2) Generate a grid(this should probably be in a 2D list) and fill it randomly with the words and definitions.
+Display the grid and indicate that all cards are flipped down.
+3) For every turn:
+3a) Display the grid(showing which cards have been flipped up so far).
+3ai) Define a function called display_grid() to do this.
+3b) Ask the user to pick 2 locations(they should input the row and column of each position they choose).
+If they pick a location with a card that’s already flipped up, ask them to pick again.
+3c) Check whether the cards at the chosen locations are a matching word/definition pair.
+Give the user a message telling them whether they chose correctly or not.
+3d) Update the grid display, so that if the user guessed correctly, they’ll see empty spots on the grid display during the next turn.
+4) Display a win message when the user has all the cards flipped up(when they’ve found all the word/definition pairs).
