@@ -18,10 +18,14 @@ def list_practice():
         times = int(input("How many times would you like to do this? "))
         for i in range(times):
             globlist.append(input("What to append? "))
-        myinput = input("press q to quit, input a number to access that value in the list")
-        while myinput!="q":
+        myinput = input(
+            "press q to quit, input a number to access that value in the list"
+        )
+        while myinput != "q":
             print(globlist[int(myinput)])
-            myinput = input("press q to quit, input a number to access that value of the list")
+            myinput = input(
+                "press q to quit, input a number to access that value of the list"
+            )
     except ValueError:
         print("That's not a number")
     except IndexError:
@@ -29,7 +33,7 @@ def list_practice():
     finally:
         print("This is the list you ended up with: ", globlist)
         cont = input("try again? y/n ")
-        if cont == 'y':
+        if cont == "y":
             list_practice()
 
 
