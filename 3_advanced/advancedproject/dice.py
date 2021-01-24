@@ -13,16 +13,13 @@ class main:
         print()
         player_num = 1
         for player_a in self.players:
-            print("Player " + str(player_num) +
-                  " :" + str(player_a.outcomes))
+            print("Player " + str(player_num) + " :" + str(player_a.outcomes))
             player_num += 1
 
     def round(self):
         for i in range(3):
             self.players[i].roll()
-        self.turnlog.append(
-            [self.players[x].thisround for x in range(3)]
-        )
+        self.turnlog.append([self.players[x].thisround for x in range(3)])
 
 
 class player:
@@ -33,5 +30,6 @@ class player:
     def roll(self):
         self.thisround = random.randint(1, 6)
         self.outcomes[self.thisround] += 1
+
 
 letsplay = main()
