@@ -13,15 +13,16 @@
 # number. For example, outcomes[3] represents how many times the player rolled
 # a 3.
 
-# The roll method in this class should update current with a random dice outcome.
+# The roll method in this class should update current with a random dice
+# outcome.
 # It should also update the instance variable containing the dictionary.
 
 # Game Class
 
-# Create a Game class that will simulate the entire dice game. The __init__ method
-# should initialize 2 instance variables turn_log and players. turn_log is a list
-# that has 5 elements (which are also lists) which represent each round. players
-# is a list of Player objects representing the 3 friends.
+# Create a Game class that will simulate the entire dice game. The __init__
+# method should initialize 2 instance variables turn_log and players.
+# turn_log is a list that has 5 elements (which are also lists) which represent
+# each round. players is a list of Player objects representing the 3 friends.
 
 # The round method will simulate a round in which all the players roll the dice
 # once and turn_log is updated.
