@@ -5,7 +5,7 @@
 
 # Player Class
 
-# Create a Player class to represent a friend. The __init__ method should 
+# Create a Player class to represent a friend. The __init__ method should
 # initialize 2 instance variables current and outcomes. current represents
 # the player’s most recent roll. outcomes is a dictionary which will store
 # a record of the player’s rolls, where the keys are the possible outcomes
@@ -14,7 +14,7 @@
 # a 3.
 
 # The roll method in this class should update current with a random dice outcome.
-# It should also update the instance variable containing the dictionary. 
+# It should also update the instance variable containing the dictionary.
 
 # Game Class
 
