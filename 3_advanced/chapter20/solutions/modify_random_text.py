@@ -1,7 +1,7 @@
 import random
 
 myfile = open("blank.txt", "w")
-myfile.write(str(random.randint(0,1000)))
+myfile.write(str(random.randint(0, 1000)))
 myfile.close()
 
 refile = open("blank.txt", "r")
