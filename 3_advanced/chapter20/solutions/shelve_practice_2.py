@@ -1,4 +1,5 @@
 import shelve
+
 total = 0
 ashelf = shelve.open("mydb")
 for val in ashelf.values():
