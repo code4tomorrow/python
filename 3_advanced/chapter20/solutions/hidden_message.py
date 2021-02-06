@@ -3,7 +3,7 @@
 myfile = open("./blank.txt", "r")
 text = myfile.read().split()
 myfile.close()
- 
+
 myfile = open("./blank.txt", "a")
 myfile.write("\n\n")
 for i in range(len(text)):
