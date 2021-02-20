@@ -12,16 +12,19 @@
 # Hint: to store their order, you can do: shelf[name] = order
 
 import shelve
+
 shelf = shelve.open("orders")
 name = input("What is your name? ")
-instruction = input("Would you like to view a previous order or make" +
-  " a new order?\nAnswer with 'order' or 'view': ")
+instruction = input(
+    "Would you like to view a previous order or make"
+    + " a new order?\nAnswer with 'order' or 'view': "
+)
 if instruction == "order":
-  order = input("Type any order: ")
-  shelf[name] = order
+    order = input("Type any order: ")
+    shelf[name] = order
 elif instruction == "view" and name in shelf.keys():
-  print("Here is your previous order: ")
-  print(shelf[name])
+    print("Here is your previous order: ")
+    print(shelf[name])
 elif instruction == "view" and name not in shelf.keys():
-  print("Sorry, you don't seem to have ordered before.")
+    print("Sorry, you don't seem to have ordered before.")
 shelf.close()
