@@ -8,8 +8,8 @@ class game:
     Arguments:
       bsl is the beginning search location. It should be an integer
       pageinfo is the html of a website converted to a string
-      gns is the 'game's name start'; it is what to look for directly before
-        a game's name
+      gns is the 'game's name start'; it is what to look for directly 
+        before a game's name
       gds is the 'game's discount start'; it is what to look for directly
         before a game's discount
       gps is the 'game's price start'; it is what to look for directly
@@ -45,7 +45,7 @@ class game:
     try:
       startloc = string.index(start, self.begin)
       endloc = string.index(end, startloc)
-    except:
+    except Exception:
       self.endloc = self.begin + 1
       self.isvalid = False
       return
