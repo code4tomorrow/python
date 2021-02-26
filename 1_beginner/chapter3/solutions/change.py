@@ -30,19 +30,19 @@ num_cents = int(
 # calculate change and display it
 dollars = num_cents // CENTS_PER_DOLLAR
 remaining = num_cents % CENTS_PER_DOLLAR
-print(dollars, " dollars")
+print(dollars, "dollars")
 
 quarters = remaining // CENTS_PER_QUARTER
 remiaining = remaining % CENTS_PER_QUARTER
-print(quarters, " quarters")
+print(quarters, "quarters")
 
 dimes = remaining // CENTS_PER_DIME
 remiaining = remaining % CENTS_PER_DIME
-print(dimes, " dimes")
+print(dimes, "dimes")
 
 nickels = remaining // CENTS_PER_NICKEL
 remiaining = remaining % CENTS_PER_NICKEL
-print(nickels, " nickels")
+print(nickels, "nickels")
 
 cents = remaining
-print(cents, " cents")
+print(cents, "cents")
