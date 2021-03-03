@@ -15,14 +15,4 @@ for i in range(len(ex_list)):#O(n)
 for i in ex_list:
     print(i)
     ex_list.append(i)
-#Total running time = There is no upper bound, so
-#no Big-O.
-#
-#Explanation: The second for loop will keep looping
-#since ex_list will keep increasing in size each time
-#you loop. You may ask why doesn't the first for loop do
-#the same? That is because the number of times the first
-#for loop loops is set at the very start of the loop,
-#whereas for the second for loop will keep looping until
-#every element is checked.
 """
