@@ -9,6 +9,6 @@ a = open("wildlife.json", "r")
 x = json.load(a)
 a.close()
 x["Deepest Peru"] = "Paddington"
-n=open("wildlife.json", "w")
+n = open("wildlife.json", "w")
 json.dump(x, n, indent=4)
 n.close()
