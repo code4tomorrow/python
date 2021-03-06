@@ -14,6 +14,6 @@ for name, food in x["favorite foods"].items():
     names.append(name)
 x["names"] = names  # create an item within the dictionary that has the names
 a.close()
-n = open("testit.json", "w")
+n = open("favorite_foods.json", "w")
 json.dump(x, n, indent=4)
 n.close()
