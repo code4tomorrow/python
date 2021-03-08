@@ -9,9 +9,12 @@ import json
 a = open("favorite_foods.json", "r")
 x = json.load(a)
 names = []
+foods = set()
 for name, food in x["favorite foods"].items():
-    print(food)
+    foods.add(food)
     names.append(name)
+for food in foods:
+    print(food)
 x["names"] = names  # create an item within the dictionary that has the names
 a.close()
 n = open("favorite_foods.json", "w")

@@ -1,0 +1,14 @@
+{
+    "favorite foods": {
+        "Jerry": "ice cream",
+        "Ben": "ice cream",
+        "Steven": "eggroll",
+        "Spongebob": "Krabby Patty"
+    },
+    "names": [
+        "Jerry",
+        "Ben",
+        "Steven",
+        "Spongebob"
+    ]
+}
