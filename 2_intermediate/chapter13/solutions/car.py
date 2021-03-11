@@ -41,9 +41,7 @@ class car:
 
     def adjustprice(self):
         self.adjustedprice = float(self.ogprice * (0.8 ** (2020 - self.year)))
-        self.adjustedprice = (
-            round((self.adjustedprice), 2) - self.mileage / 100
-        )
+        self.adjustedprice = round((self.adjustedprice), 2) - self.mileage / 100
         return self.adjustedprice
 
     def __str__(self):
