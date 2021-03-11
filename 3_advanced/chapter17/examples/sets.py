@@ -39,7 +39,7 @@ print(set1.difference(set2))
 # will print 6,7 which is the difference items in set 2 (the 'difference')
 print(set2.difference(set1))
 # will print 1,2,6,7 since those are the different items in both
-print(set1.symettricdifference(set2))
+print(set1.symmetric_difference(set2))
 # will print 1,2,3,4,5,6,7 since those are the unique items
 print(set1.union(set2))
 
