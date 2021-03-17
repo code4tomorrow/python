@@ -5,7 +5,7 @@
 
 
 def recursive_fib(n):
-    '''
+    """
     Returns the nth number in the Fibonacci sequence recursively
 
     Args:
@@ -14,7 +14,7 @@ def recursive_fib(n):
     Returns:
         int: the nth number in the Fibonacci sequence
         For example, recursive_fib(5) will return 3
-    '''
+    """
     if n <= 0:  # Base Case 1: out of bounds
         return None
     elif n == 1:  # Base Case 2
