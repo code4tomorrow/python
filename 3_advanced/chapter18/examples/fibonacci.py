@@ -65,7 +65,8 @@ def fib_sequence(n):
     Returns the fibonacci sequence as a list up to the nth fibonacci number
 
     Args:
-        n (int): the position of the number in the Fibonacci sequence you want to go up to
+        n (int): the position of the number in the Fibonacci
+        sequence you want to go up to
 
     Returns:
         list: the nth number in the Fibonacci sequence
