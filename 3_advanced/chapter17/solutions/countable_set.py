@@ -5,9 +5,7 @@
 
 
 class CountableSet:
-    def __init__(
-        self, objs
-    ):  # objs is the initial list of objects to be inserted
+    def __init__(self, objs):  # objs is the initial list of objects to be inserted
         self.elems = {}
         for obj in objs:
             self.insert(obj)

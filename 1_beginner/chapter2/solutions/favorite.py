@@ -9,11 +9,4 @@ favorite_drink = input("What is your favorite drink? ")
 favorite_person = input("Who is your favorite person? ")
 
 # Display output
-print(
-    favorite_person
-    + " bought you "
-    + favorite_food
-    + " and "
-    + favorite_drink
-    + "."
-)
+print(favorite_person + " bought you " + favorite_food + " and " + favorite_drink + ".")

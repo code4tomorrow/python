@@ -31,9 +31,7 @@ class Vector:
     """
 
     def __add__(self, vec):
-        return Vector(
-            [self.vals[i] + vec.vals[i] for i in range(len(self.vals))]
-        )
+        return Vector([self.vals[i] + vec.vals[i] for i in range(len(self.vals))])
 
     """
     Multiplies each element in the vector by a specified constant

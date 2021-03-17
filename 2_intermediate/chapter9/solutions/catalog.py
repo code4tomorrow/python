@@ -46,8 +46,7 @@ while True:
     print()
 
     ans = input(
-        "Would you like to add, delete, "
-        "or clear entries from your catalog? "
+        "Would you like to add, delete, " "or clear entries from your catalog? "
     )
 
     # Perform actions depending on input
