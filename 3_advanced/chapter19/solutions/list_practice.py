@@ -24,7 +24,8 @@ def list_practice():
         while myinput != "q":
             print(globlist[int(myinput)])
             myinput = input(
-                "press q to quit, input a number to access that value of the list"
+                "press q to quit, input a number to access that value of" +
+                " the list"
             )
     except ValueError:
         print("That's not a number")
