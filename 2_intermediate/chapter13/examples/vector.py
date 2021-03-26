@@ -7,7 +7,9 @@ class Vector:
     """
 
     def __init__(self, vals):
-        self.vals = vals  # We're using the keyword self to create a field/property
+        self.vals = (
+            vals  # We're using the keyword self to create a field/property
+        )
         print("Assigned values ", vals, " to vector.")
 
     """

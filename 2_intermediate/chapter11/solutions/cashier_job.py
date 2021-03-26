@@ -11,7 +11,9 @@
 
 
 def calculate_total(penny, nickel, dime, quarter, discount):
-    before_discount = 0.01 * penny + 0.05 * nickel + 0.1 * dime + 0.25 * quarter
+    before_discount = (
+        0.01 * penny + 0.05 * nickel + 0.1 * dime + 0.25 * quarter
+    )
     discount_multiplier = 1 - discount * 0.01
 
     # Round to 2 decimals since it is money
