@@ -16,6 +16,6 @@ def type_checker(x):
         print("That's not a valid number")
 
 
-arg_list = [4, "hi", "obviously NAN", 5.6, None, {3 : 4}, [3,3]]
+arg_list = [4, "hi", "obviously NAN", 5.6, None, {3: 4}, [3, 3]]
 for i in arg_list:
     type_checker(i)
