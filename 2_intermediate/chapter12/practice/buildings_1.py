@@ -14,6 +14,8 @@
 # that asks the user for a book to buy and prints "bought %s" where
 # %s is the bookname. The 'restock' method should also append the
 # book's name to the library's list 'books'
+# Lastly, the library class should have a method 'catalog' that prints
+# all the books in the library on separate lines
 
 # Finally, instantiate the library class
 # (you should see "under construction..." and "built" if you did it right
