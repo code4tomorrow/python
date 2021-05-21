@@ -1,5 +1,7 @@
 # Fizz Buzz
 """
+Credit to: https://www.youtube.com/watch?v=QPZ0pIK_wsc
+
 Fizz Buzz is a game played between 2 people
 where they take turns counting up starting at 1.
 However, if the number is divisible by 3, the person
