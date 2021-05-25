@@ -1,7 +1,7 @@
 class Tesla:
     def __init__(self, maxSpeed=120, color="red"):
-	self.maxSpeed = maxSpeed
-	self.color = color
+        self.maxSpeed = maxSpeed
+        self.color = color
 
     def change(self, c):
         self.color = c
