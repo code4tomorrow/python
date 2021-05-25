@@ -1,5 +1,5 @@
-countries = [' Japan', 'America', 'South Korea', ' China']
-numerated_list = list(enumerate(countries)
+countries = ["Japan", "America", "South Korea", "China"]
+numerated_list = list(enumerate(countries))
 print(numerated_list)
 # prints [(0, ' Japan'), (1, 'America'), (2, 'South Korea'), (3, ' China')]
 
@@ -7,7 +7,7 @@ print(numerated_list)
 # This code gets all the countries with even indexes greater than 1
 answer_list = []
 for index, country in enumerate(countries):
-	if index % 2 == 0 and index > 1:
-		answer_list.append(country)
+    if index % 2 == 0 and index > 1:
+        answer_list.append(country)
 print(answer_list)
 # prints ['South Korea']
