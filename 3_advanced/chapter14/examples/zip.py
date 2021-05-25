@@ -1,6 +1,6 @@
 a = [1, 2, 3]
-b = ['a', 'b', 'c']
-c = ['!', '@', '#']
+b = ["a", "b", "c"]
+c = ["!", "@", "#"]
 
 G = zip(a, b, c)
 
@@ -12,11 +12,11 @@ list_one = [1, 2]
 list_two = [41]
 
 for pair in zip(list_one, list_two):
-	print(pair)
+    print(pair)
 # this would only print (1, 41)
 
 
-countries = [' Japan', 'America', 'South Korea', ' China']
+countries = [" Japan", "America", "South Korea", " China"]
 numbers = [1, 2, 3, 4]
 dict1 = dict(zip(countries, numbers))
 print(dict1)
