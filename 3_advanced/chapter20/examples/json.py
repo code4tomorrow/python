@@ -39,25 +39,15 @@ x.close()
 
 """ json.dumps() method """
 import json
-
-oldDict = {"fname":"john",
-					"lname":"doe",
-					"age":20}
-
-print("oldDict:", type(oldDict)) #prints data type of oldDict
-
-newStr = json.dumps(oldDict) #converts oldDict to string format
-
+oldDict = {"fname":"john", "lname":"doe", "age":20}
+print("oldDict:", type(oldDict)) # prints data type of oldDict
+newStr = json.dumps(oldDict) # converts oldDict to string format
 print("newStr:", type(newStr)) #prints data type of newStr
 
 
 """ json.loads() method """
 import json
-
 oldStr = '{"fname":"john","lname":"doe","age":20}'
-
-print("oldStr:", type(oldStr)) #prints data type of oldStr
-
-newDict = json.loads(oldStr) #converts oldStr to string format
-
-print("newDict:", type(newDict)) #prints data type of newDict
+print("oldStr:", type(oldStr)) # prints data type of oldStr
+newDict = json.loads(oldStr) # converts oldStr to string format
+print("newDict:", type(newDict)) # prints data type of newDict
