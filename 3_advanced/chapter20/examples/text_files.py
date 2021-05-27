@@ -1,3 +1,7 @@
+# The functions below are the basics of
+# creating, editting, and reading text files.
+
+
 # "w" stands for "write"
 myfile = open("mytext.txt", "w")
 
