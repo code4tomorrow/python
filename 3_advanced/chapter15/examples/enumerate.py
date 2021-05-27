@@ -1,3 +1,7 @@
+# The enumerate function assigns numbers to every element 
+# in an iterable, starting with zero.
+
+
 countries = ["Japan", "America", "South Korea", "China"]
 numerated_list = list(enumerate(countries))
 print(numerated_list)
