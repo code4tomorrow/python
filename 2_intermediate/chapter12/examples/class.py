@@ -1,4 +1,8 @@
 class dot_example:  # use 'class' keyword followed by your class' name
+    # classes can store functions and data; we call functions "methods"
+    # we call data "attributes"
+    
+    # below are dot_example's attributes
     fun = True
     difficult = False
 
