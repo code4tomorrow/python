@@ -1,4 +1,5 @@
 # The return statement "hands back" a value
+# to where the function itself was called
 
 
 def average(numbers):
