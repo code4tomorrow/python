@@ -3,7 +3,7 @@ class dot_example:  # use 'class' keyword followed by your class' name
     difficult = False
 
 
-our_example = dot_example()  # instantiate the class
+our_example = dot_example()  # instantiate the class; make sure to use ()
 
 # would print True
 print(our_example.fun)  # our_example is the object, fun is the attribute
