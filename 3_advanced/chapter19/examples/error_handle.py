@@ -1,4 +1,10 @@
-try:
+# Error handling with try clauses or the assert keyword
+# can help coders debug programs. They are also useful
+# if you want to ignore a certain error.
+
+
+""" try clause """
+try:  # this will try the following code
     x = 1
     y = "hi"
     x + y
@@ -13,6 +19,7 @@ finally:
     print("x is", x, "\ny is", y)
 
 
+""" assert keyword """
 string = "goodbye"
 assert string == "hello", "string is not hello"
 print(string)  # this will not be run because assert raises an exception
