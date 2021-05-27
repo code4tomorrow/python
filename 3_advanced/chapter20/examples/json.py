@@ -22,7 +22,7 @@ y = json.load(x)  # "grabs" JSON data from testit.json
 
 for key in y:
     print(key, ", ", y[key])  # prints the top values of the JSON file
-    
+
 x.close()
 
 
