@@ -6,6 +6,7 @@ class Test:
     def __init__(self):
         self.x = 0
 
+
 # class Derived_Test inherits from class Test
 class Derived_Test(Test):
     def __init__(self):
