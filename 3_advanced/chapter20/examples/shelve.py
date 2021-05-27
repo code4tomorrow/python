@@ -1,3 +1,8 @@
+# shelve is a Python module that aids with storing data.
+# It functions similar to a dictionary, although it
+# only allows keys to be strings.
+
+
 import shelve
 
 """this will create a database if you don’t already have one and open it if you do"""
