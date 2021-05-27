@@ -1,4 +1,4 @@
-# The enumerate function assigns numbers to every element 
+# The enumerate function assigns numbers to every element
 # in an iterable, starting with zero.
 
 
