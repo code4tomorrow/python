@@ -1,3 +1,9 @@
+# The __init__ function is automatically called when
+# a new object is created. It is good to use this method
+# when there are certain values that are required beforehand
+# for the object to work properly.
+
+
 class Tesla:
     def __init__(self, maxSpeed=120, color="red"):
         # the init function always needs the self keyword
