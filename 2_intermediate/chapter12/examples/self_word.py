@@ -18,7 +18,7 @@ p2 = Tesla(100, "blue")
 
 
 # Notice how, when we use the self keyword, each object can
-# have different attributes even though they are from the 
+# have different attributes even though they are from the
 # same class.
 
 p1.change("green")
