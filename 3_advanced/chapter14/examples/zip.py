@@ -1,3 +1,7 @@
+# The zip function groups elements from different
+# iterables into tuples by their index
+
+
 a = [1, 2, 3]
 b = ["a", "b", "c"]
 c = ["!", "@", "#"]
@@ -13,7 +17,7 @@ list_two = [41]
 
 for pair in zip(list_one, list_two):
     print(pair)
-# this would only print (1, 41)
+# this would only print (1, 41) because list_two has only one element
 
 
 countries = [" Japan", "America", "South Korea", " China"]
