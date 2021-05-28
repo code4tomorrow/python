@@ -1,6 +1,6 @@
 # Normally, when switching the values of two variables,
 # you need a third, temporary variable. With python,
-# you can ignore that step.
+# you can ignore that step using tuple unpacking.
 
 
 """ Switching two variables with a temporary variable """
