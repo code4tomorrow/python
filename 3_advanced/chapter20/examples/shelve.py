@@ -5,14 +5,12 @@
 
 import shelve
 
-"""this will create a database if you don’t already have one and open it if you do"""
-
+# this will open or create a database
 myshelf = shelve.open("mydatabase")
 
+# remember, while the key must be a string, the value can be any type
 myshelf["key1"] = 4
 
-# remember, while the key must be a string, the value can be any type
-
-print(myshelf["key1"])  # will give me 4
+print(myshelf["key1"])  # prints 4
 
 myshelf.close()
