@@ -14,3 +14,4 @@ myshelf["key1"] = 4
 print(myshelf["key1"])  # prints 4
 
 myshelf.close()
+# always remember to close the shelve after writing to save the data
