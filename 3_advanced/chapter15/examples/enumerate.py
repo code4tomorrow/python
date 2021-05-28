@@ -1,5 +1,7 @@
 # The enumerate function assigns numbers to every element
 # in an iterable, starting with zero.
+# it returns an enumerate object, so you have to do list or tuple
+# to access the enumerated values.
 
 
 countries = ["Japan", "America", "South Korea", "China"]
