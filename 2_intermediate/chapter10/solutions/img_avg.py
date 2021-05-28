@@ -89,8 +89,8 @@ The double for loop gets all combination of indexes necessary
 i is the index determining which inner
   list to get. Using the Example as the visual, this
   index goes from top to bottom.
-j is the index determining which list inside 
-  inner list to get. Using the Example as the visual, this 
+j is the index determining which list inside
+  inner list to get. Using the Example as the visual, this
   index goes from left to right.
 """
 for i in range(len(img)):
