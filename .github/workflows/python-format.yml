@@ -7,7 +7,7 @@ on: [pull_request, push]
 
 jobs:
   format-lint-python:
-    name: Format Python with black
+    name: Format Python with black and lint with flake8
     runs-on: ubuntu-latest
 
     steps:
@@ -20,12 +20,14 @@ jobs:
           python-version: '3.x'
       
       - name: Install Python dependencies
-        run: pip install black
+        run: pip install black flake8
 
-      - name: Run black
-        uses: samuelmeuli/lint-action@v1
+      - name: Run black and flake8
+        uses: wearerequired/lint-action@v1
         with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
           black: true
-          black_args: --line-length 79  # same max line length as flake8
+          flake8: true
+          black_args: "--line-length 79"  # same max line length as flake8
+          flake8_args: "--max-line-length=88 --ignore=E203,W503"  # prevent conflicts with black
           auto_fix: true  # auto commit style fixes
+  

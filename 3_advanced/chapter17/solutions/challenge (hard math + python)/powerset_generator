@@ -1,0 +1,21 @@
+# Given a set of distinct integers (between 1 and 15 inclusive)
+# (ex: {3,6,2,1}), return an array of all possible subsets that can be
+# formed using the elements in the set. This also includes the empty
+# set and the entire set itself.
+# The set of all such subsets is referred to as the powerset.
+
+
+def generatePowerset(elements):
+  setSize = len(elements)
+  vec = list(elements)
+  limit = 1 << setSize # << is same as 1 * 2**setSize
+  result = [None for i in range(limit)]
+  for i in range(limit):
+    currentSet = set()
+    for j in range(setSize):
+      if ((1 << j) & i) > 0: # bitwise operations
+        currentSet.add(vec[j])
+    result[i] = currentSet
+  return result
+
+print(generatePowerset({1, 2, 3}))

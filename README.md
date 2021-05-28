@@ -27,15 +27,15 @@ Under each of the 3 packages, source code is further divided by chapter.
 10. `chapter10` 2D Lists
 11. `chapter11` Functions
 12. `chapter12` Classes
+13. `chapter13` Special Methods
 
 ### Advanced
-13. `chapter13` Special Methods
-14. `chapter14` Selection Sort
-15. `chapter15` Tuples & Sets
-16. `chapter16` Pythonness
-17. `chapter17` Exception Handling
+14. `chapter14` Unique Python Features
+15. `chapter15` Asymptotic Analysis
+16. `chapter16` Selection Sort
+17. `chapter17` Tuples & Sets
 18. `chapter18` Recursion
-19. `chapter19` Asymptotic Analysis
+19. `chapter19` Exception Handling
 20. `chapter20` File I/O
 
 ## Category
