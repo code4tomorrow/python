@@ -63,7 +63,8 @@ def fib_sequence(n):
         list: the nth number in the Fibonacci sequence
         For example, fib_sequence(5) will return [0, 1, 1, 2, 3]
 
-    Adapted from: https://medium.com/@danfcorreia/fibonacci-iterative-28b042a3eec
+    Adapted from:
+    https://medium.com/@danfcorreia/fibonacci-iterative-28b042a3eec
     """
     sequence = [0, 1]
 
