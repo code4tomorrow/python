@@ -44,6 +44,9 @@ print(message + "|")
 my_string = "hello"
 print(my_string[2])  # prints 'l'
 print(my_string[2:4])  # prints 'll'
+# start: 2 (inclusive), stop: 4 (exclusive), default step of 1
+print(my_string[-1:-3:-1])  # prints 'ol'
+# start: -1 (inclusive), stop: -3 (exclusive), step of -1
 
 for char in my_string:
     print(char)  # prints each character on its own line
