@@ -48,7 +48,7 @@ def iterative_fib(n):
         # instead of looking at the past 2 cases, it looks at the
         # current and next terms to determine the next next term
 
-    return current # will be 0 if n is 1, 1 if n is 2, etc...
+    return current  # will be 0 if n is 1, 1 if n is 2, etc...
 
 
 def fib_sequence(n):
