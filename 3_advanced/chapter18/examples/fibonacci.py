@@ -37,27 +37,18 @@ def iterative_fib(n):
         For example, iterative_fib(5) will return 3
     """
     if n <= 0:
-        return None
-    elif n == 1:
-        return 0
-    elif n == 2:
-        return 1
-    else:
-        prev1 = 0  # fib(n - 2)
-        prev2 = 1  # fib(n - 1)
+        return None  # base case; out of bounds
 
-        current = 0
+    current = 0
+    next_term = 1
 
-        # Start at n = 3 because we already "handled" n = 1 and n = 2.
-        # need n + 1 because range's end parameter is exclusive.
-        # Alternatively, you can do: for i in range(2, n)
-        for i in range(3, n + 1):
-            current = prev1 + prev2
+    for i in range(n - 1):  # this is equivalent to for i in range(1, n)
+        current, next_term = next_term, current + next_term
+        # this is just a slightly rewritten fib sequence;
+        # instead of looking at the past 2 cases, it looks at the
+        # current and next terms to determine the next next term
 
-            prev1 = prev2
-            prev2 = current
-
-        return current
+    return current # will be 0 if n is 1, 1 if n is 2, etc...
 
 
 def fib_sequence(n):
