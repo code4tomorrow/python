@@ -4,10 +4,10 @@
 """ Typical way to extract values """
 countries = ("china", "mexico", "brazil", "USA")
 
-a = countrie[0]
-b = countrie[1]
-c = countrie[2]
-d = countrie[3]
+a = countries[0]
+b = countries[1]
+c = countries[2]
+d = countries[3]
 
 print(a, b, c, d)  # prints "china mexico brazil USA"
 
