@@ -1,5 +1,10 @@
 # Printing
 
+# You can print other types besides strings; we'll get to that later
+print("Hello")
+print(1)
+print(99.99)
+
 # Strings can be in single or double quotes
 print("Message")
 print("Message")
