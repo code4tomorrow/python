@@ -10,11 +10,13 @@ myfile = open("mytext.txt", "a")
 myfile = open("mytext.txt", "w")
 
 
-# writes into a mytext.txt
-# "hello worldhi again"
-myfile.write("hello world\n")
-myfile.write("hi again\n")
-myfile.write("helloooo")
+# writes into a mytext.txt on different lines
+# "hello world\nhi again\nhelloooo"
+# You need to use the "\n" character if you want to write to a new line; if you
+# don't use it, the next .write() will write to the same line as the previous .write()
+myfile.write("hello world\n")  # writes on line 1
+myfile.write("hi again\n")  # writes on line 2
+myfile.write("helloooo")  # writes on line 3
 
 
 # saves file
