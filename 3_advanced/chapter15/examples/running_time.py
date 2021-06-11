@@ -29,4 +29,4 @@ for number in [123, 4, 21, 312, 41]:  # O(n)
 example_list = [12, 3, 214, 5, 12]
 for num1 in example_list:  # O(n)
     for num2 in example_list:  # O(n)
-        print(num1, num2)  # O(n)
+        print(num1, num2)  # O(1)
