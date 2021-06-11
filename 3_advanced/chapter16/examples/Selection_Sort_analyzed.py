@@ -1,4 +1,4 @@
-arr = [?, ?, ?]  # this is the input, so we're not including it in analysis
+arr = [int, int , int]  # this is the input, so we're not including it in analysis
 for first_idx in range(len(arr)):  # O(n)
     min_idx = first_idx  # O(1) * O(n) = O(n)
     for second_idx in range(first_idx + 1, len(arr)):  # O(n) * O(n) = O(n^2)
