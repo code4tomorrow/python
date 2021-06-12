@@ -8,7 +8,7 @@ moretuple = (4, 6, 3, {5, 6}, [7])  # valid; tuples accept all types
 # these all work and will run with no error
 tup = tuple([2, 4, 6, 8])  # creates a tuple out of the list
 tup = tuple("tuple")  # creates a tuple out of the string
-tup = tuple({"a" : "A", "b" : "B"})  # creates a tuple out of the dict
+tup = tuple({"a": "A", "b": "B"})  # creates a tuple out of the dict
 # note: it creates the tuple out of the dict's keys, not values
 tup = tuple({2, 4, 6, 8})  # creates a tuple out of the set
 tup = 2, 4, 6, 8  # you don't even need parentheses
