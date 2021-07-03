@@ -10,7 +10,7 @@ says the number of calories.
 ---Example 1---
 parameters: "lays potato chips", allergens=True
 
-output: 
+output:
 "Lays potato chips have/has 220 calories"
 "allergens: ["processed on equipment that also processes peanuts",
 "contains milk ingredients"]
