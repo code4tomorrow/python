@@ -85,7 +85,9 @@ def food_info(item, **specifics):
         if specific in nutrition_facts[item] and specifics[specific] == True:
             print(f"{specific} : {nutrition_facts[item][specific]}")
         else:
-            print(f"{specific} isn't a valid specific about the nutrition facts")
+            print(
+                f"{specific} isn't a valid specific about the nutrition facts"
+            )
 
 
 food_info("lays potato chips", allergens=True)
