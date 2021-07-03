@@ -4,7 +4,9 @@ of items that a customer would like to buy. It will take in
 an unknown number of parameters, each representing
 one item. After that, the function will ask the customer,
 "Are you sure you would like to buy" and stating the number
-of items the customer wants to purchase.
+of items the customer wants to purchase.Your function does
+not need to respond to a yes/no answer from the user;
+it just needs to print the output (the question).
 
 
 ===Example 1===
