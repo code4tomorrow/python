@@ -10,7 +10,7 @@ says the number of calories.
 ---Example 1---
 parameters: "lays potato chips", allergens=True
 
-output: 
+output:
 "Lays potato chips have/has 220 calories"
 "allergens: ["processed on equipment that also processes peanuts",
 "contains milk ingredients"]
@@ -82,7 +82,7 @@ def food_info(item, **specifics):
             "calories",
         )
     for specific in specifics:
-        if specific in nutrition_facts[item] and specifics[specific] == True:
+        if specific in nutrition_facts[item] and specifics[specific] is True:
             print(f"{specific} : {nutrition_facts[item][specific]}")
         else:
             print(
