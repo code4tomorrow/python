@@ -24,7 +24,7 @@ output:
 ---Example 3---
 parameters: "lays potato chips", main_ingredients= True
 
-outpu:
+output:
 "Lays potato chips have/has 220 calories"
 "main_ingredients" : ["potato, "salt", "canola oil"]
 """
