@@ -29,7 +29,7 @@ parameters: "lays potato chips", main_ingredients= True
 
 output:
 "Lays potato chips have/has 220 calories"
-"main_ingredients" : ["potato, "salt", "canola oil"]
+"main_ingredients" : ["potato", "salt", "canola oil"]
 """
 
 nutrition_facts = {
