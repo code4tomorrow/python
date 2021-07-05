@@ -5,7 +5,10 @@ provide the calories by default. It should accept the other
 keys within the item's dictionary as keyword arguments. Use **.
 If that keyword argument is True, then print out the value
 stored by the key in addition to the default string that
-says the number of calories.
+says the number of calories. If the user entered in an
+invalid specific, it should tell the user about this. If the
+user entered in an invalid food, it should ignore the user
+completely.
 
 ---Example 1---
 parameters: "lays potato chips", allergens=True
