@@ -15,7 +15,7 @@ parameters: "lays potato chips", allergens=True
 
 output:
 "Lays potato chips have/has 220 calories"
-"allergens: ["processed on equipment that also processes peanuts",
+"allergens": ["processed on equipment that also processes peanuts",
 "contains milk ingredients"]
 
 ---Example 2---
@@ -29,7 +29,7 @@ parameters: "lays potato chips", main_ingredients= True
 
 output:
 "Lays potato chips have/has 220 calories"
-"main_ingredients" : ["potato, "salt", "canola oil"]
+"main_ingredients" : ["potato", "salt", "canola oil"]
 """
 
 nutrition_facts = {
