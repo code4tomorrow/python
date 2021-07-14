@@ -216,8 +216,6 @@ class App:
         pass
 
     def mainloop(self):
-        timestart = time.time()
-        updates = 0
         while self.running:
             for event in pygame.event.get():
                 if event.type == QUIT:
@@ -229,11 +227,7 @@ class App:
             self.move_objects()
             self.update_display()
             pygame.display.update()
-            updates += 1
-            if round((timestart - time.time())) % 30 == 0:
-                print(updates, "/", timestart - time.time())
-                updates = 0
-            time.sleep(0.01)
+            time.sleep(0.01)  # not necessary; it's a frame cap
         pygame.quit()
         print("Game Ended")
 
