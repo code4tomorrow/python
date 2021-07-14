@@ -35,12 +35,16 @@ class Game_obj:
         # self.image will be a pygame.image.Surface class
         self.image = pygame.image.load(picture)
         self.image = (
-            pygame.transform.scale(self.image, (kwargs["size"][0], kwargs["size"][1]))
+            pygame.transform.scale(
+                self.image, (kwargs["size"][0], kwargs["size"][1])
+            )
             if "size" in kwargs
             else self.image
         )
 
-        self.rect = self.image.get_rect()  # self.rect will be of pygame.Rect class
+        self.rect = (
+            self.image.get_rect()
+        )  # self.rect will be of pygame.Rect class
         self.size = self.rect.size  # will be a tuple of (sizex, sizey)
 
         if "position" in kwargs:
@@ -88,7 +92,8 @@ class Game_obj:
                 top left to be moved to.
         """
         self.rect = self.rect.move(
-            position[0] - self.rect.topleft[0], position[1] - self.rect.topleft[1]
+            position[0] - self.rect.topleft[0],
+            position[1] - self.rect.topleft[1],
         )
 
     def check_out_of_screen(self, screen_size: tuple) -> bool:
@@ -182,7 +187,9 @@ BULLETSPEED = [8, 8]
 
 
 class App:
-    def __init__(self, flags=RESIZABLE, width=960, height=540, title="My Game"):
+    def __init__(
+        self, flags=RESIZABLE, width=960, height=540, title="My Game"
+    ):
         pygame.init()
         self.size = [width, height]
         self.screen = pygame.display.set_mode(self.size, flags)
@@ -242,7 +249,10 @@ class Tank_Game(App):
         # tank
         self.tank = Tank(speed=TANKSPEED)
         self.tank.moveto(
-            (self.size[0] / 2 - self.tank.size[0], self.size[1] - self.tank.size[1])
+            (
+                self.size[0] / 2 - self.tank.size[0],
+                self.size[1] - self.tank.size[1],
+            )
         )
 
         # targets
@@ -286,7 +296,9 @@ class Tank_Game(App):
         # create bullets if mouse button was pressed
         if event.type == MOUSEBUTTONDOWN:
             bul = Bullet(speed=BULLETSPEED)
-            bul.moveto((self.tank.rect.centerx, (self.tank.rect.top - bul.size[1])))
+            bul.moveto(
+                (self.tank.rect.centerx, (self.tank.rect.top - bul.size[1]))
+            )
 
             # math stuff to calculate trajectory
             mouse_pos = pygame.mouse.get_pos()
@@ -362,7 +374,9 @@ class Tank_Game(App):
             bullet.draw(self.screen, BLACK)
 
         # score text
-        font_img = self.font.render("Score: %s" % str(self.playerscore), True, BLACK)
+        font_img = self.font.render(
+            "Score: %s" % str(self.playerscore), True, BLACK
+        )
         font_rect = font_img.get_rect()
         pygame.draw.rect(self.screen, SANDBROWN, font_rect, 1)
         self.screen.blit(font_img, font_rect)
