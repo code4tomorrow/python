@@ -7,9 +7,16 @@ import time
 import math
 import random
 
-BULLET_IMG_PATH = "C:/python/projects/imagetesting/bullet.png"
-TARGET_IMG_PATH = "C:/python/projects/imagetesting/target.png"
-TANK_IMG_PATH = "C:/python/projects/imagetesting/completetank.png"
+BULLET_IMG_PATH = "./bullet.png"
+TARGET_IMG_PATH = "./target.png"
+TANK_IMG_PATH = "./completetank.png"
+
+BLACK = (255, 255, 255)
+DIRTBROWN = (168, 95, 0)
+SANDBROWN = (237, 201, 175)
+
+TANKSPEED = [2, 2]  # speed x and speed y
+BULLETSPEED = [8, 8]
 
 
 class Game_obj:
@@ -178,14 +185,6 @@ class Tank(Game_obj):
             self.direction[0] -= 1
 
 
-BLACK = (255, 255, 255)
-DIRTBROWN = (168, 95, 0)
-SANDBROWN = (237, 201, 175)
-
-TANKSPEED = [2, 2]  # speed x and speed y
-BULLETSPEED = [8, 8]
-
-
 class App:
     def __init__(
         self, flags=RESIZABLE, width=960, height=540, title="My Game"
@@ -241,11 +240,21 @@ class App:
 
 class Tank_Game(App):
     def __init__(self):
-        self.playerscore = 0
-        self.NUM_TARGETS = 3
         super().__init__(title="Tanks")
+        
+        self.playerscore = 0  # the player's score
+        
+        # this can be changed, it's the number of targets allowed at a time.
+        self.NUM_TARGETS = 3
+        
+        # sets the display icon to the TankIcon.png provided
+        pygame.display.set_icon(pygame.image.load("./TankIcon.png"))
 
     def create_objects(self):
+        """
+        This creates the initial objects seen when the game
+        first starts up.
+        """
         # tank
         self.tank = Tank(speed=TANKSPEED)
         self.tank.moveto(
@@ -272,6 +281,11 @@ class Tank_Game(App):
         self.font = pygame.font.SysFont(pygame.font.get_default_font(), 32)
 
     def check_events(self, event):
+        """
+        We imported all from pygame.locals, so that means
+        that we can check KEYDOWN and KEYUP and individual
+        keys such as K_w (w key), K_a (a key), etc.
+        """
         # change the path of the tank if w, a, s, or d was pressed
         if event.type == KEYDOWN:
             if event.key == K_w:
@@ -316,6 +330,11 @@ class Tank_Game(App):
             self.bullets.append(bul)
 
     def move_objects(self):
+        """
+        This method moves the objects within the game.
+        If a bullet is outside of the screen, it is
+        not moved and is unreferenced.
+        """
         self.tank.move()
 
         self.bullets = [
@@ -328,6 +347,11 @@ class Tank_Game(App):
             bullet.move()
 
     def check_collisions(self):
+        """
+        This checks whether any of the objects within the game have collided
+        with each other. Specifically, we are looking for collisions between
+        bullets and targets or the tank and targets
+        """
         deletions = 0
         num_bullets = len(self.bullets)
 
