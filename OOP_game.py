@@ -241,12 +241,12 @@ class App:
 class Tank_Game(App):
     def __init__(self):
         super().__init__(title="Tanks")
-        
+
         self.playerscore = 0  # the player's score
-        
+
         # this can be changed, it's the number of targets allowed at a time.
         self.NUM_TARGETS = 3
-        
+
         # sets the display icon to the TankIcon.png provided
         pygame.display.set_icon(pygame.image.load("./TankIcon.png"))
 
