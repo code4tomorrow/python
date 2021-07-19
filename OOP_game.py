@@ -220,7 +220,9 @@ class App:
                     self.running = False
                     break
                 else:
-                    self.check_events(event)  # this will handle checking for user input
+                    self.check_events(
+                        event
+                    )  # this will handle checking for user input
                     # such as KEYUP and MOUSEBUTTONDOWN events needed to run the game
             self.check_collisions()  # checks collisions between bullets (or tanks) and targets
             self.move_objects()  # moves each object on the screen
@@ -228,7 +230,6 @@ class App:
             pygame.display.update()  # pygame’s method to show the updated screen
             time.sleep(0.01)  # not necessary; it's a frame cap
         pygame.quit()
-
 
 
 class Tank_Game(App):
@@ -262,8 +263,12 @@ class Tank_Game(App):
         for target in self.targets:
             target.moveto(
                 (
-                    random.randint(0, self.size[0] - target.size[0]),  # random x
-                    random.randint(0, self.size[1] - target.size[1]),  # random y
+                    random.randint(
+                        0, self.size[0] - target.size[0]
+                    ),  # random x
+                    random.randint(
+                        0, self.size[1] - target.size[1]
+                    ),  # random y
                 )
             )
 
