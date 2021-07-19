@@ -194,8 +194,6 @@ class App:
         self.screen = pygame.display.set_mode(self.size, flags)
         pygame.display.set_caption(title, title)
 
-        self.update_speed = None
-
         self.running = True
 
         self.create_objects()
@@ -222,14 +220,15 @@ class App:
                     self.running = False
                     break
                 else:
-                    self.check_events(event)
-            self.check_collisions()
-            self.move_objects()
-            self.update_display()
-            pygame.display.update()
+                    self.check_events(event)  # this will handle checking for user input
+                    # such as KEYUP and MOUSEBUTTONDOWN events needed to run the game
+            self.check_collisions()  # checks collisions between bullets (or tanks) and targets
+            self.move_objects()  # moves each object on the screen
+            self.update_display()  # actually updates the screen (draw each object onto the screen)
+            pygame.display.update()  # pygame’s method to show the updated screen
             time.sleep(0.01)  # not necessary; it's a frame cap
         pygame.quit()
-        print("Game Ended")
+
 
 
 class Tank_Game(App):
@@ -253,8 +252,8 @@ class Tank_Game(App):
         self.tank = Tank(speed=TANKSPEED)
         self.tank.moveto(
             (
-                self.size[0] / 2 - self.tank.size[0],
-                self.size[1] - self.tank.size[1],
+                self.size[0] / 2 - self.tank.size[0],  # move to middle x
+                self.size[1] - self.tank.size[1],  # move to bottom y
             )
         )
 
@@ -263,8 +262,8 @@ class Tank_Game(App):
         for target in self.targets:
             target.moveto(
                 (
-                    random.randint(0, self.size[0] - target.size[0]),
-                    random.randint(0, self.size[1] - target.size[1]),
+                    random.randint(0, self.size[0] - target.size[0]),  # random x
+                    random.randint(0, self.size[1] - target.size[1]),  # random y
                 )
             )
 
