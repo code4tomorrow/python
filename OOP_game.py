@@ -310,7 +310,7 @@ class Tank_Game(App):
             bul = Bullet(speed=BULLETSPEED)
             bul.moveto(
                 (self.tank.rect.centerx, (self.tank.rect.top - bul.size[1]))
-            )
+            )  # move the bullet to the front of the tank
 
             # math stuff to calculate trajectory
             mouse_pos = pygame.mouse.get_pos()
@@ -350,27 +350,32 @@ class Tank_Game(App):
         with each other. Specifically, we are looking for collisions between
         bullets and targets or the tank and targets
         """
-        deletions = 0
+        deletions = 0  # number of targets deleted
         num_bullets = len(self.bullets)
 
+        # check bullet-target collisions
         for i in range(num_bullets):
             for target in self.targets:
+                # if the bullet collided with the target
                 if self.bullets[i - deletions].check_collision(target) is True:
                     a = self.bullets.pop(i - deletions)
-                    del a
+                    del a  # delete the bullet
                     b = self.targets.pop(self.targets.index(target))
-                    del b
-                    self.playerscore += 20
+                    del b  # delete the target
+                    self.playerscore += 20  # give points for hitting the target
                     deletions += 1
-                    break
+                    break  # stop the current iteration since the target and
+                    # bullet are deleted, so referencing them would error.
 
+        # check tank-target collisions
         for target in self.targets:
             if self.tank.check_collision(target) is True:
                 a = self.targets.pop(self.targets.index(target))
-                del a
+                del a  # delete the target
                 deletions += 1
                 self.playerscore += 10  # only 10 for running over targets lol
 
+        # create a new target for every deleted target
         for i in range(deletions):
             a = Target(speed=[0, 0])
             a.moveto(
