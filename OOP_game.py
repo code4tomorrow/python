@@ -224,7 +224,7 @@ class App:
                         event
                     )  # this will handle checking for user input
                     # such as KEYUP and MOUSEBUTTONDOWN events needed to run the game
-            self.check_collisions()  # checks collisions between bullets/tanks and targets
+            self.check_collisions()  # checks collisions between bullet/tank and targets
             self.move_objects()  # moves each object on the screen
             self.update_display()  # redraws updated objects onto the screen
             pygame.display.update()  # pygame’s method to show the updated screen
