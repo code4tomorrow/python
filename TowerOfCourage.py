@@ -23,13 +23,13 @@ def weight():
     return lstRider
 
 
-# set the function equal to the variable 
+# set the function equal to the variable
 lstRider = weight()
 
 # to calculate the sum of weights
 total = 0
 
-for i in range(0,10):
+for i in range(0, 10):
     total += lstRider[i]
 
 # print the three outputs that are required
