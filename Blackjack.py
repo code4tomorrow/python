@@ -1,4 +1,6 @@
-# Directions: The goal of blackjack is to be the first player to get to 21. Each player will draw randomly and the sum of the cards will add to 21.
+# Directions: The goal of blackjack is to be the first player
+# to get to 21. Each player will draw randomly and the
+# sum of the cards will add to 21.
 
 import random
 
@@ -6,9 +8,9 @@ import random
 print("Welcome to the game of BlackJack. ")
 print("")
 
-# Create the lists of the two players: the dealer is the console and the player is the user
+# Create the lists of the two players
+# the dealer is the console and the player is the user
 dealerList = []
-
 userList = []
 
 # append two random cards to start the game
@@ -25,11 +27,13 @@ if sum(dealerList) == 21:
     print("Dealer won")
     exit()
 
-# ask hit or stay... write a functionn for hit and stay...conditional for the typed in key
-# hit means to take another card and stay means to play with already drawn cards
+# ask hit or stay... write a functionn for hit and stay...
+# conditional for the typed in key hit means to take another
+# card and stay means to play with already drawn cards
 
 # print the instructions
 ask = input("Type in H to hit and S to stay:")
+
 
 # write a function for hit to use in multiple scenarios
 def hit(cards):
