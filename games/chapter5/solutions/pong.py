@@ -19,7 +19,12 @@ WHITE = (255, 255, 255)
 
 PLAYER1CONTROLS = {"up": K_w, "down": K_s, "left": K_a, "right": K_d}
 
-PLAYER2CONTROLS = {"up": K_UP, "down": K_DOWN, "left": K_LEFT, "right": K_RIGHT}
+PLAYER2CONTROLS = {
+    "up": K_UP,
+    "down": K_DOWN,
+    "left": K_LEFT,
+    "right": K_RIGHT,
+}
 
 SCREENSIZE = [900, 600]
 
@@ -39,7 +44,8 @@ class Game_obj:
     def move_to(self, position: tuple):
         self.prev_rect = self.rect
         self.rect = self.rect.move(
-            position[0] - self.rect.topleft[0], position[1] - self.rect.topleft[1]
+            position[0] - self.rect.topleft[0],
+            position[1] - self.rect.topleft[1],
         )
 
     def check_collision(self, other) -> bool:
@@ -89,9 +95,13 @@ class Player(Game_obj):
         DIRECTION_VALUES = {"up": -1, "down": 1, "left": -1, "right": 1}
         if event.key == self.control_keys[direction]:
             if event.type == KEYUP:
-                self.path[PATH_VALUES[direction]] += -DIRECTION_VALUES[direction]
+                self.path[PATH_VALUES[direction]] += -DIRECTION_VALUES[
+                    direction
+                ]
             if event.type == KEYDOWN:
-                self.path[PATH_VALUES[direction]] += DIRECTION_VALUES[direction]
+                self.path[PATH_VALUES[direction]] += DIRECTION_VALUES[
+                    direction
+                ]
 
     def set_speed(self) -> None:
         """
@@ -136,7 +146,9 @@ class Ball(Game_obj):
         )
 
     def draw(self, screen: pygame.Surface):
-        pygame.draw.circle(screen, WHITE, center=self.rect.center, radius=self.radius)
+        pygame.draw.circle(
+            screen, WHITE, center=self.rect.center, radius=self.radius
+        )
 
     def collide_line(self, other) -> bool:
         """
@@ -223,7 +235,9 @@ class Ball(Game_obj):
                 the objects to the right place
         """
         PROPORTION = 0.25  # used when "escaping" a collision
-        MINIMUM_ANGLE = 15  # this is in degrees; it's just a fine-tuning aspect that
+        MINIMUM_ANGLE = (
+            15  # this is in degrees; it's just a fine-tuning aspect that
+        )
         # makes the game more realistic
 
         resulting_x_dir = None
@@ -234,14 +248,20 @@ class Ball(Game_obj):
             resulting_x_dir, resulting_y_dir = a[1]
 
         if self.check_collision(paddle):
-            resulting_x_dir, resulting_y_dir = self.get_paddle_collision_dir(paddle)
+            resulting_x_dir, resulting_y_dir = self.get_paddle_collision_dir(
+                paddle
+            )
 
         # if resulting_x_dir and resulting_y_dir aren't None, then update ball speed
         if resulting_x_dir and resulting_y_dir:
             angle = random.randint(MINIMUM_ANGLE, int(math.pi / 2 * 100)) / 100
 
-            self.speed["x"] = math.cos(angle) * self.BALLSPEED[0] * resulting_x_dir
-            self.speed["y"] = math.sin(angle) * self.BALLSPEED[1] * resulting_y_dir
+            self.speed["x"] = (
+                math.cos(angle) * self.BALLSPEED[0] * resulting_x_dir
+            )
+            self.speed["y"] = (
+                math.sin(angle) * self.BALLSPEED[1] * resulting_y_dir
+            )
 
             # escape the collision so as to prevent the "same" collision from being
             # handled when collide_paddle is called next time.
@@ -272,8 +292,10 @@ class Ball(Game_obj):
             ball_past = Ball(BALL_RADIUS)
             ball_past.move_to(
                 (
-                    self.prev_rect.topleft[0] + (delta_x * i / COLLISIONS_TO_CHECK),
-                    self.prev_rect.topleft[1] + (delta_y * i / COLLISIONS_TO_CHECK),
+                    self.prev_rect.topleft[0]
+                    + (delta_x * i / COLLISIONS_TO_CHECK),
+                    self.prev_rect.topleft[1]
+                    + (delta_y * i / COLLISIONS_TO_CHECK),
                 )
             )
             paddle_past = Player({})
@@ -298,7 +320,11 @@ class BoundingLine:
     DEFAULT_SIZE = 3
 
     def __init__(
-        self, start_coord: tuple, end_coord: tuple, name: str, default_size=None
+        self,
+        start_coord: tuple,
+        end_coord: tuple,
+        name: str,
+        default_size=None,
     ):
         if default_size:  # if a default size is provided
             self.DEFAULT_SIZE = default_size
@@ -309,8 +335,12 @@ class BoundingLine:
         self.rect = Rect(
             start_coord[0],
             start_coord[1],
-            end_coord[0] if end_coord[0] - start_coord[0] != 0 else self.DEFAULT_SIZE,
-            end_coord[1] if end_coord[1] - start_coord[1] != 0 else self.DEFAULT_SIZE,
+            end_coord[0]
+            if end_coord[0] - start_coord[0] != 0
+            else self.DEFAULT_SIZE,
+            end_coord[1]
+            if end_coord[1] - start_coord[1] != 0
+            else self.DEFAULT_SIZE,
         )
 
         self.name = name  # this comes in handy in Ball's collide_line method
@@ -327,15 +357,23 @@ class BoundingLine:
 
 
 class Goal(BoundingLine):
-    def __init__(self, start_coord: tuple, end_coord: tuple, name, default_size):
-        super().__init__(start_coord, end_coord, name, default_size=default_size)
+    def __init__(
+        self, start_coord: tuple, end_coord: tuple, name, default_size
+    ):
+        super().__init__(
+            start_coord, end_coord, name, default_size=default_size
+        )
 
     def draw(self, screen: pygame.Surface):
-        super().draw(screen, WHITE)  # the goal should be in white so you can see it
+        super().draw(
+            screen, WHITE
+        )  # the goal should be in white so you can see it
 
 
 class App:
-    def __init__(self, flags=RESIZABLE, width=900, height=600, title="My game"):
+    def __init__(
+        self, flags=RESIZABLE, width=900, height=600, title="My game"
+    ):
         pygame.init()
         self.size = [width, height]
         self.screen = pygame.display.set_mode(self.size, flags)
@@ -504,7 +542,9 @@ class Pong(App):
         self.font = pygame.font.SysFont(pygame.font.get_default_font(), 32)
         if self.winning_player != 0:
             font_img = self.font.render(
-                "Game Over. Player %s won" % str(self.winning_player), True, WHITE
+                "Game Over. Player %s won" % str(self.winning_player),
+                True,
+                WHITE,
             )
         else:
             # this won't actually be seen, but it prevents "Player 0 won" from showing
