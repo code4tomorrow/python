@@ -1,10 +1,16 @@
-# Make the “Pong Game”! The application will consist of a rectangular paddle on each
-# side of the screen, and one circular ball that players must bounce around. If the
-# ball makes contact with the top or bottom of the screen, it will bounce off at a
-# random angle. It will do the same if it makes contact with one of the paddles. If
-# the ball touches the left or right side of the screen, the game will say
-# “Game Over: Player _ Wins”. You must put your code in classes and have separate keys
-# for each player to move their paddles.
+# Make a two-player hockey game! The application will consist
+# of two rectangular paddles, starting on each side of the screen,
+# and one circular ball that players must bounce around. Players can
+# move the paddles in any direction to hit the ball into the goal.
+# If the ball makes contact with safe parts of the screen, it will
+# bounce off at a random angle but in the same general direction
+# (left or right). It will do the same if it makes contact with one
+# of the paddles, but will head towards the opposite general direction
+# instead. If the ball touches the goals on either side of the screen,
+# the application will say “Game Over. Player _ Wins”. You must put
+# your code in classes and have separate keys for each player to
+# move their paddles.
+
 
 import pygame
 from pygame.locals import *
@@ -431,9 +437,9 @@ class App:
         pass
 
 
-class Pong(App):
+class Hockey(App):
     def __init__(self):
-        super().__init__(title="Pong!")
+        super().__init__(title="Hockey!")
 
         # initialize players
         self.player_1 = Player(PLAYER1CONTROLS)
@@ -556,5 +562,5 @@ class Pong(App):
         pygame.display.update()  # show the new text.
 
 
-our_game = Pong()
+our_game = Hockey()
 our_game.mainloop()
