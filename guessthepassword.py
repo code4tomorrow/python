@@ -3,7 +3,7 @@
 # you set and see how many tries it takes for that user to guess correctly
 
 # start with assigning the password to some variable
-pas = str("password")
+pas = "password"
 
 # set an input so it will appear in the console and ask the user
 guess = input("Enter the password:")
