@@ -13,18 +13,34 @@
 
 
 import pygame
-from pygame.locals import *
+from pygame.locals import (
+    K_w,
+    K_s,
+    K_a,
+    K_d,
+    K_UP,
+    K_DOWN,
+    K_LEFT,
+    K_RIGHT,
+    KEYDOWN,
+    KEYUP,
+    QUIT,
+    RESIZABLE,
+)
+from pygame.rect import Rect
+
 import math
 import time
 import random
 
+# define the necessary color constants using rgb values
 BLACK = (0, 0, 0)
 GREEN = (0, 120, 0)
 RED = (120, 0, 0)
 WHITE = (255, 255, 255)
 
+# define player controls
 PLAYER1CONTROLS = {"up": K_w, "down": K_s, "left": K_a, "right": K_d}
-
 PLAYER2CONTROLS = {
     "up": K_UP,
     "down": K_DOWN,
@@ -32,13 +48,17 @@ PLAYER2CONTROLS = {
     "right": K_RIGHT,
 }
 
+# initial screensize
 SCREENSIZE = [900, 600]
 
+# how big the ball's radius will be
 BALL_RADIUS = 3
 
 
 class Game_obj:
     def __init__(self):
+        # we don't want to pass actual values to the Rect class since
+        # we want this class to be abstract
         self.rect = Rect
         self.prev_rect = Rect
         self.speed = {"x": 0, "y": 0}
@@ -59,7 +79,7 @@ class Game_obj:
 
 
 class Player(Game_obj):
-    PLAYERSPEED = [3, 3]
+    PLAYERSPEED = (3, 3)
     PADDLESIZE = (10, 50)  # x width, y width
 
     def __init__(self, control_keys: dict) -> None:
@@ -131,7 +151,7 @@ class Player(Game_obj):
 
 
 class Ball(Game_obj):
-    BALLSPEED = [6, 6]
+    BALLSPEED = (6, 6)
 
     def __init__(self, radius: int) -> None:
         super().__init__()
@@ -241,10 +261,8 @@ class Ball(Game_obj):
                 the objects to the right place
         """
         PROPORTION = 0.25  # used when "escaping" a collision
-        MINIMUM_ANGLE = (
-            15  # this is in degrees; it's just a fine-tuning aspect that
-        )
-        # makes the game more realistic
+        MINIMUM_ANGLE = 15  # this is in degrees; it's just a fine-tuning aspect
+        # that makes the game more realistic
 
         resulting_x_dir = None
         resulting_y_dir = None
@@ -363,13 +381,6 @@ class BoundingLine:
 
 
 class Goal(BoundingLine):
-    def __init__(
-        self, start_coord: tuple, end_coord: tuple, name, default_size
-    ):
-        super().__init__(
-            start_coord, end_coord, name, default_size=default_size
-        )
-
     def draw(self, screen: pygame.Surface):
         super().draw(
             screen, WHITE
@@ -537,10 +548,10 @@ class Hockey(App):
 
         if self.ball.collide_line(self.goal_1):
             self.won = True
-            self.winning_player = 1
+            self.winning_player = 2  # player 2 (right player) scored
         elif self.ball.collide_line(self.goal_2):
             self.won = True
-            self.winning_player = 2
+            self.winning_player = 1  # player 1 (left player) scored
 
     def display_winning_text(self) -> None:
         self.screen.fill(BLACK)
