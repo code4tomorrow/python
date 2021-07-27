@@ -372,7 +372,7 @@ class Tank_Game(App):
                     # effectively deleted
                     self.bullets.pop(i - deletions)
                     self.targets.pop(self.targets.index(target))
-                    
+
                     self.playerscore += (
                         20  # give points for hitting the target
                     )
