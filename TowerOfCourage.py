@@ -1,39 +1,38 @@
-# Story + Directions: This Summer, an amusement
-# park introduced a new ride call Tower of Courage.
-# In this ride, each car can hold up to 10 people. However,
-# for safety, the weight of the riders has to be checked and
-# distributed evenly. Help the amusement park  by writing a function
-# that asks each of the rider's weights. The function should return
-# this list and then print out the list, sum, and average weights.
+# Directions: Lets Play Hangman. In the code, create a certain word that the user has to guess the word in 15 guesses similar to the original game of hangman
 
+def hangman():
+  global score
+  endword = "hangman"
+  wordSet = set(endword)
+  print("Welcome to Hangman! You have 15 guesses to figure out the correct word. Good Luck!")
+  
+  guesses = 15
+  correctguesses = []
+ 
+  
+  for i in range(15):
+    guess = input("Guess a letter!" + "You have "+ str(guesses) + " guesses left:")
+    if guess==endword:
+      print("Nice, the word is 'hangman'")
+      break
+    
+    if guess in endword:
+      correctguesses.append(guess)
+    for i in range(len(endword)):
+  
+      if endword[i] in correctguesses:
+        print(endword[i], end = "")
+      else:
+        print("_ ", end = "")
+    print()
+    if guess != wordSet:
+      guesses -= 1
+     
+    if guesses == 0:
+      print("You ran out of guesses. The correct word is hangman")
+    if set(correctguesses) == wordSet:
+  
+      print("Nice, the word is 'hangman'")
+      score +=1
+      break
 
-def weight():
-    # introduce the list for all riders
-    lstRider = []
-
-    # loop throught the 10 people ask the weight and add to list
-    for i in range(1, 11):
-        weight = input(f"Enter rider {str(i)}'s weight (or q to quit): ")
-
-        if weight == "q":
-            break
-        else:
-            lstRider.append(int(weight))
-
-    return lstRider
-
-
-# set the function equal to the variable
-lstRider = weight()
-
-# to calculate the sum of weights
-total = 0
-
-for i in range(0, 10):
-    total += lstRider[i]
-
-# print the three outputs that are required
-print("The list of all the weights:")
-print(lstRider)
-print(f"The sum of all the weights is {str(total)}.")
-print(f"The average weight of the passengers is {str(total/10)}.")
