@@ -2,7 +2,17 @@ import pygame
 from pygame import Surface
 import uuid
 
-from pygame.locals import *
+from pygame.locals import (
+    K_w,
+    K_s,
+    K_a,
+    K_d,
+    KEYDOWN,
+    KEYUP,
+    QUIT,
+    RESIZABLE,
+    MOUSEBUTTONDOWN,
+)
 import time
 import math
 import random
