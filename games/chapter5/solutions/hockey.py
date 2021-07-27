@@ -261,7 +261,9 @@ class Ball(Game_obj):
                 the objects to the right place
         """
         PROPORTION = 0.25  # used when "escaping" a collision
-        MINIMUM_ANGLE = 15  # this is in degrees; it's just a fine-tuning aspect
+        MINIMUM_ANGLE = (
+            15  # this is in degrees; it's just a fine-tuning aspect
+        )
         # that makes the game more realistic
 
         resulting_x_dir = None
