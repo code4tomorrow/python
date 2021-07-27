@@ -1,4 +1,6 @@
-# Directions: Lets Play Hangman. In the code, create a certain word that the user has to guess the word in 15 guesses similar to the original game of hangman
+# Directions: Lets Play Hangman. In the code, create a certain
+# word that the user has to guess the word in 15 guesses
+# similar to the original game of hangman
 
 
 def hangman():
@@ -6,7 +8,8 @@ def hangman():
     endword = "hangman"
     wordSet = set(endword)
     print(
-        "Welcome to Hangman! You have 15 guesses to figure out the correct word. Good Luck!"
+        "Welcome to Hangman! You have 15 guesses to "
+        + "figure out the correct word. Good Luck!"
     )
 
     guesses = 15
