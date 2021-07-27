@@ -21,3 +21,5 @@ RECT_SIZE = (100, 100)
 RED = (255, 0, 0)
 BLACK = (0, 0, 0)
 momentum = [1, 1]  # (down and right)
+
+# add code here
