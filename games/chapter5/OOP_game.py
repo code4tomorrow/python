@@ -373,9 +373,8 @@ class Tank_Game(App):
                     self.bullets.pop(i - deletions)
                     self.targets.pop(self.targets.index(target))
 
-                    self.playerscore += (
-                        20  # give points for hitting the target
-                    )
+                    # give points for hitting the target
+                    self.playerscore += 20
                     deletions += 1
                     break  # stop the current iteration since the target and
                     # bullet are popped, so referencing them would error.
