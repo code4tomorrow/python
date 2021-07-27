@@ -368,22 +368,22 @@ class Tank_Game(App):
             for target in self.targets:
                 # if the bullet collided with the target
                 if self.bullets[i - deletions].check_collision(target) is True:
-                    a = self.bullets.pop(i - deletions)
-                    del a  # delete the bullet
-                    b = self.targets.pop(self.targets.index(target))
-                    del b  # delete the target
+                    # pop both the bullet and target so that they will be
+                    # effectively deleted
+                    self.bullets.pop(i - deletions)
+                    self.targets.pop(self.targets.index(target))
+                    
                     self.playerscore += (
                         20  # give points for hitting the target
                     )
                     deletions += 1
                     break  # stop the current iteration since the target and
-                    # bullet are deleted, so referencing them would error.
+                    # bullet are popped, so referencing them would error.
 
         # check tank-target collisions
         for target in self.targets:
             if self.tank.check_collision(target) is True:
-                a = self.targets.pop(self.targets.index(target))
-                del a  # delete the target
+                self.targets.pop(self.targets.index(target))
                 deletions += 1
                 self.playerscore += 10  # only 10 for running over targets lol
 
