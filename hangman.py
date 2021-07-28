@@ -1,11 +1,16 @@
-# Directions: Lets Play Hangman. In the code, create a certain
-# word that the user has to guess the word in 15 guesses
-# similar to the original game of hangman
+# Directions: Lets Play Hangman. In the code, create a function that
+# takes as a paramater the word that the user has to guess.
+# The user should have 15 'lives'.
+# Similar to the original game of hangman, if the user guesses an incorrect
+# letter, then their lives goes down. If they guess a correct letter, they
+# don't lose a life.
 
 
-def hangman():
+score = 0
+
+
+def hangman(endword: str):
     global score
-    endword = "hangman"
     wordSet = set(endword)
     print(
         "Welcome to Hangman! You have 15 guesses to "
@@ -15,30 +20,41 @@ def hangman():
     guesses = 15
     correctguesses = []
 
+    # mainloop
     for i in range(15):
-        guess = input(
-            "Guess a letter!" + "You have " + str(guesses) + " guesses left:"
-        )
+        # take user input
+        guess = input("Guess a letter! You have " + str(guesses) + " guesses left: ")
+
+        # win condition
         if guess == endword:
-            print("Nice, the word is 'hangman'")
+            print(f"Nice, the word is '{endword}'")
+            score += 1
             break
 
         if guess in endword:
             correctguesses.append(guess)
-        for i in range(len(endword)):
 
+        # 'draw screen' phase
+        for i in range(len(endword)):
             if endword[i] in correctguesses:
                 print(endword[i], end="")
             else:
                 print("_ ", end="")
         print()
-        if guess != wordSet:
+
+        if guess not in wordSet:
             guesses -= 1
 
+        # update game state
+        # game over condition
         if guesses == 0:
-            print("You ran out of guesses. The correct word is hangman")
-        if set(correctguesses) == wordSet:
+            print(f"You ran out of guesses. The correct word is '{endword}'")
 
-            print("Nice, the word is 'hangman'")
+        # win condition
+        if set(correctguesses) == wordSet:
+            print(f"Nice, the word is '{endword}'")
             score += 1
             break
+
+
+hangman("hangman")
