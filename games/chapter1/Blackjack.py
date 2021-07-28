@@ -17,6 +17,7 @@ userList = []
 for i in range(2):
     dealerList.append(random.randint(2, 11))
     userList.append(random.randint(2, 11))
+
 # print the first two cards
 print("Here is the dealer's cards:" + str(dealerList))
 print("Here is the user's cards:" + str(userList))
