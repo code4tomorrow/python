@@ -13,17 +13,17 @@ def hangman(endword: str):
     global score
     wordSet = set(endword)
     print(
-        "Welcome to Hangman! You have 15 guesses to "
+        "Welcome to Hangman! You have 15 lives to "
         + "figure out the correct word. Good Luck!"
     )
 
-    guesses = 15
+    lives = 15
     correctguesses = []
 
     # mainloop
     for i in range(15):
         # take user input
-        guess = input(f"Guess a letter! You have {guesses} guesses left: ")
+        guess = input(f"Guess a letter! You have {lives} lives left: ")
 
         # win condition
         if guess == endword:
@@ -43,12 +43,12 @@ def hangman(endword: str):
         print()
 
         if guess not in wordSet:
-            guesses -= 1
+            lives -= 1
 
         # update game state
         # game over condition
-        if guesses == 0:
-            print(f"You ran out of guesses. The correct word is '{endword}'")
+        if lives == 0:
+            print(f"You ran out of lives. The correct word is '{endword}'")
 
         # win condition
         if set(correctguesses) == wordSet:
