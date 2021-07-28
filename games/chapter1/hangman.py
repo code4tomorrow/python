@@ -23,7 +23,9 @@ def hangman(endword: str):
     # mainloop
     for i in range(15):
         # take user input
-        guess = input("Guess a letter! You have " + str(guesses) + " guesses left: ")
+        guess = input(
+            "Guess a letter! You have " + str(guesses) + " guesses left: "
+        )
 
         # win condition
         if guess == endword:
