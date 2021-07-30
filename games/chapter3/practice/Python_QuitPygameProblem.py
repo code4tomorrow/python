@@ -1,4 +1,4 @@
-import pygame, sys
+import pygame
 
 pygame.init()
 
@@ -14,7 +14,9 @@ while run:
     pygame.time.delay(50)
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
-            # there are a couple of ways of stopping the pygame loop. One way is to set run = false. Or you can use sys.exit() to stop your program.
+            # there are a couple of ways of stopping the pygame
+            # loop. One way is to set run = false. Or you can
+            # use sys.exit() to stop your program.
             run = False
         if event.type == pygame.KEYDOWN:
             if event.key == pygame.K_ESCAPE:
