@@ -43,15 +43,15 @@ while run:
             if event.key == pygame.K_ESCAPE:
                 run = False
         # get states of keys
-        keysPressed = pygame.key.get_pressed()
+            keysPressed = pygame.key.get_pressed()
         # recall that y coord decreases as you go up the window
         # the origin is at the top left corner
-        if keysPressed[pygame.K_UP] or keysPressed[pygame.K_w]:
-            rectangle[2] -= 5 if rectangle[2] >= 5 else 0
-        elif keysPressed[pygame.K_s] or keysPressed[pygame.K_DOWN]:
-            rectangle[2] += 5 if rectangle[2] <= 475 else 0
-        elif keysPressed[pygame.K_d] or keysPressed[pygame.K_RIGHT]:
-            rectangle[1] += 5 if rectangle[1] <= 475 else 0
-        elif keysPressed[pygame.K_a] or keysPressed[pygame.K_LEFT]:
-            rectangle[1] -= 5 if rectangle[1] >= 5 else 0
+            if keysPressed[pygame.K_UP] or keysPressed[pygame.K_w]:
+              rectangle[2] -= 5 if rectangle[2] >= 5 else 0
+            elif keysPressed[pygame.K_s] or keysPressed[pygame.K_DOWN]:
+              rectangle[2] += 5 if rectangle[2] <= 475 else 0
+            elif keysPressed[pygame.K_d] or keysPressed     [pygame.K_RIGHT]:
+              rectangle[1] += 5 if rectangle[1] <= 475 else 0
+            elif keysPressed[pygame.K_a] or keysPressed[pygame.K_LEFT]:
+              rectangle[1] -= 5 if rectangle[1] >= 5 else 0
     pygame.display.update()
