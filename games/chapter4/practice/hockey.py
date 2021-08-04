@@ -30,7 +30,7 @@
 #       draw method.
 
 
-import pygame
+import pygame  # noqa: F401
 from pygame import Rect
 import math
 import random
