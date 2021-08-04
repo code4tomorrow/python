@@ -1,6 +1,23 @@
+"""
+This is a tank game made with pygame and original images.
+
+Brief description of classes within this file:
+    Game_obj - the abstract base class for all the objects that appear
+        on-screen, including the Tank class, the Bullet class, and
+        the Target class
+    Bullet - inherits from Game_obj.
+    Target - inherits from Game_obj. It is always stationary.
+    Tank - inherits from Game_obj. Takes keyboard input (W, A, S, and D)
+        to control the tank's movement.
+    App - the abstract base class for the actual Tank_game class. It's
+        purpose is to define a structure for the game.
+    Tank_game - the functional class that inherits from App. It creates
+        a bullet whenever the mouse is clicked. It handles the collisions
+        (if a bullet hits a target, both are deleted. If the tank runs into
+        the target, the target is deleted.)
+"""
+
 import pygame
-from pygame import Surface
-import uuid
 
 from pygame.locals import (
     K_w,
@@ -32,8 +49,9 @@ BULLETSPEED = [8, 8]
 class Game_obj:
     def __init__(self, picture: str, **kwargs) -> None:
         """
-        A basic game object class. It handles collisions
-        and has a uuid (universally unique identifier)
+        A basic game object class. It handles collisions,
+        the basic drawing method, the move and moveto methods,
+        and the check_out_of_screen method.
 
         Arguments:
             picture:str - the location of the picture that will be displayed on
@@ -46,22 +64,17 @@ class Game_obj:
                     should be positioned at
                 "speed":tuple(x,y) - the tuple that represents the object's speed.
         """
-        self.uuid = uuid.uuid4()
         self.name = ""
 
-        # self.image will be a pygame.image.Surface class
+        # self.image will be a pygame.Surface class
         self.image = pygame.image.load(picture)
         self.image = (
-            pygame.transform.scale(
-                self.image, (kwargs["size"][0], kwargs["size"][1])
-            )
+            pygame.transform.scale(self.image, (kwargs["size"][0], kwargs["size"][1]))
             if "size" in kwargs
             else self.image
         )
 
-        self.rect = (
-            self.image.get_rect()
-        )  # self.rect will be of pygame.Rect class
+        self.rect = self.image.get_rect()  # self.rect will be of pygame.Rect class
         self.size = self.rect.size  # will be a tuple of (sizex, sizey)
 
         if "position" in kwargs:
@@ -78,9 +91,11 @@ class Game_obj:
             raise TypeError(
                 "Invalid type; need a game_obj or a child class of game_obj"
             )
-        return self.rect.colliderect(other.rect) == 1  # 1 if True, 0 if False
+        # the rect class's colliderect method returns 1 if there is
+        # a collision and 0 if there isn't a collision
+        return self.rect.colliderect(other.rect) == 1
 
-    def draw(self, screen: Surface, color: tuple) -> None:
+    def draw(self, screen: pygame.Surface, color: tuple) -> None:
         pygame.draw.rect(screen, color, self.rect, 0)
         screen.blit(self.image, self.rect)
 
@@ -130,10 +145,7 @@ class Game_obj:
         return False
 
     def __str__(self):
-        return (
-            f"{self.name} object located at the position {self.rect.topleft} with"
-            + f" uuid {self.uuid}"
-        )
+        return f"{self.name} object located at the position {self.rect.topleft}"
 
 
 class Bullet(Game_obj):
@@ -196,9 +208,19 @@ class Tank(Game_obj):
 
 
 class App:
-    def __init__(
-        self, flags=RESIZABLE, width=960, height=540, title="My Game"
-    ):
+    """
+    The abstract base class for the actual Tank_game class. It's
+    main purpose is to define a structure for the game.
+    It's structure is as follows:
+        Upon initialization, it runs the create_objects method
+        It's mainloop is comprised of the following methods:
+            check_events
+            check_collisions
+            move_objects
+            update_display
+    """
+
+    def __init__(self, flags=RESIZABLE, width=960, height=540, title="My Game"):
         pygame.init()
         self.size = [width, height]
         self.screen = pygame.display.set_mode(self.size, flags)
@@ -209,18 +231,35 @@ class App:
         self.create_objects()
 
     def create_objects(self):
+        """
+        This should create the initial objects on the screen.
+        """
         pass
 
     def check_events(self, event):
+        """
+        This should take user input and handle it appropriately.
+        """
         pass
 
     def update_display(self):
+        """
+        This should utilize clear the screen and then draw
+        all current objects onto the screen.
+        """
         pass
 
     def move_objects(self):
+        """
+        This should utilize the move method that the game objects have.
+        """
         pass
 
     def check_collisions(self):
+        """
+        This should utilize the check_collision method that the game objects
+        have.
+        """
         pass
 
     def mainloop(self):
@@ -230,9 +269,7 @@ class App:
                     self.running = False
                     break
                 else:
-                    self.check_events(
-                        event
-                    )  # this will handle checking for user input
+                    self.check_events(event)  # this will handle checking for user input
                     # such as KEYUP and MOUSEBUTTONDOWN events needed to run the game
             self.check_collisions()  # checks collisions between bullet/tank and targets
             self.move_objects()  # moves each object on the screen
@@ -275,12 +312,8 @@ class Tank_Game(App):
         for target in self.targets:
             target.moveto(
                 (
-                    random.randint(
-                        0, self.size[0] - target.size[0]
-                    ),  # random x
-                    random.randint(
-                        0, self.size[1] - target.size[1]
-                    ),  # random y
+                    random.randint(0, self.size[0] - target.size[0]),  # random x
+                    random.randint(0, self.size[1] - target.size[1]),  # random y
                 )
             )
 
@@ -414,9 +447,7 @@ class Tank_Game(App):
             bullet.draw(self.screen, BLACK)
 
         # score text
-        font_img = self.font.render(
-            "Score: %s" % str(self.playerscore), True, BLACK
-        )
+        font_img = self.font.render("Score: %s" % str(self.playerscore), True, BLACK)
         font_rect = font_img.get_rect()
         pygame.draw.rect(self.screen, SANDBROWN, font_rect, 1)
         self.screen.blit(font_img, font_rect)
