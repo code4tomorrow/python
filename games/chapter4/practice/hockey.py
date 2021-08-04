@@ -257,7 +257,9 @@ class Ball(Game_obj):
                 the objects to the right place
         """
         PROPORTION = 0.25  # used when "escaping" a collision
-        MINIMUM_ANGLE = 15  # this is in degrees; it's just a fine-tuning aspect
+        MINIMUM_ANGLE = (
+            15  # this is in degrees; it's just a fine-tuning aspect
+        )
         # that makes the game more realistic
 
         resulting_x_dir = None
@@ -268,14 +270,20 @@ class Ball(Game_obj):
             resulting_x_dir, resulting_y_dir = a[1]
 
         if self.check_collision(paddle):
-            resulting_x_dir, resulting_y_dir = self.get_paddle_collision_dir(paddle)
+            resulting_x_dir, resulting_y_dir = self.get_paddle_collision_dir(
+                paddle
+            )
 
         # if resulting_x_dir and resulting_y_dir aren't None, then update ball speed
         if resulting_x_dir and resulting_y_dir:
             angle = random.randint(MINIMUM_ANGLE, int(math.pi / 2 * 100)) / 100
 
-            self.speed["x"] = math.cos(angle) * self.BALLSPEED[0] * resulting_x_dir
-            self.speed["y"] = math.sin(angle) * self.BALLSPEED[1] * resulting_y_dir
+            self.speed["x"] = (
+                math.cos(angle) * self.BALLSPEED[0] * resulting_x_dir
+            )
+            self.speed["y"] = (
+                math.sin(angle) * self.BALLSPEED[1] * resulting_y_dir
+            )
 
             # escape the collision so as to prevent the "same" collision from being
             # handled when collide_paddle is called next time.
@@ -306,8 +314,10 @@ class Ball(Game_obj):
             ball_past = Ball(BALL_RADIUS)
             ball_past.move_to(
                 (
-                    self.prev_rect.topleft[0] + (delta_x * i / COLLISIONS_TO_CHECK),
-                    self.prev_rect.topleft[1] + (delta_y * i / COLLISIONS_TO_CHECK),
+                    self.prev_rect.topleft[0]
+                    + (delta_x * i / COLLISIONS_TO_CHECK),
+                    self.prev_rect.topleft[1]
+                    + (delta_y * i / COLLISIONS_TO_CHECK),
                 )
             )
             paddle_past = Player({})
