@@ -28,6 +28,11 @@
 # BoundingLine - a class that represents the lines on the edges of the screen
 #       Doesn't inherit from Game_obj. It should have a __init__ and
 #       draw method.
+# Goal - a class that inherits from BoundingLine. It should override
+#       BoundingLine's draw method to draw its rectangle in white.
+# App - an abstract class to provide the structure of the game.
+# Hockey - the functional class whose mainloop will be called
+#       to play hockey.
 
 
 import pygame  # noqa: F401
@@ -100,7 +105,7 @@ class Player(Game_obj):
         """
         pass
 
-    def draw(self, surface):
+    def draw(self, surface: pygame.Surface):
         """
         This should draw self.rect onto the surface in the color GREEN
         """
@@ -173,7 +178,7 @@ class Ball(Game_obj):
             * (-1 if random.randint(0, 1) == 0 else 1)
         )
 
-    def draw(self, surface):
+    def draw(self, surface: pygame.Surface):
         """
         This should use pygame.draw's builtin method for
         drawing circles to draw the ball onto the screen in
@@ -357,7 +362,7 @@ class BoundingLine:
         (or DEFAULT_SIZE if default_size isn't provided)
         """
 
-    def draw(self, screen, color):
+    def draw(self, screen: pygame.Surface, color):
         """
         Draw self.rect onto the screen in the provided color, which should
         default to red.
@@ -384,6 +389,8 @@ class App:
 
 class Hockey:
     """
+    This is the functional class whose mainloop will be called
+    to play hockey.
     This should inherit from App (where mainloop is defined)
     Its methods should utilize the methods within the
     game object classes.
