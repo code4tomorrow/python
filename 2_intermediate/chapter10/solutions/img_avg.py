@@ -101,7 +101,8 @@ def distort(original_image, new_image):
                     row + relative_y < 0
                     or row + relative_y > len(original_image) - 1
                 ):
-                    # ignore relative indexes that are out of range of the original image
+                    # ignore relative indexes that are out of range of the
+                    # original image
                     continue
                 # if it isn't out of range, it's valid and should be appended
                 y_relative_indexes.append(relative_y)
@@ -113,7 +114,8 @@ def distort(original_image, new_image):
                     column + relative_x < 0
                     or column + relative_x > len(original_image[0]) - 1
                 ):
-                    # ignore relative indexes that are out of range of the original image
+                    # ignore relative indexes that are out of range of the
+                    # original image
                     continue
                 # if it isn't out of range, it's valid and should be appended
                 x_relative_indexes.append(relative_x)
