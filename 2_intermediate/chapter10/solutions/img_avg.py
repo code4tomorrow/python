@@ -87,12 +87,18 @@ def distort(original_image, new_image):
         original_image (list or tuple) - the reference image.
         new_image (list) - the image to modify.
     """
-    DISTORTION_RADIUS = 1
+    DISTORTION_RADIUS = 1  # this should be a positive integer
+    # Note that each increase of DISTORTION_RADIUS increases
+    # run time amazingly. Slower PC's should stick to values like
+    # 1 or 2 for DISTORTION_RADIUS
 
     for row in range(len(original_image)):
         for column in range(len(original_image[0])):
+            # we set these to empty lists because the for loops
+            # will iterate through all valid relative indexes
+            # (including 0) and append them to these lists.
             x_relative_indexes = []
-            y_relative_indexes = [0]
+            y_relative_indexes = []
 
             # handle y relative indexes
             # +1 to DISTORTION_RADIUS because stop is exclusive
