@@ -39,30 +39,18 @@ HINT: Don't forget that a pixel may have varying amount of neighboring
 pixels. A pixel at the edge, for example, has 3 neighboring pixels while
 a pixel at the center of the image has 8 neighboring pixels (one on each
 of its 4 sides, and then one at each of its 4 corners).
-
-GIVEN: The code to grab an image from the internet and make it
-into an array is given to you. The code also displays the new image
-you create in the end. These weren't taught in the main curriculum, so
-it isn't expected for students to fully understand what the given code
-does.
 """
 
 # Import libraries needed to run the program
 # Before importing the libraries, you must have them installed.
-# Follow the following instructions to get all the libraries installed:
-# -1. We first have to make sure pip is there. To check, run pip --version
-#     in the terminal. If a version appeared, then pip is there. If no
-#     version appears, update your Python to the latest version of 2 or 3.
-# -2. In terminal, run pip install pillow. Wait for Successfully installed
-#     (something) to pop on the terminal.
-# -3. In terminal, run pip install requests. Wait for Successfully installed
-#     (something) to pop on the terminal.
-# -4. In terminal, run pip install numpy. Wait for Successfully installed
-#     (something) to pop on the terminal.
-# -5. In terminal, run pip install matplotlib. Wait for Successfully
-#     installed (something) to pop on the terminal.
-# -6. If all 2-5 all were successful, now you all the packages needed for
-#     this problem.
+# This problem requires the following libraries:
+# pillow, requests, numpy, and matplotlib
+# If you don't already have them installed, open your command prompt or terminal
+# and please do 
+# this: pip install -U (library) (any other libraries, each separated by a space)
+# ex: pip install -U numpy matplotlib requests pillow
+# Note: on some windows machines, you may need to 
+# do: py -m pip install -U (library) (any other libraries, each separated by a space)
 
 from PIL import Image
 import requests
@@ -76,18 +64,20 @@ IMAGE_URL = (
 img = numpy.array(
     Image.open(requests.get(IMAGE_URL, stream=True).raw)
 ).tolist()
-newimg = img  # the newimg starts as a copy of the original image
-transpose = numpy.transpose(img)
+
+# create newimg as an empty list so that we'll know if something went wrong
+# ie. if we try to display it and the function didn't run, we'd get an 
+# invalid shape error
+newimg = [[[] for column in row] for row in img]
 
 # Code that displays the original image
+print("now displaying the original image")
 plt.imshow(img)
 plt.show()
 
 # Write code to create newimg here
 
 # Code that displays the new image at the end
+print("now displaying the new image")
 plt.imshow(newimg)
-plt.show()
-
-plt.imshow(transpose)
 plt.show()

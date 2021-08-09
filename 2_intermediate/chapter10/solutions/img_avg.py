@@ -39,30 +39,19 @@ HINT: Don't forget that a pixel may have varying amount of neighboring
 pixels. A pixel at the edge, for example, has 3 neighboring pixels while
 a pixel at the center of the image has 8 neighboring pixels (one on each
 of its 4 sides, and then one at each of its 4 corners).
-
-GIVEN: The code to grab an image from the internet and make it
-into an array is given to you. The code also displays the new image
-you create in the end. These weren't taught in the main curriculum, so
-it isn't expected for students to fully understand what the given code
-does.
 """
 
 # Import libraries needed to run the program
 # Before importing the libraries, you must have them installed.
-# Follow the following instructions to get all the libraries installed:
-# -1. We first have to make sure pip is there. To check, run pip --version
-#     in the terminal. If a version appeared, then pip is there. If no
-#     version appears, update your Python to the latest version of 2 or 3.
-# -2. In terminal, run pip install pillow. Wait for Successfully installed
-#     (something) to pop on the terminal.
-# -3. In terminal, run pip install requests. Wait for Successfully installed
-#     (something) to pop on the terminal.
-# -4. In terminal, run pip install numpy. Wait for Successfully installed
-#     (something) to pop on the terminal.
-# -5. In terminal, run pip install matplotlib. Wait for Successfully
-#     installed (something) to pop on the terminal.
-# -6. If all 2-5 all were successful, now you all the packages needed for
-#     this problem.
+# This problem requires the following libraries:
+# pillow, requests, numpy, and matplotlib
+# If you don't already have them installed, open your command prompt or terminal
+# and please do
+# this: pip install -U (library) (any other libraries, each separated by a space)
+# ex: pip install -U numpy matplotlib requests pillow
+# Note: on some windows machines, you may need to
+# do: py -m pip install -U (library) (any other libraries, each separated by a space)
+
 
 from PIL import Image
 import requests
@@ -76,65 +65,90 @@ IMAGE_URL = (
 img = numpy.array(
     Image.open(requests.get(IMAGE_URL, stream=True).raw)
 ).tolist()
-newimg = img  # the newimg starts as a copy of the original image
-transpose = numpy.transpose(img)
+
+# create newimg as an empty list so that we'll know if something went wrong
+# ie. if we try to display it and the function didn't run, we'd get an
+# invalid shape error
+newimg = [[[] for column in row] for row in img]
 
 # Code that displays the original image
+print("now displaying the original image")
 plt.imshow(img)
 plt.show()
 
-"""
-The double for loop gets all combination of indexes necessary
-  to access all the pixels inside the list.
-i is the index determining which inner
-  list to get. Using the Example as the visual, this
-  index goes from top to bottom.
-j is the index determining which list inside
-  inner list to get. Using the Example as the visual, this
-  index goes from left to right.
-"""
-for i in range(len(img)):
-    for j in range(len(img[0])):
-        x_n = [0]
-        y_n = [0]
 
-        if i == 0:
-            x_n.append(1)
-        elif i == len(img) - 1:
-            x_n.append(-1)
-        else:
-            x_n.append(1)
-            x_n.append(-1)
+def distort(original_image, new_image):
+    """
+    Modifies new_image so that each pixel in new_image
+    will be the average of the surrounding
+    DISTORTION_RADIUS pixels.
+    DISTORTION_RADIUS can be changed for more/less distortion.
+    Arguments:
+        original_image (list or tuple) - the reference image.
+        new_image (list) - the image to modify.
+    """
+    DISTORTION_RADIUS = 1
 
-        if j == 0:
-            y_n.append(1)
-        elif j == len(img[0]) - 1:
-            y_n.append(-1)
-        else:
-            y_n.append(1)
-            y_n.append(-1)
+    for row in range(len(original_image)):
+        for column in range(len(original_image[0])):
+            x_relative_indexes = []
+            y_relative_indexes = [0]
 
-        r_avg = -img[i][j][0]
-        g_avg = -img[i][j][1]
-        b_avg = -img[i][j][2]
-        c = -1
+            # handle y relative indexes
+            # +1 to DISTORTION_RADIUS because stop is exclusive
+            for relative_y in range(-DISTORTION_RADIUS, DISTORTION_RADIUS + 1):
+                if (
+                    row + relative_y < 0
+                    or row + relative_y > len(original_image) - 1
+                ):
+                    # ignore relative indexes that are out of range of the original image
+                    continue
+                # if it isn't out of range, it's valid and should be appended
+                y_relative_indexes.append(relative_y)
 
-        for x in x_n:
-            for y in y_n:
-                r_avg += img[i + x][j + y][0]
-                g_avg += img[i + x][j + y][1]
-                b_avg += img[i + x][j + y][2]
-                c += 1
-        r_avg = r_avg / c
-        g_avg = g_avg / c
-        b_avg = b_avg / c
+            # handle x relative indexes
+            # +1 to DISTORTION_RADIUS because stop is exclusive
+            for relative_x in range(-DISTORTION_RADIUS, DISTORTION_RADIUS + 1):
+                if (
+                    column + relative_x < 0
+                    or column + relative_x > len(original_image[0]) - 1
+                ):
+                    # ignore relative indexes that are out of range of the original image
+                    continue
+                # if it isn't out of range, it's valid and should be appended
+                x_relative_indexes.append(relative_x)
 
-        newimg[i][j] = [r_avg, g_avg, b_avg]
+            # at this point, x_relative_indexes and y_relative_indexes are
+            # complete, so now we use them.
+            r_total = g_total = b_total = counter = 0  # initialize variables
+            for x in x_relative_indexes:
+                for y in y_relative_indexes:
+                    # since images are 'rgb':
+                    # red is the first val
+                    r_total += original_image[row + y][column + x][0]
 
+                    # green is the second val
+                    g_total += original_image[row + y][column + x][1]
+
+                    # blue is third val
+                    b_total += original_image[row + y][column + x][2]
+
+                    counter += 1
+
+            # round because images don't deal w/ floats, only integers
+            r_avg = round(r_total / counter)
+            g_avg = round(g_total / counter)
+            b_avg = round(b_total / counter)
+
+            # update the pixel in newimg to match the average of its
+            # surrounding pixels
+            new_image[row][column] = [r_avg, g_avg, b_avg]
+
+
+print("now modifying file. Depending on your pc, this may take a while.")
+distort(img, newimg)
 
 # Code that displays the new image at the end
+print("now displaying the new image")
 plt.imshow(newimg)
-plt.show()
-
-plt.imshow(transpose)
 plt.show()
