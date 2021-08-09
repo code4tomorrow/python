@@ -46,10 +46,10 @@ of its 4 sides, and then one at each of its 4 corners).
 # This problem requires the following libraries:
 # pillow, requests, numpy, and matplotlib
 # If you don't already have them installed, open your command prompt or terminal
-# and please do 
+# and please do
 # this: pip install -U (library) (any other libraries, each separated by a space)
 # ex: pip install -U numpy matplotlib requests pillow
-# Note: on some windows machines, you may need to 
+# Note: on some windows machines, you may need to
 # do: py -m pip install -U (library) (any other libraries, each separated by a space)
 
 from PIL import Image
@@ -66,7 +66,7 @@ img = numpy.array(
 ).tolist()
 
 # create newimg as an empty list so that we'll know if something went wrong
-# ie. if we try to display it and the function didn't run, we'd get an 
+# ie. if we try to display it and the function didn't run, we'd get an
 # invalid shape error
 newimg = [[[] for column in row] for row in img]
 
