@@ -300,6 +300,11 @@ class Tank_Game(App):
             "c:/projects/python_repo/games/chapter5/solutions/explosion.wav"
         )
 
+        # load the music and play it
+        pygame.mixer.music.load("c:/projects/python_repo/games/chapter5/solutions/simple_bg.wav")
+        pygame.mixer.music.play(-1)
+
+
     def create_objects(self):
         """
         This creates the initial objects seen when the game
