@@ -38,6 +38,13 @@ Under each of the 3 packages, source code is further divided by chapter.
 19. `chapter19` Exception Handling
 20. `chapter20` File I/O
 
+### Games
+1. "chapter1" Console Games
+2. "chapter2" Pygame Basics
+3. "chapter3" Pygame Events
+4. "chapter4" OOP + Pygame
+5. "chapter5" Pygame Sounds
+
 ## Category
 Under each chapter, source code is further divided by category:
 1. `examples` - example code to demo certain programming concepts
