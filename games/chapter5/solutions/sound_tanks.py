@@ -31,7 +31,9 @@ import random
 
 BULLET_IMG_PATH = "c:/projects/python_repo/games/chapter5/solutions/bullet.png"
 TARGET_IMG_PATH = "c:/projects/python_repo/games/chapter5/solutions/target.png"
-TANK_IMG_PATH = "c:/projects/python_repo/games/chapter5/solutions/completetank.png"
+TANK_IMG_PATH = (
+    "c:/projects/python_repo/games/chapter5/solutions/completetank.png"
+)
 
 BLACK = (255, 255, 255)
 DIRTBROWN = (168, 95, 0)
@@ -64,12 +66,16 @@ class Game_obj:
         # self.image will be a pygame.Surface class
         self.image = pygame.image.load(picture)
         self.image = (
-            pygame.transform.scale(self.image, (kwargs["size"][0], kwargs["size"][1]))
+            pygame.transform.scale(
+                self.image, (kwargs["size"][0], kwargs["size"][1])
+            )
             if "size" in kwargs
             else self.image
         )
 
-        self.rect = self.image.get_rect()  # self.rect will be of pygame.Rect class
+        self.rect = (
+            self.image.get_rect()
+        )  # self.rect will be of pygame.Rect class
         self.size = self.rect.size  # will be a tuple of (sizex, sizey)
 
         if "position" in kwargs:
@@ -140,7 +146,9 @@ class Game_obj:
         return False
 
     def __str__(self):
-        return f"{self.name} object located at the position {self.rect.topleft}"
+        return (
+            f"{self.name} object located at the position {self.rect.topleft}"
+        )
 
 
 class Bullet(Game_obj):
@@ -215,7 +223,9 @@ class App:
             update_display
     """
 
-    def __init__(self, flags=RESIZABLE, width=960, height=540, title="My Game"):
+    def __init__(
+        self, flags=RESIZABLE, width=960, height=540, title="My Game"
+    ):
         pygame.init()
         self.size = [width, height]
         self.screen = pygame.display.set_mode(self.size, flags)
@@ -264,7 +274,9 @@ class App:
                     self.running = False
                     break
                 else:
-                    self.check_events(event)  # this will handle checking for user input
+                    self.check_events(
+                        event
+                    )  # this will handle checking for user input
                     # such as KEYUP and MOUSEBUTTONDOWN events needed to run the game
             self.check_collisions()  # checks collisions between bullet/tank and targets
             self.move_objects()  # moves each object on the screen
@@ -301,9 +313,10 @@ class Tank_Game(App):
         )
 
         # load the music and play it
-        pygame.mixer.music.load("c:/projects/python_repo/games/chapter5/solutions/simple_bg.wav")
+        pygame.mixer.music.load(
+            "c:/projects/python_repo/games/chapter5/solutions/simple_bg.wav"
+        )
         pygame.mixer.music.play(-1)
-
 
     def create_objects(self):
         """
@@ -324,8 +337,12 @@ class Tank_Game(App):
         for target in self.targets:
             target.moveto(
                 (
-                    random.randint(0, self.size[0] - target.size[0]),  # random x
-                    random.randint(0, self.size[1] - target.size[1]),  # random y
+                    random.randint(
+                        0, self.size[0] - target.size[0]
+                    ),  # random x
+                    random.randint(
+                        0, self.size[1] - target.size[1]
+                    ),  # random y
                 )
             )
 
@@ -466,7 +483,9 @@ class Tank_Game(App):
             bullet.draw(self.screen, BLACK)
 
         # score text
-        font_img = self.font.render("Score: %s" % str(self.playerscore), True, BLACK)
+        font_img = self.font.render(
+            "Score: %s" % str(self.playerscore), True, BLACK
+        )
         font_rect = font_img.get_rect()
         pygame.draw.rect(self.screen, SANDBROWN, font_rect, 1)
         self.screen.blit(font_img, font_rect)
