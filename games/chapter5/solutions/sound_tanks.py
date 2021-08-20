@@ -29,11 +29,9 @@ import time
 import math
 import random
 
-BULLET_IMG_PATH = "c:/projects/python_repo/games/chapter5/solutions/bullet.png"
-TARGET_IMG_PATH = "c:/projects/python_repo/games/chapter5/solutions/target.png"
-TANK_IMG_PATH = (
-    "c:/projects/python_repo/games/chapter5/solutions/completetank.png"
-)
+BULLET_IMG_PATH = "./bullet.png"
+TARGET_IMG_PATH = "./target.png"
+TANK_IMG_PATH = "./completetank.png"
 
 BLACK = (255, 255, 255)
 DIRTBROWN = (168, 95, 0)
@@ -298,24 +296,14 @@ class Tank_Game(App):
         self.playerscore = 0  # the player's score
 
         # sets the display icon to the TankIcon.png provided
-        pygame.display.set_icon(
-            pygame.image.load(
-                "c:/projects/python_repo/games/chapter5/solutions/TankIcon.png"
-            )
-        )
+        pygame.display.set_icon(pygame.image.load("./TankIcon.png"))
 
         # set up the sounds
-        self.fire_sound = pygame.mixer.Sound(
-            "c:/projects/python_repo/games/chapter5/solutions/fire.wav"
-        )
-        self.explosion_sound = pygame.mixer.Sound(
-            "c:/projects/python_repo/games/chapter5/solutions/explosion.wav"
-        )
+        self.fire_sound = pygame.mixer.Sound("./fire.wav")
+        self.explosion_sound = pygame.mixer.Sound("./explosion.wav")
 
         # load the music and play it
-        pygame.mixer.music.load(
-            "c:/projects/python_repo/games/chapter5/solutions/simple_bg.wav"
-        )
+        pygame.mixer.music.load("./simple_bg.wav")
         pygame.mixer.music.play(-1)
 
     def create_objects(self):
