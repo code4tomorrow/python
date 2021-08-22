@@ -14,9 +14,9 @@ while run:
             run = False
         if event.type == pygame.KEYUP:
             # if event is KEYUP
-            print(“Up up up!”)
+            print("Up up up!")
         if event.type == pygame.KEYDOWN:
             # will never happen because KEYDOWN is blocked
-            print(“Down down down!”)
+            print("Down down down!")
 
 pygame.quit()
