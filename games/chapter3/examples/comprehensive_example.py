@@ -16,7 +16,7 @@ while run:
             # if event is KEYUP
             print(“Up up up!”)
         if event.type == pygame.KEYDOWN:
-            # this will never happen because KEYDOWN is blocked
+            # will never happen because KEYDOWN is blocked
             print(“Down down down!”)
 
 pygame.quit()
