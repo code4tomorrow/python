@@ -11,7 +11,7 @@ while run:
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
             # if event is QUIT
-			run = False
+            run = False
         if event.type == pygame.KEYUP:
             # if event is KEYUP
             print(“Up up up!”)
