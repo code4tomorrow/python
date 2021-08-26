@@ -1,5 +1,4 @@
 import pygame
-
 pygame.init()
 
 flag = pygame.locals.RESIZABLE
