@@ -1,6 +1,7 @@
 # Directions: The goal of blackjack is to be the first player
 # to get to 21. Each player will draw randomly and the
-# sum of the cards will add to 21.
+# sum of the cards will add to 21. If the cards of a player goes
+# over 21, that person automatically loses.
 
 import random
 
