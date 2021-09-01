@@ -2,8 +2,7 @@
 # to get to 21. Each player will draw randomly and the
 # sum of the cards will add to 21.
 
-import random
-
+# Add your imports here
 
 print("Welcome to the game of BlackJack. ")
 print("")
