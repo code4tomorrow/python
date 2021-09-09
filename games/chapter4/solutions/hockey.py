@@ -265,7 +265,7 @@ class Ball(Game_obj):
         """
         PROPORTION = 0.25  # used when "escaping" a collision
         MINIMUM_ANGLE = (
-            15  # this is in degrees; it's just a fine-tuning aspect
+            30  # this is in degrees; it's just a fine-tuning aspect
         )
         # that makes the game more realistic
 
@@ -283,7 +283,20 @@ class Ball(Game_obj):
 
         # if resulting_x_dir and resulting_y_dir aren't None, then update ball speed
         if resulting_x_dir and resulting_y_dir:
-            angle = random.randint(MINIMUM_ANGLE, int(math.pi / 2 * 100)) / 100
+            print(MINIMUM_ANGLE * math.pi / 180 * 100)
+            print(math.pi / 2 * 100)
+            angle = (
+                random.randint(
+                    0,
+                    int(
+                        math.pi / 2 * 100
+                        - (MINIMUM_ANGLE * math.pi / 180 * 100)
+                    ),
+                )
+                / 100
+            )
+
+            print("angle", angle)
 
             self.speed["x"] = (
                 math.cos(angle) * self.BALLSPEED[0] * resulting_x_dir
@@ -402,7 +415,11 @@ class App:
         pygame.display.set_caption(title, title)
         self.running = True
 
-        self.won = False  # whether a player won yet
+        self.GAMESTATE = 0
+        self.WONSTATE = 1
+        self.QUITSTATE = 2
+
+        self.currstate = self.GAMESTATE
         self.winning_player = 0  # will be 1 or 2 when a player won
 
         self.executions = 0  # useful for debugging
@@ -412,14 +429,13 @@ class App:
             # main game loop (for the game itself)
             # because this is a while loop, the game will keep going until someone won
             # so we don't need to worry about the post-game text being displayed
-            while not self.won:
+            if self.currstate == self.GAMESTATE:
                 for event in pygame.event.get():
                     if event.type == QUIT:
                         # set the variables that are keeping the game running
                         # to values that won't keep the game running
                         self.running = False
-                        self.won = True  # set to True because the main game loop stops
-                        # when someone won
+                        self.currstate = self.QUITSTATE
                     else:
                         self.check_events(event)
                 self.check_collisions()
@@ -429,13 +445,16 @@ class App:
                 time.sleep(0.01)
                 self.executions += 1
 
-            # 'post-game' game loop (just shows winning text)
-            for event in pygame.event.get():
-                if event.type == QUIT:
-                    self.running = False
-            self.display_winning_text()
+            if self.currstate == self.WONSTATE:
+                # 'post-game' game loop (just shows winning text)
+                for event in pygame.event.get():
+                    if event.type == QUIT:
+                        self.running = False
+                        self.currstate = self.QUITSTATE
+                self.display_winning_text()
 
-        pygame.quit()
+            if self.currstate == self.QUITSTATE:
+                pygame.quit()
 
     def check_events(self, event) -> None:
         pass
@@ -552,10 +571,10 @@ class Hockey(App):
         self.ball.collide_paddle(self.player_2, self.executions)
 
         if self.ball.collide_line(self.goal_1):
-            self.won = True
+            self.currstate = self.WONSTATE
             self.winning_player = 2  # player 2 (right player) scored
         elif self.ball.collide_line(self.goal_2):
-            self.won = True
+            self.currstate = self.WONSTATE
             self.winning_player = 1  # player 1 (left player) scored
 
     def display_winning_text(self) -> None:
