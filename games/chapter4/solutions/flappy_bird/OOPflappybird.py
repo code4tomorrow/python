@@ -133,6 +133,7 @@ class Bird(GameObj):
         )
         self.upmomentum = 0
         self.goingup = False
+        self.curSpriteIdx = 0
 
     def processSpritesheet(
         self,
@@ -149,24 +150,35 @@ class Bird(GameObj):
         ) // numPicsY
         for row in range(numPicsX):
             for column in range(numPicsY):
-                self.sprites.append(
-                    Spritesheet.subsurface(
-                        (
-                            row * self.spriteFrameWidth + xOffset,
-                            column * self.spriteFrameHeight + yOffset,
-                            self.spriteFrameWidth,
-                            self.spriteFrameHeight,
-                        )
+                temp = Spritesheet.subsurface(
+                    (
+                        row * self.spriteFrameWidth + xOffset,
+                        column * self.spriteFrameHeight + yOffset,
+                        self.spriteFrameWidth,
+                        self.spriteFrameHeight,
                     )
                 )
+                # get the bounding box for the actual colored pixels
+                # (so that we won't be blit-ing extra empty pixels)
+                # (makes collisions more accurate)
+                temprect = temp.get_bounding_rect()
+                # then, append the shortened image to the sprites list
+                self.sprites.append(temp.subsurface(temprect))
 
-    def draw(self, screen: pygame.Surface):
+    def draw(self, screen: pygame.Surface, framecount: int):
+        curr_sprite_idx = framecount // 5 % len(self.sprites)
+        if curr_sprite_idx != self.curSpriteIdx:
+            # if it is now a different sprite, adjust self.rect
+            # so that it won't be bigger or smaller than the new sprite
+            self.curSpriteIdx = curr_sprite_idx
+            temp = self.sprites[self.curSpriteIdx]
+            self.rect = temp.get_rect().move(
+                self.rect.topleft[0], self.rect.topleft[1]
+            )
         super().draw(screen, BLACK)
 
-    def blit(self, screen: pygame.Surface, framecount: int):
-        # change to a new sprite every 5 frames
-        curr_sprite = framecount // 5 % len(self.sprites)
-        screen.blit(self.sprites[curr_sprite], self.rect)
+    def blit(self, screen: pygame.Surface):
+        screen.blit(self.sprites[self.curSpriteIdx], self.rect)
 
     def movement(self, event):
         JUMPHEIGHT = 15
@@ -309,7 +321,7 @@ class flappybird:
     def drawAll(self):
         # draw bird and coin rectangles before background so that they won't
         # show
-        self.bird.draw(screen)
+        self.bird.draw(screen, self.framecount)
         for coin in self.coins:
             coin.draw(screen)
 
@@ -319,7 +331,7 @@ class flappybird:
             tube.draw(screen)
 
         # blit images/sprites onto the screen
-        self.bird.blit(screen, self.framecount)
+        self.bird.blit(screen)
         for coin in self.coins:
             coin.blit(screen)
 
