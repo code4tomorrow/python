@@ -24,17 +24,12 @@ PINK = (245, 144, 188)
 CYAN = (0, 150, 150)
 
 myClock = pygame.time.Clock()
-BACKGROUNDIMG = pygame.image.load(
-    "C:/Projects/python_repo/games/chapter4/solutions/flappy_bird/background.png"
-)
-BACKGROUNDIMG = pygame.transform.scale(BACKGROUNDIMG, (width, height))
-SPRITESHEET = pygame.image.load(
-    "C:/Projects/python_repo/games/chapter4/solutions/flappy_bird/flyingbird.png"
-)
 
-COINPIC = pygame.image.load(
-    "C:/Projects/python_repo/games/chapter4/solutions/flappy_bird/coin.png"
-)
+BACKGROUNDIMG = pygame.image.load("./background.png")
+BACKGROUNDIMG = pygame.transform.scale(BACKGROUNDIMG, (width, height))
+SPRITESHEET = pygame.image.load("./flyingbird.png")
+COINPIC = pygame.image.load("./coin.png")
+
 # ---------- States of the Game ----------
 MENUSTATE = 0  # Menu Screen
 GAMESTATE = 1  # Play Game
