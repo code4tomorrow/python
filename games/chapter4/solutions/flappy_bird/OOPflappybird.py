@@ -35,7 +35,7 @@ SPRITESHEET = pygame.image.load(
 COINPIC = pygame.image.load(
     "C:/Projects/python_repo/games/chapter4/solutions/flappy_bird/coin.png"
 )
-# ------------------------------states of the game
+# ---------- States of the Game ----------
 MENUSTATE = 0  # Menu Screen
 GAMESTATE = 1  # Play Game
 LOSESTATE = 2  # u loose
