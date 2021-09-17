@@ -9,6 +9,8 @@
 
 #    Complete all the methods within Tubes class
 
+#    Complete the drawscore and drawbuttons methods in the flappybird class
+
 import pygame
 import random
 
