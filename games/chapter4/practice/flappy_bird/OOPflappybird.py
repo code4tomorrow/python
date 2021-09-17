@@ -149,6 +149,7 @@ class Coin(GameObj):
     in-between tubes.
     Doesn't need to do anything, so pretty short class.
     """
+
     def __init__(self, yCenter):
         temprect = COINPIC.get_rect()
         self.rect = pygame.Rect(
