@@ -35,9 +35,25 @@
 #       to play hockey.
 
 
-import pygame  # noqa: F401
-from pygame import Rect
+import pygame
+from pygame.locals import (
+    K_w,
+    K_s,
+    K_a,
+    K_d,
+    K_UP,
+    K_DOWN,
+    K_LEFT,
+    K_RIGHT,
+    KEYDOWN,
+    KEYUP,
+    QUIT,
+    RESIZABLE,
+)
+from pygame.rect import Rect
+
 import math
+import time
 import random
 
 BLACK = (0, 0, 0)
@@ -174,7 +190,7 @@ class Ball(Game_obj):
             * (-1 if random.randint(0, 1) == 0 else 1)
         )
 
-    def draw(self, surface: pygame.Surface):
+    def draw(self, screen: pygame.Surface):
         pygame.draw.circle(
             screen, WHITE, center=self.rect.center, radius=self.radius
         )
