@@ -56,10 +56,20 @@ import math
 import time
 import random
 
+# define the necessary color constants using rgb values
 BLACK = (0, 0, 0)
 GREEN = (0, 120, 0)
 RED = (120, 0, 0)
 WHITE = (255, 255, 255)
+
+# define player controls
+PLAYER1CONTROLS = {"up": K_w, "down": K_s, "left": K_a, "right": K_d}
+PLAYER2CONTROLS = {
+    "up": K_UP,
+    "down": K_DOWN,
+    "left": K_LEFT,
+    "right": K_RIGHT,
+}
 
 # initial screensize
 SCREENSIZE = [900, 600]
