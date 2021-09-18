@@ -146,16 +146,23 @@ class Player(Game_obj):
 
     def key_checker(self, event, direction):
         """
-        This is the method that should do the actual work of checking whether
-        the key pressed or let go in the event is in self.control_keys
-        and whether the key pressed corresponds to the provided direction in
-        self.control_keys
+        Helper function to deal with event keys. Sets self.path
+        according to PATH_VALUES
         Arguments:
-            event - a pygame event
-            direction (str) - either 'up', 'down', 'left', or 'right' (since those
-            are the keys in self.control_keys)
+            event(pygame.event.Event) - the event
+            direction(str) - the direction to check KEYDOWN and KEYUP for.
         """
-        pass  # your code here
+        PATH_VALUES = {"up": 1, "down": 1, "left": 0, "right": 0}
+        DIRECTION_VALUES = {"up": -1, "down": 1, "left": -1, "right": 1}
+        if event.key == self.control_keys[direction]:
+            if event.type == KEYUP:
+                self.path[PATH_VALUES[direction]] += -DIRECTION_VALUES[
+                    direction
+                ]
+            if event.type == KEYDOWN:
+                self.path[PATH_VALUES[direction]] += DIRECTION_VALUES[
+                    direction
+                ]
 
     def set_speed(self):
         """
