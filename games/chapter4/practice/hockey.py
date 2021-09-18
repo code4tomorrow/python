@@ -157,13 +157,9 @@ class Ball(Game_obj):
     BALLSPEED = (6, 6)
 
     def __init__(self, radius):
-        """
-        This should set up self.rect to a rectangle
-        at (0, 0) and with height and width radius*2
-        It should also set self.radius to the provided radius.
-        Lastly, it should set an initial speed (provided)
-        """
-        # your code here
+        super().__init__()
+        self.rect = Rect(0, 0, radius * 2, radius * 2)
+        self.radius = radius
 
         # set up initial speed
         initial_ang = random.randint(1, int(math.pi / 2 * 100)) / 100
@@ -179,12 +175,9 @@ class Ball(Game_obj):
         )
 
     def draw(self, surface: pygame.Surface):
-        """
-        This should use pygame.draw's builtin method for
-        drawing circles to draw the ball onto the screen in
-        white.
-        """
-        pass  # your code here
+        pygame.draw.circle(
+            screen, WHITE, center=self.rect.center, radius=self.radius
+        )
 
     def collide_line(self, other):
         """
@@ -281,7 +274,20 @@ class Ball(Game_obj):
 
         # if resulting_x_dir and resulting_y_dir aren't None, then update ball speed
         if resulting_x_dir and resulting_y_dir:
-            angle = random.randint(MINIMUM_ANGLE, int(math.pi / 2 * 100)) / 100
+            print(MINIMUM_ANGLE * math.pi / 180 * 100)
+            print(math.pi / 2 * 100)
+            angle = (
+                random.randint(
+                    0,
+                    int(
+                        math.pi / 2 * 100
+                        - (MINIMUM_ANGLE * math.pi / 180 * 100)
+                    ),
+                )
+                / 100
+            )
+
+            print("angle", angle)
 
             self.speed["x"] = (
                 math.cos(angle) * self.BALLSPEED[0] * resulting_x_dir
@@ -363,28 +369,81 @@ class BoundingLine:
         """
 
     def draw(self, screen: pygame.Surface, color):
-        """
-        Draw self.rect onto the screen in the provided color, which should
-        default to red.
-        """
-        pass  # your code here
+        pygame.draw.rect(screen, color, self.rect)
 
 
-class Goal:
-    """
-    This class should inherit from BoundingLine and should override the
-    draw method to draw self.rect in white.
-    """
+class Goal(BoundingLine):
+    def draw(self, screen: pygame.Surface):
+        super().draw(
+            screen, WHITE
+        )  # the goal should be in white so you can see it
 
 
 class App:
-    """
-    This should be an abstract class to provide the structure of the game.
-    If you need help starting, look at OOP_game.py for an example of
-    how the App class should work. Keep in mind that you'll need
-    "2 loops" within your mainloop because you'll need one that runs the game
-    and one that displays the winning text after the game finished.
-    """
+    def __init__(
+        self, flags=RESIZABLE, width=900, height=600, title="My game"
+    ):
+        pygame.init()
+        self.size = [width, height]
+        self.screen = pygame.display.set_mode(self.size, flags)
+        pygame.display.set_caption(title, title)
+        self.running = True
+
+        self.GAMESTATE = 0
+        self.WONSTATE = 1
+        self.QUITSTATE = 2
+
+        self.currstate = self.GAMESTATE
+        self.winning_player = 0  # will be 1 or 2 when a player won
+
+        self.executions = 0  # useful for debugging
+
+    def mainloop(self):
+        while self.running:
+            # main game loop (for the game itself)
+            # because this is a while loop, the game will keep going until someone won
+            # so we don't need to worry about the post-game text being displayed
+            if self.currstate == self.GAMESTATE:
+                for event in pygame.event.get():
+                    if event.type == QUIT:
+                        # set the variables that are keeping the game running
+                        # to values that won't keep the game running
+                        self.running = False
+                        self.currstate = self.QUITSTATE
+                    else:
+                        self.check_events(event)
+                self.check_collisions()
+                self.move_objects()
+                self.update_display()
+                pygame.display.update()
+                time.sleep(0.01)
+                self.executions += 1
+
+            if self.currstate == self.WONSTATE:
+                # 'post-game' game loop (just shows winning text)
+                for event in pygame.event.get():
+                    if event.type == QUIT:
+                        self.running = False
+                        self.currstate = self.QUITSTATE
+                self.display_winning_text()
+
+            if self.currstate == self.QUITSTATE:
+                pygame.quit()
+
+    def check_events(self, event) -> None:
+        pass
+
+    def check_collisions(self) -> None:
+        pass
+
+    def move_objects(self) -> None:
+        pass
+
+    def update_display(self) -> None:
+        pass
+
+    def display_winning_text(self) -> None:
+        pass
 
 
 class Hockey:
@@ -397,11 +456,65 @@ class Hockey:
     """
 
     def __init__(self):
-        """
-        This should initialize players, the ball, goals, and boundinglines
-        (or, if you have a create_objects method, it should call that)
-        """
-        pass  # your code here
+        super().__init__(title="Hockey!")
+
+        # initialize players
+        self.player_1 = Player(PLAYER1CONTROLS)
+        self.player_2 = Player(PLAYER2CONTROLS)
+
+        # move players to starting positions
+        self.player_1.move_to(
+            (
+                self.size[0] / 8 - self.player_1.rect.width,
+                self.size[1] / 2 - self.player_1.rect.height,
+            )
+        )
+        self.player_2.move_to(
+            (
+                self.size[0] / 8 * 7 - self.player_2.rect.width,
+                self.size[1] / 2 - self.player_2.rect.height,
+            )
+        )
+
+        # initialize ball and move it to starting position (center)
+        self.ball = Ball(BALL_RADIUS)
+        self.ball.move_to(
+            (
+                self.size[0] / 2 - self.ball.rect.width,
+                self.size[1] / 2 - self.ball.rect.height,
+            )
+        )
+
+        # initialize bounding lines - the edges of the screen off which the
+        # ball should bounce
+        self.top_line = BoundingLine((0, 0), (self.size[0], 0), "top")
+        self.bottom_line = BoundingLine(
+            (0, self.size[1]), (self.size[0], self.size[1]), "bottom"
+        )
+        self.left_line = BoundingLine((0, 0), (0, self.size[1]), "left")
+        self.right_line = BoundingLine(
+            (self.size[0], 0), (self.size[0], self.size[1]), "right"
+        )
+        self.bounding_lines = [
+            self.top_line,
+            self.bottom_line,
+            self.left_line,
+            self.right_line,
+        ]
+
+        # initialize Goals
+        self.goal_1 = Goal(
+            (0, (self.size[1] / 2) - (5 * self.size[1] / 16)),
+            (0, (self.size[1] / 2) + (self.size[1] / 16)),
+            "left",
+            3,
+        )
+        self.goal_2 = Goal(
+            (self.size[0], (self.size[1] / 2) - (5 * self.size[1] / 16)),
+            (self.size[0], (self.size[1] / 2) + (self.size[1] / 16)),
+            "right",
+            3,
+        )
 
     def update_display(self):
         """
@@ -432,11 +545,23 @@ class Hockey:
         pass  # your code here
 
     def display_winning_text(self):
-        """
-        This should fill the screen with BLACK, and display
-        'Game Over. Player _ won' on the screen.
-        """
-        pass  # your code here
+        self.screen.fill(BLACK)
+
+        self.font = pygame.font.SysFont(pygame.font.get_default_font(), 32)
+        if self.winning_player != 0:
+            font_img = self.font.render(
+                "Game Over. Player %s won" % str(self.winning_player),
+                True,
+                WHITE,
+            )
+        else:
+            # this won't actually be seen, but it prevents "Player 0 won" from showing
+            # up on the screen for a split-second if QUIT was pressed before someone won
+            font_img = self.font.render("Nobody won", True, WHITE)
+        font_rect = font_img.get_rect()
+        pygame.draw.rect(self.screen, BLACK, font_rect, 1)
+        self.screen.blit(font_img, font_rect)
+        pygame.display.update()  # show the new text.
 
 
 our_game = Hockey()
