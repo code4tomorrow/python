@@ -13,26 +13,13 @@
 
 # please use the provided constants.
 
-
-# Classes that should be in this file:
-# Game_obj - an abstract base class for the Player and the Ball class
-#       it should have an __init__, move, a moveto, and a check_collision
-#       method. See their individual descriptions.
-# Player - a class that represents one player. It should have a
-#       __init__, draw, set_path, key_checker, and set_speed method. See
-#       their individual descriptions
-# Ball - a class that represents the ball. It should have a
-#       __init__, draw, collide_line, get_paddle_collision_dir, get_obj_path,
-#       collide_paddle, and trace_collisions method. See their individual
-#       descriptions.
-# BoundingLine - a class that represents the lines on the edges of the screen
-#       Doesn't inherit from Game_obj. It should have a __init__ and
-#       draw method.
-# Goal - a class that inherits from BoundingLine. It should override
-#       BoundingLine's draw method to draw its rectangle in white.
-# App - an abstract class to provide the structure of the game.
-# Hockey - the functional class whose mainloop will be called
-#       to play hockey.
+# TODO -
+# Fill in the Game_obj class (init is done)
+# Fill in Player class's init, draw, and setpath methods
+# Fill in Ball class's collide_line and get_obj_path methods
+# Fill in BoundingLine's init method
+# Fill in Hockey class's update_display, move_objects, check_events,
+# and check_collisions methods
 
 
 import pygame
