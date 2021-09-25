@@ -1,8 +1,3 @@
-# TODO : modify bird's rect every time the sprite is changed since
-# now only the sprite is seen, so it might confuse the user if the
-# sprite is visibly not touching a tube but they lost because the
-# rectangle the sprite is blit'ed on touched the tube.
-
 import pygame
 import random
 
@@ -39,6 +34,11 @@ NUMSTATES = 4
 
 
 class GameObj:
+    """
+    An abstract class used as the base class for all the
+    game's objects
+    """
+
     def __init__(self):
         """
         This __init__ method provides no functionality.
@@ -73,6 +73,24 @@ class GameObj:
 
 
 class Tubes(GameObj):
+    """
+    Class to represent the two tubes.
+
+    Ex:
+    The tubes will look sort of like the below drawing
+    (one on the top, one on the bottom)
+    (let - be top or bottom of school)
+    ------------
+        | |
+        |_|
+
+         _
+        | |
+        | |
+        | |
+    ------------
+    """
+
     TUBEGAP = 230  # smaller TUBEGAP -> smaller dist between tubes
     TUBEWIDTH = 100
 
@@ -99,6 +117,12 @@ class Tubes(GameObj):
 
 
 class Coin(GameObj):
+    """
+    The coin that the bird will get
+    in-between tubes.
+    Doesn't need to do anything, so pretty short class.
+    """
+
     def __init__(self, yCenter):
         temprect = COINPIC.get_rect()
         self.rect = pygame.Rect(
@@ -116,6 +140,11 @@ class Coin(GameObj):
 
 
 class Bird(GameObj):
+    """
+    The bird itself. It processes the sprites
+    and handles jumping.
+    """
+
     startCenterPos = (width // 8, height // 2)
 
     def __init__(self):
@@ -194,6 +223,11 @@ class Bird(GameObj):
 
 
 class button(GameObj):
+    """
+    A button with text. Used for the
+    'Quit Game' 'Start Game' and 'Retry' buttons
+    """
+
     def __init__(
         self,
         centerx,
@@ -223,6 +257,10 @@ class button(GameObj):
 
 
 class flappybird:
+    """
+    This is the game class.
+    """
+
     def __init__(self):
         self.running = True
         self.gamestate = MENUSTATE
