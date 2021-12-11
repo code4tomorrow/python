@@ -56,7 +56,9 @@ class hand_results:
 
     def __init__(self, results: list):
         self.results = results
-        self.priority = results.index(True) if True in results else len(results)
+        self.priority = (
+            results.index(True) if True in results else len(results)
+        )
 
     def __lt__(self, o) -> bool:
         return self.priority > o.priority
@@ -98,13 +100,17 @@ class hand:
         for card in o.cards:
             self.cards.append(card)
 
-    def does_val_card_exist(self, val: int, cards_not_equal_to: list = []) -> tuple:
+    def does_val_card_exist(
+        self, val: int, cards_not_equal_to: list = []
+    ) -> tuple:
         for card in self.cards:
             if card.value == val and card not in cards_not_equal_to:
                 return (True, card)
         return (False, None)
 
-    def find_matches(self, num_matches: int, cards_to_exclude: list = []) -> tuple:
+    def find_matches(
+        self, num_matches: int, cards_to_exclude: list = []
+    ) -> tuple:
         for card in self.cards:
             temp = []
             for oth in cards_to_exclude:
@@ -113,7 +119,9 @@ class hand:
                 temp.append(card)
 
             for i in range(num_matches - 1):
-                bool_val, potential_card = self.does_val_card_exist(card.value, temp)
+                bool_val, potential_card = self.does_val_card_exist(
+                    card.value, temp
+                )
                 if not bool_val:
                     break
                 temp.append(potential_card)
@@ -182,7 +190,9 @@ class hand:
         # royal flush possible
         royal_flush_possible = False
         if self.does_val_card_exist(10)[0]:
-            royal_flush_possible = self.check_straight(self.does_val_card_exist(10)[1])
+            royal_flush_possible = self.check_straight(
+                self.does_val_card_exist(10)[1]
+            )
 
         # try to get a pair (2 cards of same val)
         pair_possible = self.find_matches(2)[0]
@@ -227,7 +237,9 @@ def initialize_deck():
     global deck
 
     deck = [
-        card(value, suite, face_cards[value]) if value >= 11 else card(value, suite)
+        card(value, suite, face_cards[value])
+        if value >= 11
+        else card(value, suite)
         for value in range(2, 15)
         for suite in suites
     ]
