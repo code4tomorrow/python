@@ -31,6 +31,7 @@ rankings = {
 }
 deck = []
 
+
 # --- SUPPORTING CODE ---
 class card:
     def __init__(self, value: int, suite: str, name: str = None):
