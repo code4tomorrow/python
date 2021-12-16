@@ -81,7 +81,7 @@ class Game_obj:
         """
         pass  # your code here
 
-    def moveto(self, coordinate):
+    def move_to(self, coordinate):
         """
         This should move self.rect so that its top left lies at
         the provided coordinate.
@@ -466,7 +466,7 @@ class App:
         pass
 
 
-class Hockey:
+class Hockey(App):
     """
     This is the functional class whose mainloop will be called
     to play hockey.
