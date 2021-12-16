@@ -73,17 +73,20 @@ class Game_obj:
         """
         self.speed = {"x": 0, "y": 0}
         self.rect = Rect
+        self.prev_rect = Rect
 
     def move(self):
         """
-        This should move self.rect according to self.speed
+        This should first set self.prev_rect equal to self.rect.
+        Then, it should move self.rect according to self.speed
         by using self.rect's move method as demonstrated in OOP_game.py.
         """
         pass  # your code here
 
     def move_to(self, coordinate):
         """
-        This should move self.rect so that its top left lies at
+        This should first set self.prev_rect equal to self.rect.
+        Then, it should move self.rect so that its top left lies at
         the provided coordinate.
         """
         pass  # your code here
@@ -203,6 +206,8 @@ class Ball(Game_obj):
         """
         Checks if the ball has hit a line.
         If it did, update the speed accordingly
+        (if it collided with top or bottom, self.speed['y'] will be negative self.speed['y']
+        if it collided with right or left, self.speed['x'] will be negative self.speed['x'])
 
         Arguments:
             other (BoundingLine or Goal) - the line to check for a collision with
@@ -379,13 +384,19 @@ class BoundingLine:
             the starting coordinate of the line
             the ending coordinate of the line
             the line's name (which should either be
-                'up', 'down', 'left', or 'right')
+                'top', 'bottom', 'left', or 'right')
             (optional) default_size - the size of the line. If not provided,
                 use DEFAULT_SIZE
         This should create the rectangle that stretches from the start
         coordinate to the end coordinate with a width or height
         (depending on its orientation) of default_size
         (or DEFAULT_SIZE if default_size isn't provided)
+
+        Make sure to:
+            if it is the bottom line: move it DEFAULT_SIZE units up
+            if it is the right line: move it DEFAULT_SIZE units left
+        *This is a workaround so that these will show on screen and not
+        be off-screen
         """
 
     def draw(self, screen: pygame.Surface, color):
