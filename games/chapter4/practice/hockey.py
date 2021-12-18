@@ -206,8 +206,12 @@ class Ball(Game_obj):
         """
         Checks if the ball has hit a line.
         If it did, update the speed accordingly
-        (if it collided with top or bottom, self.speed['y'] will be negative self.speed['y']
-        if it collided with right or left, self.speed['x'] will be negative self.speed['x'])
+
+        IE:
+        if it collided with top or bottom, set
+        self.speed['y'] to negative self.speed['y']
+        if it collided with right or left,
+        set self.speed['x'] to negative self.speed['x']
 
         Arguments:
             other (BoundingLine or Goal) - the line to check for a collision with
@@ -272,6 +276,10 @@ class Ball(Game_obj):
     def collide_paddle(self, paddle: Player, executions: int) -> None:
         """
         Handles collisions with paddles.
+
+        Checks if the ball hit the provided player. If it did,
+        it will adjust the ball's direction.
+
         Arguments:
             paddle(Player) - the paddle to check for a collision with
             executions(int) - the amount of executions of the game's mainloop
@@ -572,6 +580,12 @@ class Hockey(App):
         """
         This should check whether the ball collided with the goal, the
         bounding lines, or a player's paddle
+
+        If the ball collided with a goal, then set self.curstate to
+        self.WINSTATE, and set self.winner to player 1 if the ball
+        hit goal 2 or player 2 if the ball hit goal 1
+
+        Note: use the ball's methods (ie collide_paddle or collide_line)
         """
         pass  # your code here
 
