@@ -123,14 +123,20 @@ class Player(Game_obj):
 
     def draw(self, surface: pygame.Surface):
         """
-        This should draw self.rect onto the surface in the color GREEN
+        This should draw self.rect onto the provided surface in
+        the color GREEN
+        Note: the surface acts just like 'window' in previous
+        lessons
         """
         pass  # your code here
 
     def set_path(self, event):
         """
-        This is the method that calls self.key_checker for 'up', 'down',
-        'left', and 'right'
+        This is the method that calls self.key_checker with
+        the provided event and 'up', 'down', 'left', and 'right'
+
+        note: a call to self.key_checker will look like:
+        self.key_checker(event, 'direction string here')
         """
         pass  # your code here
 
@@ -144,6 +150,12 @@ class Player(Game_obj):
         """
         PATH_VALUES = {"up": 1, "down": 1, "left": 0, "right": 0}
         DIRECTION_VALUES = {"up": -1, "down": 1, "left": -1, "right": 1}
+
+        # if the event doesn't have a key attribute, just return
+        if not hasattr(event, "key"):
+            return
+
+        # if it does, then check if it the right key
         if event.key == self.control_keys[direction]:
             if event.type == KEYUP:
                 self.path[PATH_VALUES[direction]] += -DIRECTION_VALUES[

@@ -103,11 +103,10 @@ class Player(Game_obj):
         pygame.draw.rect(screen, GREEN, self.rect)
 
     def set_path(self, event):
-        if hasattr(event, "key") and event.key in self.control_keys.values():
-            self.key_checker(event, "up")
-            self.key_checker(event, "down")
-            self.key_checker(event, "left")
-            self.key_checker(event, "right")
+        self.key_checker(event, "up")
+        self.key_checker(event, "down")
+        self.key_checker(event, "left")
+        self.key_checker(event, "right")
 
     def key_checker(self, event: pygame.event.Event, direction: str) -> None:
         """
@@ -119,6 +118,12 @@ class Player(Game_obj):
         """
         PATH_VALUES = {"up": 1, "down": 1, "left": 0, "right": 0}
         DIRECTION_VALUES = {"up": -1, "down": 1, "left": -1, "right": 1}
+
+        # if the event doesn't have a key attribute, just return
+        if not hasattr(event, "key"):
+            return
+
+        # if it does, then check if it the right key
         if event.key == self.control_keys[direction]:
             if event.type == KEYUP:
                 self.path[PATH_VALUES[direction]] += -DIRECTION_VALUES[
