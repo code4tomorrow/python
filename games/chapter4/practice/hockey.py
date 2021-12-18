@@ -73,17 +73,20 @@ class Game_obj:
         """
         self.speed = {"x": 0, "y": 0}
         self.rect = Rect
+        self.prev_rect = Rect
 
     def move(self):
         """
-        This should move self.rect according to self.speed
+        This should first set self.prev_rect equal to self.rect.
+        Then, it should move self.rect according to self.speed
         by using self.rect's move method as demonstrated in OOP_game.py.
         """
         pass  # your code here
 
-    def moveto(self, coordinate):
+    def move_to(self, coordinate):
         """
-        This should move self.rect so that its top left lies at
+        This should first set self.prev_rect equal to self.rect.
+        Then, it should move self.rect so that its top left lies at
         the provided coordinate.
         """
         pass  # your code here
@@ -120,14 +123,20 @@ class Player(Game_obj):
 
     def draw(self, surface: pygame.Surface):
         """
-        This should draw self.rect onto the surface in the color GREEN
+        This should draw self.rect onto the provided surface in
+        the color GREEN
+        Note: the surface acts just like 'window' in previous
+        lessons
         """
         pass  # your code here
 
     def set_path(self, event):
         """
-        This is the method that calls self.key_checker for 'up', 'down',
-        'left', and 'right'
+        This is the method that calls self.key_checker with
+        the provided event and 'up', 'down', 'left', and 'right'
+
+        note: a call to self.key_checker will look like:
+        self.key_checker(event, 'direction string here')
         """
         pass  # your code here
 
@@ -141,6 +150,12 @@ class Player(Game_obj):
         """
         PATH_VALUES = {"up": 1, "down": 1, "left": 0, "right": 0}
         DIRECTION_VALUES = {"up": -1, "down": 1, "left": -1, "right": 1}
+
+        # if the event doesn't have a key attribute, just return
+        if not hasattr(event, "key"):
+            return
+
+        # if it does, then check if it the right key
         if event.key == self.control_keys[direction]:
             if event.type == KEYUP:
                 self.path[PATH_VALUES[direction]] += -DIRECTION_VALUES[
@@ -203,6 +218,12 @@ class Ball(Game_obj):
         """
         Checks if the ball has hit a line.
         If it did, update the speed accordingly
+
+        IE:
+        if it collided with top or bottom, set
+        self.speed['y'] to negative self.speed['y']
+        if it collided with right or left,
+        set self.speed['x'] to negative self.speed['x']
 
         Arguments:
             other (BoundingLine or Goal) - the line to check for a collision with
@@ -267,6 +288,10 @@ class Ball(Game_obj):
     def collide_paddle(self, paddle: Player, executions: int) -> None:
         """
         Handles collisions with paddles.
+
+        Checks if the ball hit the provided player. If it did,
+        it will adjust the ball's direction.
+
         Arguments:
             paddle(Player) - the paddle to check for a collision with
             executions(int) - the amount of executions of the game's mainloop
@@ -379,13 +404,19 @@ class BoundingLine:
             the starting coordinate of the line
             the ending coordinate of the line
             the line's name (which should either be
-                'up', 'down', 'left', or 'right')
+                'top', 'bottom', 'left', or 'right')
             (optional) default_size - the size of the line. If not provided,
                 use DEFAULT_SIZE
         This should create the rectangle that stretches from the start
         coordinate to the end coordinate with a width or height
         (depending on its orientation) of default_size
         (or DEFAULT_SIZE if default_size isn't provided)
+
+        Make sure to:
+            if it is the bottom line: move it DEFAULT_SIZE units up
+            if it is the right line: move it DEFAULT_SIZE units left
+        *This is a workaround so that these will show on screen and not
+        be off-screen
         """
 
     def draw(self, screen: pygame.Surface, color):
@@ -466,7 +497,7 @@ class App:
         pass
 
 
-class Hockey:
+class Hockey(App):
     """
     This is the functional class whose mainloop will be called
     to play hockey.
@@ -561,6 +592,12 @@ class Hockey:
         """
         This should check whether the ball collided with the goal, the
         bounding lines, or a player's paddle
+
+        If the ball collided with a goal, then set self.curstate to
+        self.WINSTATE, and set self.winner to player 1 if the ball
+        hit goal 2 or player 2 if the ball hit goal 1
+
+        Note: use the ball's methods (ie collide_paddle or collide_line)
         """
         pass  # your code here
 
