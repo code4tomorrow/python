@@ -316,6 +316,12 @@ def play_poker():
             # and chips_at_stake will increase)
             # lastly, if the input is 'fold', then set winner to True
             # and break out of the round (use the break keyword)
+            if player_inp == "STOP":
+                pass
+            if player_inp == "call":
+                pass
+            if player_inp == "fold":
+                pass
 
             # update the river
             river.add_card(take_card())
