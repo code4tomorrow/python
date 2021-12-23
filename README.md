@@ -5,13 +5,14 @@ Source code from Code For Tomorrow's Python course
 ![Python (Lint Action)](https://github.com/code-for-tomorrow/python/workflows/Python%20(Lint%20Action)/badge.svg)
 
 ## Difficulty Level
-Source code is organized under 3 difficulty levels:
+Source code is organized under 4 categories:
 1. `1_beginner`
 2. `2_intermediate`
 3. `3_advanced`
+4. `games`
 
 ## Chapters
-Under each of the 3 packages, source code is further divided by chapter.
+Under each of the 4 packages, source code is further divided by chapter.
 ### Beginner
 1. `chapter1` Intro to Python
 2. `chapter2` Data
