@@ -41,3 +41,5 @@ while run:
 
 		# Updates the data
 		pygame.display.update()
+		
+pygame.quit()
