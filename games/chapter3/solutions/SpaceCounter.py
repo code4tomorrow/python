@@ -1,3 +1,6 @@
+#Create a program that increments a counter every time the space bar is pressed. 
+#This counter should be displayed as text on the pygame window.
+
 import pygame
  
 pygame.init()
@@ -6,8 +9,10 @@ screen = pygame.display.set_mode((400, 400))
 font = pygame.font.SysFont('arial', 70)
 
 display_counter = 0
+
+run = True
  
-while True:
+while run:
 
 	# Render the "display_counter" to the screen 
 
@@ -23,8 +28,7 @@ while True:
 
 	for event in pygame.event.get():
 		if event.type == pygame.QUIT:
-			pygame.quit()
-			break
+			run = False
 
 		# Checks to see if key is pressed
 		if event.type == pygame.KEYDOWN:
