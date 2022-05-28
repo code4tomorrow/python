@@ -24,7 +24,7 @@ class Vector:
     """
 
     def __pow__(self, power):
-        return Vector([i ** power for i in self.vals])
+        return Vector([i**power for i in self.vals])
 
     """
     Addition: adds each element to corresponding element in other vector
@@ -53,7 +53,7 @@ class Vector:
 vec = Vector([2, 3, 2])
 otherVec = Vector([3, 4, 5])
 print(str(vec))  # [2, 3, 2]
-print(vec ** 2)  # [4, 9, 4]
+print(vec**2)  # [4, 9, 4]
 print(vec - otherVec)  # [-1, -1, -3]
 print(vec + otherVec)  # [5,  7, 7]
 print(vec * 5)  # [10, 15, 10]

@@ -10,4 +10,4 @@ for idx in range(len(ex_list)):
     ex_list[idx] = int(ex_list[idx])
 
 # write your code below
-odds_quares = [n ** 2 for n in list if n % 2 == 1]
+odds_quares = [n**2 for n in list if n % 2 == 1]

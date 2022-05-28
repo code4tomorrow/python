@@ -370,7 +370,7 @@ class Tank_Game(App):
             mouse_pos = pygame.mouse.get_pos()
             h = mouse_pos[1] - bul.rect.center[1]
             w = mouse_pos[0] - bul.rect.center[0]
-            hyp = math.sqrt(h ** 2 + w ** 2)
+            hyp = math.sqrt(h**2 + w**2)
             vertical_speed = (
                 BULLETSPEED[1] * (h / hyp) if hyp != 0 else BULLETSPEED[1] * h
             )
