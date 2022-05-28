@@ -9,7 +9,7 @@ number = int(input("Enter an integer: "))
 
 if number % 2 == 0:
     # if number is even, print its square
-    print(number ** 2)
+    print(number**2)
 else:
     # otherwise, print the number itself
     print(number)
