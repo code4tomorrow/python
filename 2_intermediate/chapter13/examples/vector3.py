@@ -20,11 +20,11 @@ class Vector:
         return str(self.vals)
 
     def __pow__(self, power):
-        return Vector([i ** power for i in self.vals])
+        return Vector([i**power for i in self.vals])
 
     # Calculates Euclidean norm
     def norm(self):
-        return sum((self ** 2).vals) ** 0.5
+        return sum((self**2).vals) ** 0.5
 
     # __lt__:  implements the less than operator (<)
     def __lt__(self, other):

@@ -10,7 +10,7 @@ PI = 3.14
 radius = float(input("Enter a radius: "))
 
 # Calculate the area and circumference
-area = PI * radius ** 2
+area = PI * radius**2
 circumference = 2 * PI * radius
 
 # Print the result
