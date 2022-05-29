@@ -53,6 +53,6 @@ while run:
     # update the screen
     pygame.display.update()
 
-    syntax: pygame.time.wait(30)  # adds a 30 millisecond delay
+    pygame.time.wait(30)  # adds a 30 millisecond delay
 
 pygame.quit()  # close pygame after finishing
