@@ -6,15 +6,15 @@ window = pygame.display.set_mode((800, 800))
 pygame.display.set_caption("Moving-Text")
 
 BLACK = (0, 0, 0)  # background color
-BLUE = (0, 0, 255) # color of font
-WHITE = (255,255,255) # color of rectangle
+BLUE = (0, 0, 255)  # color of font
+WHITE = (255, 255, 255)  # color of rectangle
 
 # make a pygame.Rect rectangle
 white_rectangle = pygame.Rect(0, 100, 130, 40)
 
 # move the text with coordinates instead of the rectangle
-x = 0 # x-coordinate of the top-left pixel of text
-y = 400 # y-coordinate of the top-left pixel of text
+x = 0  # x-coordinate of the top-left pixel of text
+y = 400  # y-coordinate of the top-left pixel of text
 
 # make a font
 font = pygame.font.SysFont("Times New Roman", 40)
@@ -31,13 +31,12 @@ while run:
         if event.type == pygame.QUIT:
             run = False
 
-
     # move a pygame.Rect rectangle relative to its position
     white_rectangle.move_ip(2, 2)  # moves 2 to the right, 2 down
 
     # move the text by coordinates
-    x += 1 # move right by one pixel
-    y += 1 # move down by one pixel
+    x += 1  # move right by one pixel
+    y += 1  # move down by one pixel
 
     # erase the previous frame
     window.fill(BLACK)
