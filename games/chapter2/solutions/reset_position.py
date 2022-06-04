@@ -1,22 +1,28 @@
+# Reset the moving rectangle's position if it leaves the screen!
+# The rectangle that will be moving is already provided
+# it is `red_rectangle`. Your job is to move it across the screen
+# at a speed of 5px down and 5px right per frame. Then, if the
+# bottom of the rectangle is greater than the screen height or the
+# right of the rectangle is greater than the screen width, reset
+# the rectangle's x and y to 0 and 0.
+
 import pygame
 
 pygame.init()
 
-window = pygame.display.set_mode((600, 600))
-pygame.display.set_caption("Drawing and Moving Objects")
+SCREEN_HEIGHT = 600
+SCREEN_WIDTH = 600
 
+window = pygame.display.set_mode((SCREEN_WIDTH, SCREEN_HEIGHT))
+pygame.display.set_caption("Reset Position")
 
-# make a rectangle without the pygame.Rect class
-x = 0  # top-left x value
-y = 0  # top-left y value
-width = 100  # width of the rectangle
-height = 100  # height of the rectangle
+# color constants
+RED = (255, 0, 0)
+BLACK = (0, 0, 0)
 
-# make a pygame.Rect rectangle
+# makes a pygame.Rect rectangle
 # the syntax is `myvar = pygame.Rect(top-left x, top-left y, width, height)`
-# with 0 as top-left x value, 100 as top-left y value,
-# width = 50, height = 100
-green_rectangle = pygame.Rect(0, 100, 50, 100)
+red_rectangle = pygame.Rect(0, 0, 100, 100)
 
 run = True
 while run:
@@ -24,18 +30,22 @@ while run:
         if event.type == pygame.QUIT:
             run = False
 
-    # move a rectangle that isn't a pygame.Rect object
-    x += 5  # move to the right 1 px
-    y += 5  # move down 1 px
+    # move the rectangle 5 units right and 5 units down each frame
+    red_rectangle.move_ip(5, 5)
 
     # erase the previous frame
     window.fill((0, 0, 0))
 
-    # draw a rectangle that isn't a pygame.Rect object
-    if x < 400:
-        pygame.draw.rect(window, (255, 0, 0), (x, y, width, height))
-    else:
-        x, y = 0, 0
+    # reset the rectangle if its right is past the screen width or
+    # its bottom is below the screen height
+    if (
+        red_rectangle.right > SCREEN_WIDTH
+        or red_rectangle.bottom > SCREEN_HEIGHT
+    ):
+        red_rectangle.x, red_rectangle.y = 0, 0
+
+    # draw the rectangle in red
+    pygame.draw.rect(window, RED, red_rectangle)
 
     # update the screen
     pygame.display.update()
