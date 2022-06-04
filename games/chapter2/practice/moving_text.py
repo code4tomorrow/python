@@ -18,6 +18,6 @@ SCREEN_SIZE = (800, 800)
 BLACK = (0, 0, 0)
 BLUE = (0, 0, 255)
 WHITE = (255, 255, 255)
-momentum = [2, 2]  # down and right
+momentum = (2, 2)  # down and right
 
 # add code here
