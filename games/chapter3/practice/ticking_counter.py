@@ -9,7 +9,7 @@
 # to show that they've blown up, and exit the program.
 # Make sure to use some of the methods featured in 3.4!
 
-#import more if needed!
+# import more if needed!
 import pygame
 
 screen = pygame.display.set_mode((400, 400))
