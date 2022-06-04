@@ -34,7 +34,7 @@ while run:
     red_rectangle.move_ip(5, 5)
 
     # erase the previous frame
-    window.fill((0, 0, 0))
+    window.fill(BLACK)
 
     # reset the rectangle if its right is past the screen width or
     # its bottom is below the screen height
