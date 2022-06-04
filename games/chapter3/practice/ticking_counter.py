@@ -7,6 +7,8 @@
 # number gets low, switch the message. Then, when
 # the number hits zero, switch the message again
 # to show that they've blown up, and exit the program.
+# Wait a little before exiting so that the last message
+# is readable.
 # Make sure to use some of the methods featured in 3.4!
 
 import pygame  # add more imports if needed
