@@ -34,5 +34,5 @@ while run:
     screen.blit(show_message, (50, 100))  # shows message
     pygame.display.update()  # updates the frame
 
-time.sleep(1)  # makes the last balue of text readable
+time.sleep(1)  # makes the last value of text readable
 pygame.quit()
