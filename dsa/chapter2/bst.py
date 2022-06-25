@@ -8,19 +8,19 @@ class BinaryTree:
 
         def __str__(self) -> str:
             ret = ""
-            if self.left != None:
+            if self.left is not None:
                 ret += str(self.left)
             ret += self.plain_str() + "\n"
-            if self.right != None:
+            if self.right is not None:
                 ret += str(self.right)
             return ret
 
         def height(self) -> int:
-            if self.left == None and self.right == None:
+            if self.left is None and self.right is None:
                 return 1
-            if self.left != None and self.right == None:
+            if self.left is not None and self.right is None:
                 return 1 + self.left.height()
-            if self.right != None and self.left == None:
+            if self.right is not None and self.left is None:
                 return 1 + self.right.height()
             return 1 + max(self.left.height(), self.right.height())
 
@@ -32,7 +32,7 @@ class BinaryTree:
         self.default_val = default_val
 
     def recursive_contains_key(self, key, current) -> bool:
-        if current == None:
+        if current is None:
             return False
 
         if current.key == key:
@@ -50,24 +50,24 @@ class BinaryTree:
             current.value = value
             return True
         if key < current.key:
-            if current.left != None:
+            if current.left is not None:
                 return self.recursive_add(key, value, current.left)
             current.left = BinaryTree.Node(key, value)
             return True
 
-        if current.right != None:
+        if current.right is not None:
             return self.recursive_add(key, value, current.right)
         current.right = BinaryTree.Node(key, value)
         return True
 
     def add(self, key, value) -> bool:
-        if self.root == None:
+        if self.root is None:
             self.root = BinaryTree.Node(key, value)
             return True
         return self.recursive_add(key, value, self.root)
 
     def recursive_get(self, key, current):
-        if current == None:
+        if current is None:
             raise Exception("KEY NOT FOUND")
         if current.key == key:
             return current.value
@@ -86,7 +86,7 @@ class BinaryTree:
 
     def __str__(self) -> str:
         ret = "{\n"
-        if self.root != None:
+        if self.root is not None:
             ret += str(self.root)
         ret += "}"
         return ret
@@ -95,7 +95,7 @@ class BinaryTree:
         return str(self)
 
     def print_structure(self) -> None:
-        if self.root == None:
+        if self.root is None:
             print("{}")
             return
 
@@ -114,7 +114,7 @@ class BinaryTree:
             )
             for node in current_generation:
                 print(" " * margin_between, end="")
-                if node == None:
+                if node is None:
                     print(" " * spacing, end="")
                     next_generation.extend([None] * 2)
                 else:
