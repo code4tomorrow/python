@@ -27,7 +27,7 @@ class DoublyLinkedList:
 
         @returns bool - True on success
         """
-        if current.next == None:
+        if current.next is None:
             current.next = DoublyLinkedList.Node(value, current)
         else:
             current.next = DoublyLinkedList.Node(value, current, current.next)
@@ -110,7 +110,8 @@ class DoublyLinkedList:
 
         O(N) operation since it has to iterate through the list to find the value
 
-        @returns bool - True on success (value found and removed), False on failure to find the value
+        @returns bool - True on success (value found and removed),
+        False on failure to find the value
         """
         current = self.head.next
 
@@ -159,10 +160,10 @@ class DoublyLinkedList:
     def __str__(self) -> str:
         ret = "["
         current = self.head.next
-        while current.next != None:
+        while current.next is not None:
             ret += str(current.value)
             current = current.next
-            if current.next != None:
+            if current.next is not None:
                 ret += ", "
         ret += "]"
         return ret
@@ -173,10 +174,10 @@ class DoublyLinkedList:
     def print_from_back(self) -> None:
         current = self.tail.prev
         print("[", end="")
-        while current.prev != None:
+        while current.prev is not None:
             print(current.value, end="")
             current = current.prev
-            if current.prev != None:
+            if current.prev is not None:
                 print(", ", end="")
         print("]")
 
