@@ -101,7 +101,7 @@ class BinaryTree:
 
         height = self.root.height()
         spacing = 6
-        total_width = spacing * (2 ** height)
+        total_width = spacing * (2**height)
 
         # print top divider
         print("-" * total_width)
