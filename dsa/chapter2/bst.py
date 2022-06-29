@@ -1,32 +1,34 @@
+class Node:
+    # this class is meant to be used with BinaryTree
+    def __init__(self, key, value) -> None:
+        self.key = key
+        self.value = value
+        self.left = None
+        self.right = None
+
+    def __str__(self) -> str:
+        ret = ""
+        if self.left is not None:
+            ret += str(self.left)
+        ret += self.plain_str() + "\n"
+        if self.right is not None:
+            ret += str(self.right)
+        return ret
+
+    def height(self) -> int:
+        if self.left is None and self.right is None:
+            return 1
+        if self.left is not None and self.right is None:
+            return 1 + self.left.height()
+        if self.right is not None and self.left is None:
+            return 1 + self.right.height()
+        return 1 + max(self.left.height(), self.right.height())
+
+    def plain_str(self) -> str:
+        return str(self.key) + ": " + str(self.value)
+
+
 class BinaryTree:
-    class Node:
-        def __init__(self, key, value) -> None:
-            self.key = key
-            self.value = value
-            self.left = None
-            self.right = None
-
-        def __str__(self) -> str:
-            ret = ""
-            if self.left is not None:
-                ret += str(self.left)
-            ret += self.plain_str() + "\n"
-            if self.right is not None:
-                ret += str(self.right)
-            return ret
-
-        def height(self) -> int:
-            if self.left is None and self.right is None:
-                return 1
-            if self.left is not None and self.right is None:
-                return 1 + self.left.height()
-            if self.right is not None and self.left is None:
-                return 1 + self.right.height()
-            return 1 + max(self.left.height(), self.right.height())
-
-        def plain_str(self) -> str:
-            return str(self.key) + ": " + str(self.value)
-
     def __init__(self, default_val=None) -> None:
         self.root = None
         self.default_val = default_val

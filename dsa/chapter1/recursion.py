@@ -1,10 +1,9 @@
 def function():
 
-    # recursive call
+    # recursive call, however this will run forever
     function()
 
 
-# recursive function
 def offset(x):
     return x + 1
 
@@ -13,6 +12,7 @@ for number in range(10):
     print(offset(number))
 
 
+# recursive function
 def recursion(x):
     if x == 0:
         return 1
