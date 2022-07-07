@@ -1,24 +1,35 @@
-def function():
-
-    # recursive call, however this will run forever
-    function()
+# Code to figure out how many of a factor a number has
 
 
-def offset(x):
-    return x + 1
+def number_factor(number, factor, factor_counter=0):
+    """
+    Parameters:
+    1) number is the number in which we are finding the number of
+    factors of. EX: 24
+    2) factor is the factor in which we are finding the number of
+    in the parameter number. EX: 2
+    Output: The number of times the parameter number can be divisible
+    by the parameter factor. This number is also the parameter
+    factor_counter right before it is returned. EX: 3
+    """
+
+    if number % factor != 0:  # Base Case
+        return factor_counter
+    else:  # Recursive Case
+        return number_factor(number / factor, factor, factor_counter + 1)
 
 
-for number in range(10):
-    print(offset(number))
+print(number_factor(24, 2))
 
 
-# recursive function
-def recursion(x):
-    if x == 0:
-        return 1
-    else:
-        # tail recursion happens at the return statement
-        return x + recursion(x - 1)
+def countdown(n, arr=[]):
+    if n < 0:  # base case 1
+        return "out of bounds"
+    if n == 0:  # base case 2
+        return arr
+    # recursive case
+    arr.append(n)
+    return countdown(n - 1, arr)
 
 
-print(recursion(6))
+print(countdown(5))
