@@ -7,6 +7,7 @@ my_graph = {
     "E": {"D", "A"},
 }
 
+
 # graph data structure
 class Node:
     def __init__(self, val: str, neighbors: list = None):
