@@ -17,10 +17,10 @@ def mergelists(lst1, lst2):
         # only one list still has items
         elif idx1 < len(lst1):  # if only lst1 still has items
             ret.extend(lst1[idx1:])  # add the rest of this list
-            idx1 = len(lst1) + 1
+            idx1 = len(lst1)
         elif idx2 < len(lst2):  # if only lst2 still has items
             ret.extend(lst2[idx2:])  # add the rest of this list
-            idx2 = len(lst2) + 1
+            idx2 = len(lst2)
 
     return ret
 
