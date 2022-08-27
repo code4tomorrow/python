@@ -1,16 +1,17 @@
 from datetime import datetime as d
 
 
-class DoublyLinkedList:
-    class Node:
-        def __init__(self, value, prev=None, next=None) -> None:
-            self.value = value
-            self.prev = prev
-            self.next = next
+class Node:
+    def __init__(self, value, prev=None, next=None) -> None:
+        self.value = value
+        self.prev = prev
+        self.next = next
 
+
+class DoublyLinkedList:
     def __init__(self) -> None:
-        self.head = DoublyLinkedList.Node(None)
-        self.head.next = DoublyLinkedList.Node(None, self.head)
+        self.head = Node(None)
+        self.head.next = Node(None, self.head)
         self.tail = self.head.next
         self.size = 0
 
@@ -28,9 +29,9 @@ class DoublyLinkedList:
         @returns bool - True on success
         """
         if current.next is None:
-            current.next = DoublyLinkedList.Node(value, current)
+            current.next = Node(value, current)
         else:
-            current.next = DoublyLinkedList.Node(value, current, current.next)
+            current.next = Node(value, current, current.next)
             if current.next.next:
                 current.next.next.prev = current.next
         self.size += 1
