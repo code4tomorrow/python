@@ -35,8 +35,6 @@ DBLUE = (80, 99, 242)
 PINK = (245, 144, 188)
 CYAN = (0, 150, 150)
 
-myClock = pygame.time.Clock()
-
 # images
 BACKGROUNDIMG = pygame.image.load("./background.png")
 BACKGROUNDIMG = pygame.transform.scale(BACKGROUNDIMG, (width, height))
@@ -130,7 +128,8 @@ class Tubes(GameObj):
     def __init__(self, bottom_tube_height: int):
         """
         Initializes two pygame.Rect objects: one for the
-        top tube and one for the bottom tube. Uses the TUBEGAP
+        top tube (call it top_tube) and one for the bottom tube
+        (call it bottom_tube). Uses the TUBEGAP
         and TUBEWIDTH variables as dimensions.
         """
         pass
@@ -151,7 +150,7 @@ class Tubes(GameObj):
         """
         pass
 
-    def check_collision(self, other):
+    def check_collision(self, other) -> bool:
         """
         Uses the check_collision() method from the inherited
         GameObj class to check for any collisions
@@ -186,10 +185,10 @@ class Coin(GameObj):
             temprect.height,
         )
 
-    def draw(self, screen):
+    def draw(self, screen: pygame.Surface):
         super().draw(screen, BLACK)
 
-    def blit(self, screen):
+    def blit(self, screen: pygame.Surface):
         screen.blit(COINPIC, self.rect)
 
 
@@ -403,18 +402,20 @@ class FlappyBird:
         right corner.
         Hint: this uses pygame fonts
         """
+        pass
 
-    def draw_buttons(self, screen):
+    def draw_buttons(self, screen: pygame.Surface):
         """
         Draws the "start" and "quit" buttons onto the screen.
-        Hint: this uses the Button class
+        Hint: this uses `self.buttons` (which is already made)
         """
+        pass
 
     def create_tubes(self):
         """
         Creates tubes and puts a coin in the middle of each tube.
         """
-        if len(self.tubes) == 0 or self.tubes[-1].bottomRect.right < width - 200:
+        if len(self.tubes) == 0 or self.tubes[-1].bottom_tube.right < width - 200:
             bottom_tube_height = random.randint(0, height - Tubes.TUBEGAP)
             self.tubes.append(Tubes(bottom_tube_height))
             self.coins.append(Coin(height - bottom_tube_height - (Tubes.TUBEGAP // 2)))
@@ -443,7 +444,7 @@ class FlappyBird:
             if tube.check_collision(self.bird):
                 self.gamestate = LOSESTATE
                 self.create_buttons("Retry?", LBLUE)
-            if tube.bottomRect.right < 0:
+            if tube.bottom_tube.right < 0:
                 self.tubes.remove(tube)
 
         for coin in self.coins:
