@@ -64,7 +64,10 @@ class GameObj:
         self.rect = pygame.Rect
 
     def draw(
-        self, screen: pygame.Surface, color: tuple, specific_rect: pygame.Rect = None
+        self,
+        screen: pygame.Surface,
+        color: tuple,
+        specific_rect: pygame.Rect = None,
     ):
         """
         Draws a rectangle onto the screen in the specified color.
@@ -232,8 +235,12 @@ class Bird(GameObj):
         @param offset_y: int - the y offset before the sprite columns start
         """
         self.sprites = []
-        self.sprite_frame_width = (spritesheet.get_width() - offset_x) // num_pics_x
-        self.sprite_frame_height = (spritesheet.get_height() - offset_y) // num_pics_y
+        self.sprite_frame_width = (
+            spritesheet.get_width() - offset_x
+        ) // num_pics_x
+        self.sprite_frame_height = (
+            spritesheet.get_height() - offset_y
+        ) // num_pics_y
         for row in range(num_pics_x):
             for column in range(num_pics_y):
                 temp = spritesheet.subsurface(
@@ -258,7 +265,9 @@ class Bird(GameObj):
             # so that it won't be bigger or smaller than the new sprite
             self.cur_sprite_idx = curr_sprite_idx
             temp = self.sprites[self.cur_sprite_idx]
-            self.rect = temp.get_rect().move(self.rect.topleft[0], self.rect.topleft[1])
+            self.rect = temp.get_rect().move(
+                self.rect.topleft[0], self.rect.topleft[1]
+            )
         super().draw(screen, BLACK)
 
     def blit(self, screen: pygame.Surface):
@@ -335,8 +344,12 @@ class FlappyBird:
 
     def create_buttons(self, button1text="Start Game", button2bg=RED):
         self.buttons = {
-            "start": Button(width // 2, height // 4, LGREEN, LILAC, button1text),
-            "quit": Button(width // 2, height // 4 * 3, button2bg, LILAC, "Quit Game"),
+            "start": Button(
+                width // 2, height // 4, LGREEN, LILAC, button1text
+            ),
+            "quit": Button(
+                width // 2, height // 4 * 3, button2bg, LILAC, "Quit Game"
+            ),
         }
 
     def mainloop(self):
@@ -411,10 +424,15 @@ class FlappyBird:
         """
         Creates tubes and puts a coin in the middle of each tube.
         """
-        if len(self.tubes) == 0 or self.tubes[-1].bottom_tube.right < width - 200:
+        if (
+            len(self.tubes) == 0
+            or self.tubes[-1].bottom_tube.right < width - 200
+        ):
             bottom_tube_height = random.randint(0, height - Tubes.TUBEGAP)
             self.tubes.append(Tubes(bottom_tube_height))
-            self.coins.append(Coin(height - bottom_tube_height - (Tubes.TUBEGAP // 2)))
+            self.coins.append(
+                Coin(height - bottom_tube_height - (Tubes.TUBEGAP // 2))
+            )
 
     def draw_all(self):
         # draw bird and coin rectangles before background so that they won't
