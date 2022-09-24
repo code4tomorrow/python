@@ -208,8 +208,9 @@ class Bird(GameObj):
             self.sprite_frame_width,
             self.sprite_frame_height,
         )
-        self.up_momentum = 0
-        self.going_up = False
+        self.momentum = 0  # the bird's current vertical speed
+        self.jump_height = 15
+        self.min_speed = -10  # the maximum speed the bird flies down at
         self.cur_sprite_idx = 0
 
     def process_spritesheet(
@@ -263,23 +264,18 @@ class Bird(GameObj):
     def blit(self, screen: pygame.Surface):
         screen.blit(self.sprites[self.cur_sprite_idx], self.rect)
 
-    def movement(self, event):
-        JUMPHEIGHT = 15
+    def process_movement(self, event):
         if event.type == pygame.KEYDOWN and event.key == pygame.K_UP:
-            self.going_up = True
-            self.up_momentum = JUMPHEIGHT
-
-        if event.type == pygame.KEYUP and event.key == pygame.K_UP:
-            self.going_up = False
+            self.momentum = self.jump_height
 
     def move(self):
-        if self.going_up and self.up_momentum >= 0:
-            if self.rect[1] > 0:  # make sure we don't jump out of the screen
-                super().move({"x": 0, "y": -self.up_momentum})
-            self.up_momentum -= 1
-        else:
-            # if not going up, then go down at a constant speed of 4
-            super().move({"x": 0, "y": 4})
+        super().move({"x": 0, "y": -self.momentum})
+        self.momentum -= 1
+
+        # if the bird would fly down faster than self.min_speed,
+        # cap self.momentum at self.min_speed
+        if self.momentum < self.min_speed:
+            self.momentum = self.min_speed
 
 
 class Button(GameObj):
@@ -360,7 +356,7 @@ class FlappyBird:
 
                 # update bird's speed
                 for event in events:
-                    self.bird.movement(event)
+                    self.bird.process_movement(event)
                 self.move_objects()
 
                 self.create_tubes()
