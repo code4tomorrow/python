@@ -5,20 +5,24 @@
 # The starting code, however, doesn't run by itself.
 # What you need to do:
 #    define GameObj's draw method
-#    define GameObj's checkcollision method.
+#    define GameObj's check_collision method.
 
 #    Complete all the methods within Tubes class
 
-#    Complete the drawscore and drawbuttons methods in the flappybird class
+#    Complete the draw_score and draw_buttons methods in the FlappyBird class
 
 import pygame
 import random
 
 pygame.init()
-SIZE = (800, 600)
-screen = pygame.display.set_mode(SIZE)
+
+# screen
 width = 800
 height = 600
+SIZE = (width, height)
+screen = pygame.display.set_mode(SIZE)
+
+# colors
 LGREEN = (62, 245, 59)
 DGREEN = (40, 143, 39)
 YELLOW = (250, 250, 37)
@@ -31,8 +35,7 @@ DBLUE = (80, 99, 242)
 PINK = (245, 144, 188)
 CYAN = (0, 150, 150)
 
-myClock = pygame.time.Clock()
-
+# images
 BACKGROUNDIMG = pygame.image.load("./background.png")
 BACKGROUNDIMG = pygame.transform.scale(BACKGROUNDIMG, (width, height))
 SPRITESHEET = pygame.image.load("./flyingbird.png")
@@ -55,35 +58,49 @@ class GameObj:
     def __init__(self):
         """
         This __init__ method provides no functionality.
-        It merely enables the methods defined in this class.
+        It just enables the methods defined in this class.
         Thus, calling super().__init__ is unnecessary.
         """
         self.rect = pygame.Rect
 
-    def draw(self, screen, color, specificRect: pygame.Rect = None):
+    def draw(
+        self,
+        screen: pygame.Surface,
+        color: tuple,
+        specific_rect: pygame.Rect = None,
+    ):
         """
-        Draws a rectangle onto the screen. If specificRect is not None,
-        draw it onto the screen. If specificRect is None, draw self.rect
-        onto the screen.
+        Draws a rectangle onto the screen in the specified color.
+        If specific_rect is not None, draw specific_rect onto the screen.
+        If specific_rect is None, draw self.rect onto the screen.
         """
         pass
 
-    def move(self, speed: dict = None, specificRect: pygame.Rect = None):
+    def move(self, speed: dict = None, specific_rect: pygame.Rect = None):
+        """
+        Moves a rectangle.
+        @param speed - The speed to move the rectangle at. It should be
+        a dictionary of form {'x': int, 'y': int}; for example,
+        {'x':33, 'y':-22}. If no speed is provided, uses self.speed
+        @param specific_rect - if specific_rect is None, then this method
+        will move self.rect. If specific_rect is not None, then this method will
+        move specific_rect
+        """
         if not speed and hasattr(self, "speed"):
-            if specificRect:
-                return specificRect.move(self.speed["x"], self.speed["y"])
+            if specific_rect:
+                return specific_rect.move(self.speed["x"], self.speed["y"])
             else:
                 self.rect = self.rect.move(self.speed["x"], self.speed["y"])
         if speed:
-            if specificRect:
-                return specificRect.move(speed["x"], speed["y"])
+            if specific_rect:
+                return specific_rect.move(speed["x"], speed["y"])
             else:
                 self.rect = self.rect.move(speed["x"], speed["y"])
 
-    def checkcollision(self, other, specificRect=None):
+    def check_collision(self, other, specific_rect: pygame.Rect = None):
         """
-        Checks if rectangles have collided. If specificRect is not None,
-        checks if it collides with other.rect. If specificRect is None,
+        Checks if rectangles have collided. If specific_rect is not None,
+        checks if specific_rect collides with other.rect. If specific_rect is None,
         checks if self.rect collides with other.rect.
         """
         pass
@@ -111,33 +128,37 @@ class Tubes(GameObj):
     TUBEGAP = 230  # smaller TUBEGAP -> smaller dist between tubes
     TUBEWIDTH = 100
 
-    def __init__(self, bottomTubeHeight):
+    def __init__(self, bottom_tube_height: int):
         """
         Initializes two pygame.Rect objects: one for the
-        top tube and one for the bottom tube. Uses the TUBEGAP
+        top tube (call it top_tube) and one for the bottom tube
+        (call it bottom_tube). Uses the TUBEGAP
         and TUBEWIDTH variables as dimensions.
         """
         pass
 
-    def draw(self, screen):
+    def draw(self, screen: pygame.Surface):
         """
         Uses the draw() method from the inherited
         GameObj class to draw the top and bottom tubes.
+        Hint: this will use the specific_rect argument
         """
         pass
 
-    def move(self, speed):
+    def move(self, speed: dict):
         """
         Uses the move() method from the inherited
-        GameObj class to move the top and bottom tubes.
+        GameObj class to move the specific top and bottom tubes.
+        Hint: this will use the specific_rect argument
         """
         pass
 
-    def checkcollision(self, other):
+    def check_collision(self, other) -> bool:
         """
-        Uses the checkcollision() method from the inherited
-        GameObj class to move check for any collisions
+        Uses the check_collision() method from the inherited
+        GameObj class to check for any collisions
         between the given object and the tubes.
+        Hint: this will use the specific_rect argument
 
         Returns:
             boolean - if either tube is collided with, return True
@@ -152,19 +173,25 @@ class Coin(GameObj):
     Doesn't need to do anything, so pretty short class.
     """
 
-    def __init__(self, yCenter):
+    def __init__(self, center_y: int):
+        """
+        Makes a coin object.
+        The coin's x coordinate will be the width of the screen
+        The coin's y coordinate will be centered around `center_y`
+        @param center_y:int - the y coordinate to center the coin around
+        """
         temprect = COINPIC.get_rect()
         self.rect = pygame.Rect(
             width,
-            yCenter - temprect.height // 2,
+            center_y - temprect.height // 2,
             temprect.width,
             temprect.height,
         )
 
-    def draw(self, screen):
+    def draw(self, screen: pygame.Surface):
         super().draw(screen, BLACK)
 
-    def blit(self, screen):
+    def blit(self, screen: pygame.Surface):
         screen.blit(COINPIC, self.rect)
 
 
@@ -174,41 +201,54 @@ class Bird(GameObj):
     and handles jumping.
     """
 
-    startCenterPos = (width // 8, height // 2)
+    start_center_pos = (width // 8, height // 2)
 
     def __init__(self):
-        self.processSpritesheet(SPRITESHEET, 3, 3)
+        self.process_spritesheet(SPRITESHEET, 3, 3)
         self.rect = pygame.Rect(
-            self.startCenterPos[0] - self.spriteFrameWidth // 2,
-            self.startCenterPos[1] - self.spriteFrameHeight // 2,
-            self.spriteFrameWidth,
-            self.spriteFrameHeight,
+            self.start_center_pos[0] - self.sprite_frame_width // 2,
+            self.start_center_pos[1] - self.sprite_frame_height // 2,
+            self.sprite_frame_width,
+            self.sprite_frame_height,
         )
-        self.upmomentum = 0
-        self.goingup = False
-        self.curSpriteIdx = 0
+        self.momentum = 0  # the bird's current vertical speed
+        self.jump_height = 15
+        self.min_speed = -10  # the maximum speed the bird flies down at
+        self.cur_sprite_idx = 0
 
-    def processSpritesheet(
+    def process_spritesheet(
         self,
-        Spritesheet: pygame.Surface,
-        numPicsX: int,
-        numPicsY: int,
-        xOffset: int = 0,
-        yOffset: int = 0,
+        spritesheet: pygame.Surface,
+        num_pics_x: int,
+        num_pics_y: int,
+        offset_x: int = 0,
+        offset_y: int = 0,
     ):
+        """
+        Creates sprites from the spritesheet.
+        @param spritesheet: pygame.Surface - the spritesheet.
+        @param num_pics_x: int - the number of sprites in each row on
+        the spritesheet
+        @param num_pics_y: int - the number of sprites in each column
+        on the spritesheet
+        @param offset_x: int - the x offset before the sprite rows start
+        @param offset_y: int - the y offset before the sprite columns start
+        """
         self.sprites = []
-        self.spriteFrameWidth = (Spritesheet.get_width() - xOffset) // numPicsX
-        self.spriteFrameHeight = (
-            Spritesheet.get_height() - yOffset
-        ) // numPicsY
-        for row in range(numPicsX):
-            for column in range(numPicsY):
-                temp = Spritesheet.subsurface(
+        self.sprite_frame_width = (
+            spritesheet.get_width() - offset_x
+        ) // num_pics_x
+        self.sprite_frame_height = (
+            spritesheet.get_height() - offset_y
+        ) // num_pics_y
+        for row in range(num_pics_x):
+            for column in range(num_pics_y):
+                temp = spritesheet.subsurface(
                     (
-                        row * self.spriteFrameWidth + xOffset,
-                        column * self.spriteFrameHeight + yOffset,
-                        self.spriteFrameWidth,
-                        self.spriteFrameHeight,
+                        row * self.sprite_frame_width + offset_x,
+                        column * self.sprite_frame_height + offset_y,
+                        self.sprite_frame_width,
+                        self.sprite_frame_height,
                     )
                 )
                 # get the bounding box for the actual colored pixels
@@ -220,38 +260,34 @@ class Bird(GameObj):
 
     def draw(self, screen: pygame.Surface, framecount: int):
         curr_sprite_idx = framecount // 5 % len(self.sprites)
-        if curr_sprite_idx != self.curSpriteIdx:
+        if curr_sprite_idx != self.cur_sprite_idx:
             # if it is now a different sprite, adjust self.rect
             # so that it won't be bigger or smaller than the new sprite
-            self.curSpriteIdx = curr_sprite_idx
-            temp = self.sprites[self.curSpriteIdx]
+            self.cur_sprite_idx = curr_sprite_idx
+            temp = self.sprites[self.cur_sprite_idx]
             self.rect = temp.get_rect().move(
                 self.rect.topleft[0], self.rect.topleft[1]
             )
         super().draw(screen, BLACK)
 
     def blit(self, screen: pygame.Surface):
-        screen.blit(self.sprites[self.curSpriteIdx], self.rect)
+        screen.blit(self.sprites[self.cur_sprite_idx], self.rect)
 
-    def movement(self, event):
-        JUMPHEIGHT = 15
+    def process_movement(self, event):
         if event.type == pygame.KEYDOWN and event.key == pygame.K_UP:
-            self.goingup = True
-            self.upmomentum = JUMPHEIGHT
-
-        if event.type == pygame.KEYUP and event.key == pygame.K_UP:
-            self.goingup = False
+            self.momentum = self.jump_height
 
     def move(self):
-        if self.goingup and self.upmomentum >= 0:
-            if self.rect[1] > 0:
-                super().move({"x": 0, "y": -self.upmomentum})
-            self.upmomentum -= 1
-        else:
-            super().move({"x": 0, "y": 4})
+        super().move({"x": 0, "y": -self.momentum})
+        self.momentum -= 1
+
+        # if the bird would fly down faster than self.min_speed,
+        # cap self.momentum at self.min_speed
+        if self.momentum < self.min_speed:
+            self.momentum = self.min_speed
 
 
-class button(GameObj):
+class Button(GameObj):
     """
     A button with text. Used for the
     'Quit Game' 'Start Game' and 'Retry' buttons
@@ -259,25 +295,34 @@ class button(GameObj):
 
     def __init__(
         self,
-        centerx,
-        centery,
+        center_x: int,
+        center_y: int,
         bgcolor: tuple,
         textcolor: tuple,
-        text="",
-        textsize=32,
+        text: str = "",
+        textsize: int = 32,
     ):
+        """
+        Creates a Button object.
+        @param center_x: int - the x coordinate of the button's center
+        @param center_y: int - the y coordinate of the button's center
+        @param bgcolor: tuple - the color for the button's background
+        @param textcolor: tuple - the color for the button's text
+        @param text: str - the text to put inside the button
+        @param textsize: int - the size of the button's text
+        """
         self.font = pygame.font.SysFont("arial", textsize)
-        self.fontimg = self.font.render(text, True, textcolor)
-        self.rect = self.fontimg.get_rect()
-        self.rect.center = (centerx, centery)
+        self.font_img = self.font.render(text, True, textcolor)
+        self.rect = self.font_img.get_rect()
+        self.rect.center = (center_x, center_y)
         self.bgcolor = bgcolor
         self.active = True
 
     def draw(self, screen: pygame.Surface):
         super().draw(screen, self.bgcolor)
-        screen.blit(self.fontimg, self.rect)
+        screen.blit(self.font_img, self.rect)
 
-    def isclicked(self, event: pygame.event.Event):
+    def is_clicked(self, event: pygame.event.Event):
         if event.type == pygame.MOUSEBUTTONDOWN:
             return event.pos in self
 
@@ -285,7 +330,7 @@ class button(GameObj):
         return self.rect.contains((coordinate[0], coordinate[1], 0, 0))
 
 
-class flappybird:
+class FlappyBird:
     """
     This is the game class.
     """
@@ -293,16 +338,16 @@ class flappybird:
     def __init__(self):
         self.running = True
         self.gamestate = MENUSTATE
-        self.createButtons()
+        self.create_buttons()
         self.framecount = 0
         self.clock = pygame.time.Clock()
 
-    def createButtons(self, button1text="Start Game", button2bg=RED):
+    def create_buttons(self, button1text="Start Game", button2bg=RED):
         self.buttons = {
-            "start": button(
+            "start": Button(
                 width // 2, height // 4, LGREEN, LILAC, button1text
             ),
-            "quit": button(
+            "quit": Button(
                 width // 2, height // 4 * 3, button2bg, LILAC, "Quit Game"
             ),
         }
@@ -311,27 +356,27 @@ class flappybird:
         while self.running:
             events = pygame.event.get()
             for event in events:
-                self.setstate(event)
+                self.set_state(event)
                 if event.type == pygame.QUIT:
                     self.running = False
             if self.gamestate == MENUSTATE:
                 screen.fill(LBLUE)
-                self.drawbuttons(screen)
+                self.draw_buttons(screen)
 
             elif self.gamestate == GAMESTATE:
-                self.drawAll()
-                self.checkcollisions()
+                self.draw_all()
+                self.check_collisions()
 
                 # update bird's speed
                 for event in events:
-                    self.bird.movement(event)
-                self.moveobjects()
+                    self.bird.process_movement(event)
+                self.move_objects()
 
                 self.create_tubes()
 
             elif self.gamestate == LOSESTATE:
                 screen.fill(RED)
-                self.drawbuttons(screen)
+                self.draw_buttons(screen)
 
             elif self.gamestate == QUITSTATE:
                 self.running = False
@@ -341,54 +386,62 @@ class flappybird:
             self.clock.tick(60)
         pygame.quit()
 
-    def setstate(self, event):
+    def set_state(self, event):
         if event.type == pygame.MOUSEBUTTONDOWN:
             if all([but.active for but in self.buttons.values()]):
-                if self.buttons["start"].isclicked(event):
+                if self.buttons["start"].is_clicked(event):
                     self.buttons["start"].active = False
                     self.buttons["quit"].active = False
-                    self.startgame()
-                elif self.buttons["quit"].isclicked(event):
+                    self.start_game()
+                elif self.buttons["quit"].is_clicked(event):
                     self.gamestate = QUITSTATE
                     self.buttons["start"].active = False
                     self.buttons["quit"].active = False
 
-    def drawbackground(self):
-        screen.blit(BACKGROUNDIMG, (self.backgroundX, 0))
-        screen.blit(BACKGROUNDIMG, (self.backgroundX + width, 0))
-        self.backgroundX -= 2
-        if self.backgroundX < -1 * width:
-            self.backgroundX = 0
+    def draw_background(self):
+        screen.blit(BACKGROUNDIMG, (self.background_x, 0))
+        screen.blit(BACKGROUNDIMG, (self.background_x + width, 0))
+        self.background_x -= 2
+        if self.background_x < -1 * width:
+            self.background_x = 0
 
-    def drawscore(self):
+    def draw_score(self):
         """
-        Writes the player's score onto the screen.
+        Writes the player's score onto the screen in the top
+        right corner.
+        Hint: this uses pygame fonts
         """
+        pass
 
-    def drawbuttons(self, screen):
+    def draw_buttons(self, screen: pygame.Surface):
         """
         Draws the "start" and "quit" buttons onto the screen.
+        Hint: this uses `self.buttons` (which is already made)
         """
+        pass
 
     def create_tubes(self):
+        """
+        Creates tubes and puts a coin in the middle of each tube.
+        """
         if (
             len(self.tubes) == 0
-            or self.tubes[-1].bottomRect.right < width - 200
+            or self.tubes[-1].bottom_tube.right < width - 200
         ):
-            bottomtubeheight = random.randint(0, height - Tubes.TUBEGAP)
-            self.tubes.append(Tubes(bottomtubeheight))
+            bottom_tube_height = random.randint(0, height - Tubes.TUBEGAP)
+            self.tubes.append(Tubes(bottom_tube_height))
             self.coins.append(
-                Coin(height - bottomtubeheight - (Tubes.TUBEGAP // 2))
+                Coin(height - bottom_tube_height - (Tubes.TUBEGAP // 2))
             )
 
-    def drawAll(self):
+    def draw_all(self):
         # draw bird and coin rectangles before background so that they won't
         # show
         self.bird.draw(screen, self.framecount)
         for coin in self.coins:
             coin.draw(screen)
 
-        self.drawbackground()
+        self.draw_background()
 
         for tube in self.tubes:
             tube.draw(screen)
@@ -398,18 +451,18 @@ class flappybird:
         for coin in self.coins:
             coin.blit(screen)
 
-        self.drawscore()
+        self.draw_score()
 
-    def checkcollisions(self):
+    def check_collisions(self):
         for tube in self.tubes:
-            if tube.checkcollision(self.bird):
+            if tube.check_collision(self.bird):
                 self.gamestate = LOSESTATE
-                self.createButtons("Retry?", LBLUE)
-            if tube.bottomRect.right < 0:
+                self.create_buttons("Retry?", LBLUE)
+            if tube.bottom_tube.right < 0:
                 self.tubes.remove(tube)
 
         for coin in self.coins:
-            if self.bird.checkcollision(coin):
+            if self.bird.check_collision(coin):
                 self.score += 1
                 self.coins.remove(coin)
             if coin.rect.right < 0:
@@ -417,19 +470,19 @@ class flappybird:
 
         if self.bird.rect.bottom > height:  # fell out of screen
             self.gamestate = LOSESTATE
-            self.createButtons("Retry?", LBLUE)
+            self.create_buttons("Retry?", LBLUE)
 
-    def moveobjects(self):
-        SPEED = 3
+    def move_objects(self):
+        SPEED = 3  # x speed that objects move towards the bird at
         for tube in self.tubes:
             tube.move({"x": -SPEED, "y": 0})
         for coin in self.coins:
             coin.move({"x": -SPEED, "y": 0})
         self.bird.move()
 
-    def startgame(self):
+    def start_game(self):
         self.gamestate = GAMESTATE
-        self.backgroundX = 0
+        self.background_x = 0
         self.score = 0
         self.bird = Bird()
         self.tubes = []
@@ -437,5 +490,5 @@ class flappybird:
         self.create_tubes()
 
 
-a = flappybird()
+a = FlappyBird()
 a.mainloop()
