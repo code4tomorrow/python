@@ -34,7 +34,7 @@ class OrderQueue:
             order: str - the order to be inserted into the OrderQueue
         """
         # your code here
-        pass  # your job is to implement this
+        pass
 
     def __len__(self):
         return len(self.orders)
