@@ -1,7 +1,9 @@
 """
 Let's create a very basic version of a BST that only
-has addition capabilities. Your task will be to fill
-in the node class and the BST class
+has insertion capabilities. Your task will be to fill
+in the node class and the BST class. The structure is somewhat
+different from the BST that was given as an example, but
+the logic is the same.
 """
 
 
@@ -93,6 +95,7 @@ class BST:
         """
         Returns a string representation of the root
         """
+        # your code here
         pass
 
 

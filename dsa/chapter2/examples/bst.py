@@ -1,107 +1,179 @@
 class Node:
-    # this class is meant to be used with BinaryTree
     def __init__(self, key, value) -> None:
+        # set key/value
         self.key = key
         self.value = value
-        self.left = None
-        self.right = None
+
+        # set children to None
+        self.left: Node = None
+        self.right: Node = None
 
     def __str__(self) -> str:
-        ret = ""
-        if self.left is not None:
-            ret += str(self.left)
-        ret += self.plain_str() + "\n"
-        if self.right is not None:
-            ret += str(self.right)
-        return ret
-
-    def height(self) -> int:
-        if self.left is None and self.right is None:
-            return 1
-        if self.left is not None and self.right is None:
-            return 1 + self.left.height()
-        if self.right is not None and self.left is None:
-            return 1 + self.right.height()
-        return 1 + max(self.left.height(), self.right.height())
-
-    def plain_str(self) -> str:
         return str(self.key) + ": " + str(self.value)
-
-
-class BinaryTree:
-    def __init__(self, default_val=None) -> None:
-        self.root = None
-        self.default_val = default_val
-
-    def recursive_contains_key(self, key, current) -> bool:
-        if current is None:
-            return False
-
-        if current.key == key:
-            return True
-
-        if key < current.key:
-            return self.recursive_contains_key(key, current.left)
-        return self.recursive_contains_key(key, current.right)
-
-    def contains_key(self, key) -> bool:
-        return self.recursive_contains_key(key, self.root)
-
-    def recursive_add(self, key, value, current):
-        if current.key == key:
-            current.value = value
-            return True
-        if key < current.key:
-            if current.left is not None:
-                return self.recursive_add(key, value, current.left)
-            current.left = BinaryTree.Node(key, value)
-            return True
-
-        if current.right is not None:
-            return self.recursive_add(key, value, current.right)
-        current.right = BinaryTree.Node(key, value)
-        return True
-
-    def add(self, key, value) -> bool:
-        if self.root is None:
-            self.root = BinaryTree.Node(key, value)
-            return True
-        return self.recursive_add(key, value, self.root)
-
-    def recursive_get(self, key, current):
-        if current is None:
-            raise Exception("KEY NOT FOUND")
-        if current.key == key:
-            return current.value
-        if key < current.key:
-            return self.recursive_get(key, current.left)
-        return self.recursive_get(key, current.right)
-
-    def get(self, key):
-        return self.recursive_get(key, self.root)
-
-    def __setitem__(self, key, value):
-        self.add(key, value)
-
-    def __getitem__(self, key):
-        return self.get(key)
-
-    def __str__(self) -> str:
-        ret = "{\n"
-        if self.root is not None:
-            ret += str(self.root)
-        ret += "}"
-        return ret
 
     def __repr__(self) -> str:
         return str(self)
 
+
+class BinaryTree:
+    def __init__(self) -> None:
+        self.root = None
+
+    def search(self, key):
+        """
+        Searches the binary tree for a node with the given key.
+        Takes advantage of the fact that, in a binary tree,
+        keys with lesser values go on the left and keys with greater
+        values go on the right
+        """
+        current = self.root
+        while current is not None:
+            if key == current.key:
+                return current.value
+            elif key < current.key:
+                current = current.left
+            else:
+                current = current.right
+        raise Exception("KEY NOT FOUND")
+
+    def get_height(self):
+        """
+        Gets the height of the binary tree.
+        """
+        if self.root is None:
+            return 0
+
+        height = 0
+        next = [self.root]
+        while len(next) != 0:
+            temp_next = []
+            height += 1
+            for node in next:
+                if node.left is not None:
+                    temp_next.append(node.left)
+                if node.right is not None:
+                    temp_next.append(node.right)
+            next = temp_next
+        return height
+
+    def insert_node(self, node: Node) -> None:
+        """
+        Tries to insert a node into the tree.
+        If a node with the same key is already found,
+        sets the value of that node to the value of
+        the provided node
+        """
+        # case where root is None
+        if self.root is None:
+            self.root = node
+            return
+
+        # go through the nodes
+        current = self.root
+        while current is not None:
+            if node.key == current.key:
+                current.value = node.value
+                return
+            elif node.key < current.key:
+                if current.left is None:
+                    current.left = node
+                    return
+                else:
+                    current = current.left
+            else:
+                if current.right is None:
+                    current.right = node
+                    return
+                else:
+                    current = current.right
+
+    def remove_node(self, parent, right_or_left="right"):
+        """
+        Helper method to remove a node.
+        Notice how we have to set `parent.xxx` to something.
+        This is because, in order to remove a node from a binary
+        tree, what you are really doing is getting rid of all
+        references to that node. So, we make sure to change
+        the value stored in `parent.xxx` to a different node
+        (or `None`) so that we remove the node we're trying to get rid of
+        """
+        if right_or_left == "right":
+            node = parent.right
+        else:
+            node = parent.left
+
+        if node.right is not None:
+            temp = node.left
+            if right_or_left == "right":
+                parent.right = node.right
+            else:
+                parent.left = node.right
+
+            if temp is not None:
+                self.insert_node(temp)
+        elif node.left is not None:
+            temp = node.right
+            if right_or_left == "right":
+                parent.right = node.left
+            else:
+                parent.left = node.left
+            if temp is not None:
+                self.insert_node(temp)
+        else:
+            if right_or_left == "right":
+                parent.right = None
+            else:
+                parent.left = None
+
+    def __getitem__(self, key):
+        return self.search(key)
+
+    def __setitem__(self, key, value):
+        self.insert_node(Node(key, value))
+
+    def __delitem__(self, key):
+        """
+        Deletes an entry from the binary tree
+        """
+        # case where key to delete is the root
+        if self.root is not None and self.root.key == key:
+            if self.root.right is not None:
+                temp = self.root.left
+                self.root = self.root.right
+                if temp is not None:
+                    self.insert_node(temp)
+            elif self.root.left is not None:
+                temp = self.root.right
+                self.root = self.root.left
+                if temp is not None:
+                    self.insert_node(temp)
+            else:
+                self.root = None
+
+        # regular cases
+        current = self.root
+        while current is not None:
+            if current.left is not None and current.left.key == key:
+                self.remove_node(current, "left")
+                break
+            if current.right is not None and current.right.key == key:
+                self.remove_node(current, "right")
+                break
+
+            if key < current.key:
+                current = current.left
+            if key > current.key:
+                current = current.right
+
     def print_structure(self) -> None:
+        """
+        Prints out what the binary tree looks like
+        """
         if self.root is None:
             print("{}")
             return
 
-        height = self.root.height()
+        height = self.get_height()
         spacing = 6
         total_width = spacing * (2**height)
 
@@ -120,7 +192,7 @@ class BinaryTree:
                     print(" " * spacing, end="")
                     next_generation.extend([None] * 2)
                 else:
-                    print(node.plain_str(), end="")
+                    print(node, end="")
                     next_generation.extend([node.left, node.right])
             # print a newline
             print()
@@ -137,7 +209,7 @@ myBinaryTree[33] = 22
 myBinaryTree[22] = 11
 myBinaryTree[44] = 33
 myBinaryTree[55] = 22
-print(myBinaryTree)
+del myBinaryTree[33]
 
 # to see how it internally arranges data
 myBinaryTree.print_structure()
