@@ -1,6 +1,3 @@
-lst = [-3, 5, -10, 18, 74, 22, 1, -40]
-
-
 def quicksort(arr: list):
     """
     quicksort_recursive takes in the list you are sorting, the first index of
@@ -87,5 +84,6 @@ def partition(arr, low, high):
 
 
 if __name__ == "__main__":
-    quicksort(lst, 0, len(lst) - 1)
+    lst = [-3, 5, -10, 18, 74, 22, 1, -40]
+    quicksort(lst)
     print(lst)

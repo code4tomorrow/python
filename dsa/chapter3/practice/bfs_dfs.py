@@ -1,7 +1,7 @@
 """
-In this practice problem, we practice implementing 
+In this practice problem, we practice implementing
 breadth first search and depth first search and see them
-in action 
+in action
 """
 
 
