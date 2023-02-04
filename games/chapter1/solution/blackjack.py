@@ -74,7 +74,6 @@ if sum(dealerList) > 21:
 
     exit()
 if sum(dealerList) == 21 and sum(userList) == 21:
-
     print("It is a tie")
     exit()
 if sum(dealerList) == 21:

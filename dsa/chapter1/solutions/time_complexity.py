@@ -4,6 +4,7 @@ a function that has that time complexity. The following solutions
 are examples and not the only ways to have done this problem.
 """
 
+
 # time complexity: O(1)
 def double_my_number(number):
     x = number
@@ -84,7 +85,7 @@ def get_binary_combinations(number_of_digits):
 # function with O(2**n) runtime.
 def regular_o_2_to_the_n(n):
     operations = 0
-    for i in range(2 ** n):
+    for i in range(2**n):
         operations += 1
     print(f"took {operations} operations")
 

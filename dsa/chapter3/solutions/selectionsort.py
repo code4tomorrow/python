@@ -16,7 +16,7 @@ def selectionsort(arr: list):
     for i in range(len(arr)):
         # Step 2, create an inner loop that iterates from i+1 to the end of the
         # list, let's name inner index "j"
-        for j in range(i+1, len(arr)):
+        for j in range(i + 1, len(arr)):
             # Step 3, check if the element at index i is larger than the
             # element at index j
             if arr[i] > arr[j]:

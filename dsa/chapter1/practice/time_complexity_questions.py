@@ -49,7 +49,7 @@ def example_six(n):
 
 # what is the runtime for example 7?
 def example_seven(n):
-    for i in range(2 ** n):
+    for i in range(2**n):
         do_something()
 
 
