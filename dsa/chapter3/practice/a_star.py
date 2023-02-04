@@ -112,16 +112,15 @@ def reconstruct_path(path: dict, start, end):
 
 
 def a_star(start: Point, end: Point, heuristic):
-    min_x, max_x = min(start.x, end.x), max(start.x, end.x)
-    min_y, max_y = min(start.y, end.y), max(start.y, end.y)
-
+    # min_x, max_x = min(start.x, end.x), max(start.x, end.x)  # uncomment this
+    # min_y, max_y = min(start.y, end.y), max(start.y, end.y)  # uncomment this
     """
     initialize f_scores (final scores) to infinity for every
     point between the [min_x, min_y] and [max_x, max_y]
-    
+
     initialize g_scores (distance to get there) to infinity for every
     point between [min_x, min_y] and [max_x, max_y]
-    
+
     Since it takes 0 steps to get to the start, initialize that g score to 0
     """
     # your code here
@@ -147,8 +146,8 @@ def a_star(start: Point, end: Point, heuristic):
     while not unexplored.empty():
         current: Point = unexplored.get()[2]  # just get the Point
 
-        # it takes 1 more step to get to any neighbor, so their g_scores will be
-        # one more than the current g score
+        # it takes 1 more step to get to any neighbor, so their g_scores will
+        # be one more than the current g score
         for node in current.get_neighbors(start, end):
             if node == end:
                 # the way to get to the end is from the current node
@@ -167,7 +166,8 @@ def a_star(start: Point, end: Point, heuristic):
                     * remember, f score = g score + heuristic
                 * if it wasn't already in unexplored:
                     * update our count
-                    * add the unexplored node w/ its score and count to unexplored
+                    * add the unexplored node w/ its score and count to
+                      unexplored
                 """
                 # your code here
 
@@ -176,7 +176,7 @@ def a_star(start: Point, end: Point, heuristic):
     return None  # no path found
 
 
-# you can try changing the heuristic and seeing how that affects the path taken,
+# you can try changing the heuristic and seeing how that affects the path taken
 # as well as the number of executions it took
 path = a_star(Point(0, 0), Point(10, 15), adding_heuristic)
 path_len = 0
